@@ -14,6 +14,10 @@ import android.widget.Button
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.view.*
 
+/**
+ * @author LuisDixz
+ * <p>Clase principal, sirve de contenedor para los fragment.<br>Se hace uso del componente ViewPager para cambiar de fragment</p>
+ */
 class MainActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
     override fun onPageScrollStateChanged(state: Int) {
 
@@ -23,6 +27,9 @@ class MainActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
 
     }
 
+    /**
+     * Método para cambiar el icono seleccionado por el fragment en el que se encuentra el usuario actualmente
+     */
     override fun onPageSelected(position: Int) {
         val currentItem = bottMenu.menu.getItem(position).itemId
         if (currentItem != bottMenu.selectedItemId) {
@@ -30,6 +37,7 @@ class MainActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
             bottMenu.menu.findItem(bottMenu.selectedItemId).isChecked = false
         }
     }
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,6 +53,7 @@ class MainActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
         myViewPager.addOnPageChangeListener(this)
     }
 
+    //Método para cambiar de fragment a través del ViewPager
     private fun selectItem(item: MenuItem) : Boolean {
         when (item.itemId) {
             R.id.action_home -> myViewPager.currentItem = 0
@@ -54,9 +63,5 @@ class MainActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
         }
 
         return true
-    }
-
-    fun goPerfil(view: View) {
-
     }
 }
