@@ -1,4 +1,4 @@
-package com.diazmain.obapp
+package com.diazmain.obapp.Home.Fragments
 
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager

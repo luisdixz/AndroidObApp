@@ -1,15 +1,16 @@
-package com.diazmain.obapp
+package com.diazmain.obapp.Home.Fragments
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.diazmain.obapp.R
 
-class HomeDashboardFragment: Fragment() {
+class Perfil : Fragment() {
 
     companion object {
-        fun newInstance() = HomeDashboardFragment()
+        fun newInstance() = Perfil()
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -17,7 +18,6 @@ class HomeDashboardFragment: Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_home_dashboard, container, false)
+        return inflater.inflate(R.layout.fragment_perfil, container, false)
     }
-
 }

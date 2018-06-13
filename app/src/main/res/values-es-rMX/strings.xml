@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Prueba</string>
+    <string name="tab_home">Inicio</string>
+    <string name="tab_progress">Progreso</string>
+    <string name="tab_profile">Perfil</string>
+    <string name="title_login">Iniciar sesión</string>
+    <string name="hint_username">usuario</string>
+    <string name="hint_password">contraseña</string>
+    <string name="btn_sign_up">Registrarse</string>
+    <string name="btn_sign_in">Iniciar sesión</string>
+    <string name="hint_name">Nombre</string>
+    <string name="hint_enter_password">Contraseña</string>
+    <string name="hint_enter_email">Correo electrónico</string>
+    <string name="hint_enter_title">Título</string>
+    <string name="hint_enter_message">Mensaje</string>
+    <string name="hint_enter_username">Nombre de usuario</string>
+</resources>
