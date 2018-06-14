@@ -6,6 +6,25 @@
     android:layout_height="match_parent"
     tools:context=".Home.HomeActivity">
 
+    <!--<android.support.design.widget.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:fitsSystemWindows="true">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:title="@string/app_name"
+            app:layout_collapseMode="pin"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:titleTextColor="@color/black">
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>-->
+
     <android.support.v4.view.ViewPager
         android:id="@+id/myViewPager"
         android:layout_width="match_parent"
@@ -17,7 +36,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
         <FrameLayout
             android:id="@+id/fragmentContainer"
             android:layout_width="0dp"
@@ -26,7 +44,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="parent">
-
         </FrameLayout>
 
         <android.support.design.widget.BottomNavigationView
@@ -36,6 +53,8 @@
             android:layout_gravity="bottom"
             android:layout_marginBottom="0dp"
             app:layout_constraintBottom_toBottomOf="@id/fragmentContainer"
+            android:background="@color/colorPrimary"
+            android:theme="@style/Base.Theme.AppCompat.Light"
             app:menu="@menu/tabs" />
 
 

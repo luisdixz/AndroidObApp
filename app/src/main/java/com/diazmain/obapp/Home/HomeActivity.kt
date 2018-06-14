@@ -41,10 +41,10 @@ class HomeActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        if (!SharedPrefManager.getInstance(this)?.isLoggedIn()!!) {
+        /*if (!SharedPrefManager.getInstance(this)?.isLoggedIn()!!) {
             finish()
             startActivity(Intent(this, SplashScreen::class.java))
-        }
+        }*/
 
         bottMenu.setOnNavigationItemSelectedListener {
             selectItem(it)

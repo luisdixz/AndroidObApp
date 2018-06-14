@@ -15,4 +15,12 @@
     <string name="hint_enter_title">Título</string>
     <string name="hint_enter_message">Mensaje</string>
     <string name="hint_enter_username">Nombre de usuario</string>
+    <string name="label_next_appointment">Siguiente cita</string>
+    <string name="label_weight">Peso</string>
+    <string name="label_waist">Cintura</string>
+    <string name="label_fat_average">% grasa</string>
+    <string name="label_next_appointment_default">No tienes citas pendientes</string>
+    <string name="label_prog_up">Subiste</string>
+    <string name="label_prog_anuncio_default">No hay datos</string>
+    <string name="label_prog_down">Bajaste</string>
 </resources>
