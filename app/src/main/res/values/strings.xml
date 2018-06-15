@@ -16,6 +16,8 @@
     <string name="btn_sign_up">Sign up</string>
     <string name="btn_sign_in">Sign in</string>
 
+    <string name="action_logout">Log out</string>
+
     <string name="label_next_appointment">Next appointment:</string>
     <string name="label_next_appointment_default">You don\'t have any appointment in the next days</string>
     <string name="label_weight">Weight</string>

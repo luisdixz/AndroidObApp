@@ -8,11 +8,12 @@ import retrofit2.http.POST
 
 interface APIService {
 
+
     @FormUrlEncoded
     @POST("register")
     fun createUser(
-            @Field("name") name: String,
-            @Field("lastname") lastname: String,
+            @Field("nombre") nombre: String,
+            @Field("apellidos") apellidos: String,
             @Field("username") username: String,
             @Field("password") password: String
     ): Call<Result>

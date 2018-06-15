@@ -4,6 +4,7 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.view.ViewPager
+import android.view.Menu
 import android.view.MenuItem
 import com.diazmain.obapp.Home.Fragments.HomeFragmentAdapter
 import com.diazmain.obapp.Login.SplashScreen
@@ -41,10 +42,10 @@ class HomeActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        /*if (!SharedPrefManager.getInstance(this)?.isLoggedIn()!!) {
+        if (!SharedPrefManager.getInstance(this)?.isLoggedIn()!!) {
             finish()
             startActivity(Intent(this, SplashScreen::class.java))
-        }*/
+        }
 
         bottMenu.setOnNavigationItemSelectedListener {
             selectItem(it)
@@ -65,5 +66,25 @@ class HomeActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
         }
 
         return true
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        menuInflater.inflate(R.menu.settings_home, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        when (item.itemId) {
+            R.id.action_logout -> {
+                finish()
+                startActivity(Intent(this, SplashScreen::class.java))
+                return SharedPrefManager.getInstance(this)?.logout()!!
+            }
+            else -> return super.onOptionsItemSelected(item)
+        }
     }
 }

@@ -4,6 +4,7 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.Snackbar
+import android.util.Log
 import android.view.View
 import com.diazmain.obapp.Home.HomeActivity
 import com.diazmain.obapp.Login.api.APIService
@@ -12,6 +13,8 @@ import com.diazmain.obapp.Login.helper.SharedPrefManager
 import com.diazmain.obapp.Login.model.Result
 import com.diazmain.obapp.Login.model.User
 import com.diazmain.obapp.R
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import kotlinx.android.synthetic.main.activity_sign_up.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -37,6 +40,8 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener {
         val username: String = tietUsername.text.toString()
         val password: String = tietPass.text.toString()
 
+        //val gson: Gson = GsonBuilder().setLenient().create()
+
         val retrofit: Retrofit = Retrofit.Builder()
                 .baseUrl(APIUrl.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -61,6 +66,8 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener {
                         t.toString(),
                         Snackbar.LENGTH_SHORT
                 ).show()
+
+                Log.wtf("Error...",t.toString())
             }
 
             override fun onResponse(call: Call<Result>?, response: Response<Result>?) {
