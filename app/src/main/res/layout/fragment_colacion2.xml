@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Reminder.Fragments.Colacion2Fragment"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="@string/tab_collation2"
+        android:textSize="24sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"/>
+
+    <CheckBox
+        android:id="@+id/cbc21"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tunas" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/tilCo2Porcion1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/tietCo2Porcion1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="Porción"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <CheckBox
+        android:id="@+id/cbc22"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Zanahoria rallada c/limón y chile" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/tilCo2Porcion2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/tietCo2Porcion2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="Porción"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <CheckBox
+        android:id="@+id/cbc23"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Almendras" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/tilCo2Porcion3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/tietCo2Porcion3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="Porción"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+</LinearLayout>

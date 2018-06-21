@@ -24,4 +24,11 @@
     <string name="label_prog_anuncio_default">No hay datos</string>
     <string name="label_prog_down">Bajaste</string>
     <string name="action_logout">Cerrar sesión</string>
+    <string name="hint_lastname">Apellidos</string>
+    <string name="tab_collation2">Colación 2</string>
+    <string name="tab_collation1">Colación 1</string>
+    <string name="tab_breakfast">Desayuno</string>
+    <string name="tab_lunch">Comida</string>
+    <string name="tab_dinner">Cena</string>
+    <string name="validate_empty">Campo vacío</string>
 </resources>

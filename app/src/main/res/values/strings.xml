@@ -3,6 +3,12 @@
     <string name="tab_home">Home</string>
     <string name="tab_progress">Progress</string>
     <string name="tab_profile">Profile</string>
+    <string name="tab_breakfast">Breakfast</string>
+    <string name="tab_lunch">Lunch</string>
+    <string name="tab_dinner">Dinner</string>
+    <string name="tab_collation1">Collation 1</string>
+    <string name="tab_collation2">Collation 2</string>
+
     <string name="title_login">Log In</string>
     <string name="hint_username">username</string>
     <string name="hint_password">password</string>
@@ -29,4 +35,9 @@
     <string name="label_prog_anuncio_default">No data</string>
     <string name="label_prog_up">you went up</string>
     <string name="label_prog_down">you went down</string>
+
+    <string name="validate_empty">Empty field</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

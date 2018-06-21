@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Reminder.Fragments.DesayunoFragment"
+    android:orientation="vertical"
+    android:padding="@dimen/activity_vertical_margin"
+    android:id="@+id/fragment_desayuno">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="@string/tab_breakfast"
+        android:textSize="24sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"/>
+
+    <CheckBox
+        android:id="@+id/cbd1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tostadas c/aguacate" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/tilDesPorcion1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/tietDesPorcion1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="Porción"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <CheckBox
+        android:id="@+id/cbd2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pechuga de pollo desmenuzado"/>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/tilDesPorcion2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/tietDesPorcion2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="Porción"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+
+    <CheckBox
+        android:id="@+id/cbd3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lechuga y tomate" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/tilDesPorcion3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/tietDesPorcion3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="Porción"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+
+    <CheckBox
+        android:id="@+id/cbd4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Licuado de fresa" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/tilDesPorcion4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/tietDesPorcion4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="Porción"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+
+</LinearLayout>
