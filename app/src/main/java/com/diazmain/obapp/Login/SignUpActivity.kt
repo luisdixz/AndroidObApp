@@ -7,14 +7,12 @@ import android.support.design.widget.Snackbar
 import android.util.Log
 import android.view.View
 import com.diazmain.obapp.Home.HomeActivity
-import com.diazmain.obapp.Login.api.APIService
-import com.diazmain.obapp.Login.api.APIUrl
-import com.diazmain.obapp.Login.helper.SharedPrefManager
+import com.diazmain.obapp.api.APIService
+import com.diazmain.obapp.api.APIUrl
 import com.diazmain.obapp.Login.model.Result
 import com.diazmain.obapp.Login.model.User
 import com.diazmain.obapp.R
-import com.google.gson.Gson
-import com.google.gson.GsonBuilder
+import com.diazmain.obapp.Threads.SaveUserData
 import kotlinx.android.synthetic.main.activity_sign_up.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -79,9 +77,15 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener {
                 ).show()
 
                 if (!response?.body()?.getError()!!) {
+
+                    val saveUserData: SaveUserData = SaveUserData(applicationContext)
+                    saveUserData.execute(response.body().getUser())
+
                     finish()
-                    SharedPrefManager.getInstance(applicationContext)?.userLogin(response.body().getUser())
+                    //SharedPrefManager.getInstance(applicationContext)?.userLogin(response.body().getUser())
                     startActivity(Intent(applicationContext, HomeActivity::class.java))
+
+
                 }
             }
 

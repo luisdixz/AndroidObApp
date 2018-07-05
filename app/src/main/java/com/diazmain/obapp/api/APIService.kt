@@ -1,12 +1,10 @@
-package com.diazmain.obapp.Login.api
+package com.diazmain.obapp.api
 
+import com.diazmain.obapp.Home.model.MeasuresResult
 import com.diazmain.obapp.Login.model.Result
 import com.diazmain.obapp.Reminder.Pojo.Recordatorio
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface APIService {
 
@@ -27,8 +25,22 @@ interface APIService {
     ): Call<Result>
 
     //@FormUrlEncoded
-    @POST("reminder/add")
+    @POST("addReminder")
     fun addReminder(
             @Body reco: Recordatorio
     ): Call<Result>
+
+    @GET("measures/getAll/{id}")
+    fun getAllMeasures(
+            @Path("id") id: Int
+    ): Call<MeasuresResult>
+
+    //TODO éstos request no se han implementado en el proyecto
+    @GET("measures/get/{id},{month}")
+    fun getLastMeasures(
+            @Path("id") id: Int,
+            @Path("month") month: Int
+    ): Call<MeasuresResult>
+
+
 }

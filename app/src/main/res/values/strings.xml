@@ -23,6 +23,8 @@
     <string name="btn_sign_in">Sign in</string>
 
     <string name="action_logout">Log out</string>
+    <string name="action_refresh">Refresh data</string>
+    <string name="action_refreshing">Getting data from server</string>
 
     <string name="label_next_appointment">Next appointment:</string>
     <string name="label_next_appointment_default">You don\'t have any appointment in the next days</string>
@@ -33,11 +35,13 @@
     <string name="label_centimeter" translatable="false">cm</string>
     <string name="label_kilo" translatable="false">kg</string>
     <string name="label_prog_anuncio_default">No data</string>
-    <string name="label_prog_up">you went up</string>
-    <string name="label_prog_down">you went down</string>
+    <string name="label_prog_up">you went up </string>
+    <string name="label_prog_down">you went down </string>
+    <string name="label_prog_stay">you kept your </string>
 
     <string name="validate_empty">Empty field</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

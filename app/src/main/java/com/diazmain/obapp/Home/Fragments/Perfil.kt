@@ -6,8 +6,10 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.diazmain.obapp.Home.HomeActivity
 import com.diazmain.obapp.Login.SplashScreen
-import com.diazmain.obapp.Login.helper.SharedPrefManager
+import com.diazmain.obapp.helper.SharedPrefManager
+import com.diazmain.obapp.Login.model.User
 import com.diazmain.obapp.R
 import kotlinx.android.synthetic.main.fragment_perfil.*
 
@@ -18,6 +20,13 @@ class Perfil : Fragment(), View.OnClickListener {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         btnPerfilLogout.setOnClickListener(this)
+
+        val user: User = SharedPrefManager.getInstance((activity as HomeActivity).applicationContext)?.getUser()!!
+
+        val nombre: String = user.getName()+" "+user.getLastname()
+
+        tvProfileName.setText(nombre)
+
         super.onActivityCreated(savedInstanceState)
     }
 

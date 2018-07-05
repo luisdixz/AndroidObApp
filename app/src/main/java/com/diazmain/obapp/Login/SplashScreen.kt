@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.diazmain.obapp.Home.HomeActivity
-import com.diazmain.obapp.Login.helper.SharedPrefManager
+import com.diazmain.obapp.helper.SharedPrefManager
 import com.diazmain.obapp.R
 import kotlinx.android.synthetic.main.activity_splash_screen.*
 

@@ -31,4 +31,6 @@
     <string name="tab_lunch">Comida</string>
     <string name="tab_dinner">Cena</string>
     <string name="validate_empty">Campo vacío</string>
+    <string name="action_refresh">Actualizar datos</string>
+    <string name="action_refreshing">Obteniendo datos del servidor</string>
 </resources>

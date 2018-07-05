@@ -6,9 +6,9 @@ import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.view.View
 import com.diazmain.obapp.Home.HomeActivity
-import com.diazmain.obapp.Login.api.APIService
-import com.diazmain.obapp.Login.api.APIUrl
-import com.diazmain.obapp.Login.helper.SharedPrefManager
+import com.diazmain.obapp.api.APIService
+import com.diazmain.obapp.api.APIUrl
+import com.diazmain.obapp.helper.SharedPrefManager
 import com.diazmain.obapp.Login.model.Result
 import com.diazmain.obapp.R
 import kotlinx.android.synthetic.main.activity_sign_in.*

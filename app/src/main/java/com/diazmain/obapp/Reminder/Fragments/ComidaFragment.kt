@@ -14,18 +14,23 @@ import android.widget.CompoundButton
 
 import com.diazmain.obapp.R
 import com.diazmain.obapp.Reminder.Pojo.Alimentos
+import com.diazmain.obapp.Reminder.Pojo.CamposCheck
 import com.diazmain.obapp.Reminder.ReminderActivity
 import kotlinx.android.synthetic.main.activity_reminder.*
+import kotlinx.android.synthetic.main.fragment_colacion2.*
 import kotlinx.android.synthetic.main.fragment_comida.*
 
-class ComidaFragment : Fragment(), FragmentLifecycle, CompoundButton.OnCheckedChangeListener {
+class ComidaFragment : Fragment(), CompoundButton.OnCheckedChangeListener {
 
     companion object {
         fun newInstance() = ComidaFragment()
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
-        (activity as ReminderActivity).comida.clear()
+        //(activity as ReminderActivity).comida.clear()
+        //(activity as ReminderActivity).checks.clear()
+
+        clearChecks()
 
         cbco1.setOnCheckedChangeListener(this)
         cbco2.setOnCheckedChangeListener(this)
@@ -47,85 +52,98 @@ class ComidaFragment : Fragment(), FragmentLifecycle, CompoundButton.OnCheckedCh
         when (buttonView) {
             cbco1 -> {
                 if (cbco1.isChecked) {
-                    (activity as ReminderActivity).comida.add(Alimentos(cbco1.text.toString(), tietComPorcion1.text.toString()))
+                    tilComPorcion1.visibility = View.VISIBLE
+                    (activity as ReminderActivity).checks.add(CamposCheck(3,cbco1.text.toString(), tilComPorcion1, tietComPorcion1))
                 } else {
-                    val it = (activity as ReminderActivity).comida.iterator()
+                    val it = (activity as ReminderActivity).checks.iterator()
                     while (it.hasNext()) {
-                        val alimentos: Alimentos = it.next()
-                        if (alimentos.alimento.equals(cbco1.text.toString()))
+                        val check: CamposCheck = it.next()
+                        if (check.equals(cbco1))
                             it.remove()
                     }
+                    tilComPorcion1.visibility = View.GONE
                 }
             }
             cbco2 -> {
                 if (cbco2.isChecked) {
-                    (activity as ReminderActivity).comida.add(Alimentos(cbco2.text.toString(), tietComPorcion2.text.toString()))
+                    tilComPorcion2.visibility = View.VISIBLE
+                    (activity as ReminderActivity).checks.add(CamposCheck(3,cbco2.text.toString(), tilComPorcion2, tietComPorcion2))
                 } else {
-                    val it = (activity as ReminderActivity).comida.iterator()
+                    val it = (activity as ReminderActivity).checks.iterator()
                     while (it.hasNext()) {
-                        val alimentos: Alimentos = it.next()
-                        if (alimentos.alimento.equals(cbco2.text.toString()))
+                        val check: CamposCheck = it.next()
+                        if (check.equals(cbco2))
                             it.remove()
                     }
+                    tilComPorcion2.visibility = View.GONE
                 }
             }
             cbco3 -> {
                 if (cbco3.isChecked) {
-                    (activity as ReminderActivity).comida.add(Alimentos(cbco3.text.toString(), tietComPorcion3.text.toString()))
+                    tilComPorcion3.visibility = View.VISIBLE
+                    (activity as ReminderActivity).checks.add(CamposCheck(3,cbco3.text.toString(), tilComPorcion3, tietComPorcion3))
                 } else {
-                    val it = (activity as ReminderActivity).comida.iterator()
+                    val it = (activity as ReminderActivity).checks.iterator()
                     while (it.hasNext()) {
-                        val alimentos: Alimentos = it.next()
-                        if (alimentos.alimento.equals(cbco3.text.toString()))
+                        val check: CamposCheck = it.next()
+                        if (check.equals(cbco3))
                             it.remove()
                     }
+                    tilComPorcion3.visibility = View.GONE
                 }
             }
             cbco4 -> {
                 if (cbco4.isChecked) {
-                    (activity as ReminderActivity).comida.add(Alimentos(cbco4.text.toString(), tietComPorcion4.text.toString()))
+                    tilComPorcion4.visibility = View.VISIBLE
+                    (activity as ReminderActivity).checks.add(CamposCheck(3,cbco4.text.toString(), tilComPorcion4, tietComPorcion4))
                 } else {
-                    val it = (activity as ReminderActivity).comida.iterator()
+                    val it = (activity as ReminderActivity).checks.iterator()
                     while (it.hasNext()) {
-                        val alimentos: Alimentos = it.next()
-                        if (alimentos.alimento.equals(cbco4.text.toString()))
+                        val check: CamposCheck = it.next()
+                        if (check.equals(cbco4))
                             it.remove()
                     }
+                    tilComPorcion4.visibility = View.GONE
                 }
             }
             cbco5 -> {
                 if (cbco5.isChecked) {
-                    (activity as ReminderActivity).comida.add(Alimentos(cbco5.text.toString(), tietComPorcion5.text.toString()))
+                    tilComPorcion5.visibility = View.VISIBLE
+                    (activity as ReminderActivity).checks.add(CamposCheck(3,cbco5.text.toString(), tilComPorcion5, tietComPorcion5))
                 } else {
-                    val it = (activity as ReminderActivity).comida.iterator()
+                    val it = (activity as ReminderActivity).checks.iterator()
                     while (it.hasNext()) {
-                        val alimentos: Alimentos = it.next()
-                        if (alimentos.alimento.equals(cbco5.text.toString()))
+                        val check: CamposCheck = it.next()
+                        if (check.equals(cbco5))
                             it.remove()
                     }
+                    tilComPorcion5.visibility = View.GONE
                 }
             }
             cbco6 -> {
                 if (cbco6.isChecked) {
-                    (activity as ReminderActivity).comida.add(Alimentos(cbco6.text.toString(), tietComPorcion6.text.toString()))
+                    tilComPorcion6.visibility = View.VISIBLE
+                    (activity as ReminderActivity).checks.add(CamposCheck(3,cbco6.text.toString(), tilComPorcion6, tietComPorcion6))
                 } else {
-                    val it = (activity as ReminderActivity).comida.iterator()
+                    val it = (activity as ReminderActivity).checks.iterator()
                     while (it.hasNext()) {
-                        val alimentos: Alimentos = it.next()
-                        if (alimentos.alimento.equals(cbco6.text.toString()))
+                        val check: CamposCheck = it.next()
+                        if (check.equals(cbco6))
                             it.remove()
                     }
+                    tilComPorcion6.visibility = View.GONE
                 }
             }
         }
     }
 
-    override fun onPauseFragment() {
-        Log.i(ContentValues.TAG, "onPauseFragment()");
-    }
-
-    override fun onResumeFragment() {
-        Log.i(ContentValues.TAG, "onResumeFragment()");
+    fun clearChecks() {
+        val it = (activity as ReminderActivity).checks.iterator()
+        while (it.hasNext()) {
+            val check: CamposCheck = it.next()
+            if (check.pagina == 3)
+                it.remove()
+        }
     }
 
 }
