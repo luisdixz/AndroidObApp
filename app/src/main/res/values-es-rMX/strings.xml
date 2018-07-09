@@ -33,4 +33,7 @@
     <string name="validate_empty">Campo vacío</string>
     <string name="action_refresh">Actualizar datos</string>
     <string name="action_refreshing">Obteniendo datos del servidor</string>
+    <string name="label_prog_stay">Mismo peso</string>
+    <string name="btn_cancel">Cancelar</string>
+    <string name="btn_confirm">Confirmar</string>
 </resources>

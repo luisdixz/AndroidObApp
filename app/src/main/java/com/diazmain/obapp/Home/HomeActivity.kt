@@ -11,8 +11,6 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import com.diazmain.obapp.Home.Fragments.HomeFragmentAdapter
-import com.diazmain.obapp.Home.model.MeasuresResult
-import com.diazmain.obapp.Home.model.MeasuresValue
 import com.diazmain.obapp.Login.SplashScreen
 import com.diazmain.obapp.api.APIService
 import com.diazmain.obapp.api.APIUrl
@@ -29,9 +27,10 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.net.SocketTimeoutException
 import android.net.ConnectivityManager
-import com.diazmain.obapp.Home.model.LastMeasures
-import com.diazmain.obapp.Threads.InternetAccessibility
-import com.diazmain.obapp.Threads.UpdateHomeUI
+import android.os.AsyncTask
+import com.diazmain.obapp.Home.model.*
+import com.diazmain.obapp.Threads.*
+import com.diazmain.obapp.Threads.HomeThreadSaversManager.AsyncResponse
 
 
 /**
@@ -40,35 +39,21 @@ import com.diazmain.obapp.Threads.UpdateHomeUI
  */
 class HomeActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
 
-    private var measuresList: List<MeasuresValue> = ArrayList()
+    internal var measuresList: List<MeasuresValue> = ArrayList()
+    internal lateinit var incomingAppoint: CitasValue
     internal val apContext: Context = this
 
-    lateinit var USER_ID: String
+    internal var USER_ID: Int = 0
     lateinit var USER_NAME: String
     lateinit var USER_LASTNAME: String
     lateinit var USER_USERNAME: String
 
-    var isReady: Boolean = false
 
     override fun onPageScrollStateChanged(state: Int) {
 
     }
 
     override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
-        /*UpdateHomeUI(apContext).execute(
-                tvResWeight,
-                tvResWaist,
-                tvResFat,
-                imWeightLittleProgress,
-                imWaistLittleProgress,
-                imFatLittleProgress,
-                tvPreviousWeight,
-                tvPreviousWaist,
-                tvPreviousFat,
-                tvNextWeight,
-                tvNextWaist,
-                tvNextFat
-        )*/
     }
 
     /**
@@ -91,8 +76,6 @@ class HomeActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
             startActivity(Intent(this, SplashScreen::class.java))
         }
 
-
-
         bottMenu.setOnNavigationItemSelectedListener {
             selectItem(it)
         }
@@ -101,20 +84,15 @@ class HomeActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
         myViewPager.adapter = pageAdapter
         myViewPager.addOnPageChangeListener(this)
         myViewPager.offscreenPageLimit = 2
-        /*try {
 
-            loadMeasuresData()
-
-        } catch (e: Exception) {
-            Log.wtf("Exception", e.message)
-            Log.wtf("Exception", e.localizedMessage)
-        }
-
-        if (measuresList.isEmpty()) {
-            refreshMeasuresData()
-        }*/
-
-
+        Log.w("Location","onCreate -> HomeActivity")
+        USER_ID = SharedPrefManager.getInstance(apContext)!!.getUser().getId()
+        USER_NAME = SharedPrefManager.getInstance(apContext)!!.getUser().getName()
+        USER_LASTNAME = SharedPrefManager.getInstance(apContext)!!.getUser().getLastname()
+        USER_USERNAME = SharedPrefManager.getInstance(apContext)!!.getUser().getUsername()
+        Log.w("USER_ID", USER_ID.toString())
+        //val save: SaveIncomingAppoint = SaveIncomingAppoint(1, apContext)
+        //save.execute()
     }
 
     //Método para cambiar de fragment a través del ViewPager
@@ -148,7 +126,7 @@ class HomeActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
             R.id.action_refresh -> {
                 try {
                     //refreshMeasuresData()
-                    getMeasuresFromServer()
+                    getAllFromServer()
                 } catch (e: Exception) {
                     Log.wtf("action_refresh -> Exception", e.localizedMessage)
                 }
@@ -158,89 +136,151 @@ class HomeActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
         }
     }
 
-    fun getMeasuresFromServer()  {
-        //if (hasActiveInternetConnection(apContext)) {
-
-        measuresList = ArrayList()
-
+    fun getAllFromServer() {
         if (isNetworkAvailable()) {
             InternetAccessibility {
                 internet ->
                 if (internet) {
-                    cvRefreshing.visibility = View.VISIBLE
-                    val interceptor: HttpLoggingInterceptor = HttpLoggingInterceptor()
-                    interceptor.level = HttpLoggingInterceptor.Level.BODY
-                    val client: OkHttpClient = OkHttpClient.Builder().addInterceptor(interceptor).build()
-
-                    val retrofit: Retrofit = Retrofit.Builder()
-                            .baseUrl(APIUrl.BASE_URL)
-                            .addConverterFactory(GsonConverterFactory.create())
-                            .client(client)
-                            .build()
-
-                    val service: APIService = retrofit.create(APIService::class.java)
-
-                    val call: Call<MeasuresResult> = service.getAllMeasures(2)
-
-                    call.enqueue(object : Callback<MeasuresResult> {
-                        override fun onFailure(call: Call<MeasuresResult>?, t: Throwable?) {
-                            Log.wtf("Failure", t.toString())
-                            if (t is SocketTimeoutException) {
-                                Snackbar.make(activity_home, "Error de conexión: Conexión lenta", Snackbar.LENGTH_LONG).show()
-                            } else {
-                                Snackbar.make(activity_home, "Error al obtener datos del servidor", Snackbar.LENGTH_LONG).show()
-                            }
-                            cvRefreshing.visibility = View.GONE
-                        }
-
-                        override fun onResponse(call: Call<MeasuresResult>?, response: Response<MeasuresResult>?) {
-                            Log.wtf("Response", response?.body()?.measures?.size.toString())
-                            cvRefreshing.visibility = View.GONE
-
-                            val measuresResponse = response?.body()?.measures
-                            SharedPrefManager.getInstance(apContext)?.storeAllMeasures(measuresResponse!!.toList())
-                            //Snackbar.make(activity_home, "Conexión exitosa", Snackbar.LENGTH_LONG).show()
-                            //Log.w("SharedPreferencesSize", SharedPrefManager.getInstance(applicationContext)?.getAllMeasures()?.size.toString())
-                            //Log.w("conectedState", conected.toString())
-                            measuresList = SharedPrefManager.getInstance(apContext)!!.getAllMeasures()
-                            Log.w("MeasuresArraySize", measuresList.size.toString())
-
-                            UpdateHomeUI(apContext).execute(
-                                    tvResWeight,
-                                    tvResWaist,
-                                    tvResFat,
-                                    imWeightLittleProgress,
-                                    imWaistLittleProgress,
-                                    imFatLittleProgress,
-                                    tvPreviousWeight,
-                                    tvPreviousWaist,
-                                    tvPreviousFat,
-                                    tvNextWeight,
-                                    tvNextWaist,
-                                    tvNextFat
-                            )
-                        }
-                    })
-
-                    /*if (call.isCanceled) {
-                        sent = false
-                        Log.w("isCanceled", call.isCanceled.toString())
-                    }*/
-
-                } else {
-                    Snackbar.make(activity_home,"La conexión a internet es inestable...", Snackbar.LENGTH_SHORT).show()
+                    getMeasuresFromServer()
+                    getAppointFromServer()
                 }
             }
         }
-        //Log.w("conectedState", conected.toString())
+    }
+
+    fun getMeasuresFromServer()  {
+        Log.w("USER_ID", USER_ID.toString())
+
+        measuresList = ArrayList()
+        cvRefreshing.visibility = View.VISIBLE
+
+        /*Log.w("Location", "Before saverManager")
+        val saverManager: HomeThreadSaversManager = HomeThreadSaversManager(1, apContext, object : AsyncResponse {
+            override fun onProcessFinish(output: Boolean) {
+                Snackbar.make(activity_home, "Carga de datos finalizada? -> "+output.toString(), Snackbar.LENGTH_LONG).show()
+                measuresList = SharedPrefManager.getInstance(apContext)!!.getAllMeasures()
+                UpdateHomeUI(apContext).execute(
+                        tvResWeight,
+                        tvResWaist,
+                        tvResFat,
+                        imWeightLittleProgress,
+                        imWaistLittleProgress,
+                        imFatLittleProgress,
+                        tvPreviousWeight,
+                        tvPreviousWaist,
+                        tvPreviousFat,
+                        tvNextWeight,
+                        tvNextWaist,
+                        tvNextFat
+                )
+                Log.w("Próxima cita", SharedPrefManager.getInstance(apContext)!!.getAppoint().fecha)
+                cvRefreshing.visibility = View.GONE
+            }
+        })
+
+        saverManager.execute()*/
+
+        val interceptor: HttpLoggingInterceptor = HttpLoggingInterceptor()
+        interceptor.level = HttpLoggingInterceptor.Level.BODY
+        val client: OkHttpClient = OkHttpClient.Builder().addInterceptor(interceptor).build()
+
+        val retrofit: Retrofit = Retrofit.Builder()
+                .baseUrl(APIUrl.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(client)
+                .build()
+
+        val service: APIService = retrofit.create(APIService::class.java)
+
+        val call: Call<MeasuresResult> = service.getAllMeasures(USER_ID)
+
+        call.enqueue(object : Callback<MeasuresResult> {
+            override fun onFailure(call: Call<MeasuresResult>?, t: Throwable?) {
+                Log.wtf("onFailure -> getMeasuresFromServer()", t.toString())
+                if (t is SocketTimeoutException) {
+                    Snackbar.make(activity_home, "Error de conexión: Conexión lenta", Snackbar.LENGTH_LONG).show()
+                } else {
+                    Snackbar.make(activity_home, "Error al obtener datos del servidor", Snackbar.LENGTH_LONG).show()
+                }
+                cvRefreshing.visibility = View.GONE
+            }
+
+            override fun onResponse(call: Call<MeasuresResult>?, response: Response<MeasuresResult>?) {
+                Log.wtf("Response", response?.body()?.measures?.size.toString())
+                cvRefreshing.visibility = View.GONE
+
+                val measuresResponse = response?.body()?.measures
+                SharedPrefManager.getInstance(apContext)?.storeAllMeasures(measuresResponse!!.toList())
+                //Snackbar.make(activity_home, "Conexión exitosa", Snackbar.LENGTH_LONG).show()
+                //Log.w("SharedPreferencesSize", SharedPrefManager.getInstance(applicationContext)?.getAllMeasures()?.size.toString())
+                //Log.w("conectedState", conected.toString())
+                measuresList = SharedPrefManager.getInstance(apContext)!!.getAllMeasures()
+                //Log.w("MeasuresArraySize", measuresList.size.toString())
+
+                UpdateHomeUI(apContext).execute(
+                        tvResWeight,
+                        tvResWaist,
+                        tvResFat,
+                        imWeightLittleProgress,
+                        imWaistLittleProgress,
+                        imFatLittleProgress,
+                        tvPreviousWeight,
+                        tvPreviousWaist,
+                        tvPreviousFat,
+                        tvNextWeight,
+                        tvNextWaist,
+                        tvNextFat
+                )
+            }
+        })
+
+    }
+
+    private fun getAppointFromServer() {
+        val interceptor: HttpLoggingInterceptor = HttpLoggingInterceptor()
+        interceptor.level = HttpLoggingInterceptor.Level.BODY
+        val client: OkHttpClient = OkHttpClient.Builder().addInterceptor(interceptor).build()
+
+        val retrofit: Retrofit = Retrofit.Builder()
+                .baseUrl(APIUrl.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(client)
+                .build()
+
+        val service: APIService = retrofit.create(APIService::class.java)
+
+        val call: Call<Citas> = service.getAllAppoint(USER_ID)
+
+        call.enqueue(object : Callback<Citas> {
+            override fun onFailure(call: Call<Citas>?, t: Throwable?) {
+                Log.wtf("onFailure -> SaveIncomingAppoint", t.toString())
+            }
+
+            override fun onResponse(call: Call<Citas>?, response: Response<Citas>?) {
+                //Log.w("Location", "onResponse -> getAppoitnmentFromServer")
+                if (response?.body()?.citas?.size != 0){
+                    if (SharedPrefManager.getInstance(apContext)?.storeAppoint(response?.body()?.citas!![0])!!){
+                        UpdateHomeAppointUI(apContext).execute(
+                                llNextAppo,
+                                tvAppoDate
+                        )
+                    }
+                }
+            }
+        })
+    }
+
+    fun loadAllFromStorage() {
+        loadMeasuresData()
+        loadNextAppoint()
     }
 
     internal fun loadMeasuresData() {
-        Log.w("loadMeasuresData", "Llegó aquí")
+        //Log.w("loadMeasuresData", "Llegó aquí")
         measuresList = SharedPrefManager.getInstance(apContext)!!.getAllMeasures()
-        Log.w("MeasuresArraySize", measuresList.size.toString())
+        //Log.w("MeasuresArraySize", measuresList.size.toString())
         if (!measuresList.isEmpty())
-            /*UpdateHomeUI(apContext).execute(
+            UpdateHomeUI(apContext).execute(
                     tvResWeight,
                     tvResWaist,
                     tvResFat,
@@ -253,8 +293,16 @@ class HomeActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
                     tvNextWeight,
                     tvNextWaist,
                     tvNextFat
-            )*/
-            refreshUI()
+            )
+            //refreshUI()
+    }
+
+    internal fun loadNextAppoint() {
+        incomingAppoint = SharedPrefManager.getInstance(apContext)!!.getAppoint()
+        UpdateHomeAppointUI(apContext).execute(
+                llNextAppo,
+                tvAppoDate
+        )
     }
 
     private fun refreshUI() {
@@ -328,7 +376,7 @@ class HomeActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
         tvNextWaist.setText(last.currentMonth.cintura.toString() + getString(R.string.label_centimeter))
         tvPreviousFat.setText(last.lastMonth.grasa.toString() + getString(R.string.label_percent))
         tvNextFat.setText(last.currentMonth.grasa.toString() + getString(R.string.label_percent))
-        Log.w("Llegó aquí", "UpdateUI")
+        Log.w("Llegó aquí", "refreshUI")
     }
 
     private fun isNetworkAvailable(): Boolean {

@@ -1,5 +1,8 @@
 package com.diazmain.obapp.api
 
+import com.diazmain.obapp.Home.model.Citas
+import com.diazmain.obapp.Home.model.CitasValue
+import com.diazmain.obapp.Home.model.GenericResult
 import com.diazmain.obapp.Home.model.MeasuresResult
 import com.diazmain.obapp.Login.model.Result
 import com.diazmain.obapp.Reminder.Pojo.Recordatorio
@@ -35,12 +38,23 @@ interface APIService {
             @Path("id") id: Int
     ): Call<MeasuresResult>
 
+    @GET("appoint/get/{id}")
+    fun getAllAppoint(
+            @Path("id") id: Int
+    ): Call<Citas>
+
+    @FormUrlEncoded
+    @POST("appoint/status")
+    fun setAppointStatus(
+            @Field("id") idStatus: Int,
+            @Field("status") status: Int
+    ) : Call<GenericResult>
+
     //TODO éstos request no se han implementado en el proyecto
     @GET("measures/get/{id},{month}")
     fun getLastMeasures(
             @Path("id") id: Int,
             @Path("month") month: Int
     ): Call<MeasuresResult>
-
 
 }

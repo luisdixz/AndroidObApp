@@ -1,11 +1,18 @@
 package com.diazmain.obapp.Login.model
 
+import com.google.gson.annotations.SerializedName
+
 class User {
 
+    @SerializedName("idPaciente")
     private val id: Int
+    @SerializedName("nombre")
     private val nombre: String
+    @SerializedName("apellidos")
     private val apellidos: String
+    @SerializedName("username")
     private val username: String
+    @SerializedName("password")
     private val password: String
 
     constructor(id: Int, name: String, lastname: String, username: String, password: String) {

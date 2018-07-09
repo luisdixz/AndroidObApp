@@ -22,10 +22,10 @@
                 android:id="@+id/cvNextAppo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="5dp"
+                android:clickable="true"
                 android:elevation="4dp"
                 android:foreground="?android:attr/selectableItemBackground"
-                android:clickable="true" >
+                app:cardCornerRadius="5dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -34,20 +34,62 @@
                     android:padding="@dimen/activity_vertical_margin">
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:id="@+id/tvAppoTitle"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
                         android:text="@string/label_next_appointment"
-                        android:textSize="22sp"
-                        android:textColor="@color/black"/>
+                        android:textColor="@color/black"
+                        android:textSize="22sp" />
 
                     <TextView
                         android:id="@+id/tvAppoDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_below="@id/tvAppoTitle"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/label_next_appointment_default"
+                        android:textSize="18sp" />
+
+                    <LinearLayout
+                        android:id="@+id/llNextAppo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/label_next_appointment_default"
-                        android:textSize="18sp"/>
+                        android:orientation="horizontal"
+                        android:padding="8dp"
+                        android:visibility="gone"
+                        android:gravity="end">
+
+                        <Button
+                            android:id="@+id/btnCancelAppo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="8dp"
+                            android:background="@drawable/button_red_shape"
+                            android:drawableLeft="@drawable/ic_cancel"
+                            android:elevation="12dp"
+                            android:text="@string/btn_cancel"
+                            android:textColor="@color/white"/>
+
+                        <Button
+                            android:id="@+id/btnConfirmAppo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/button_green_shape"
+                            android:drawableLeft="@drawable/ic_check"
+                            android:elevation="12dp"
+                            android:text="@string/btn_confirm"
+                            android:textColor="@color/white" />
+
+
+                    </LinearLayout>
+
 
                 </LinearLayout>
+
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
@@ -56,10 +98,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:backgroundTint="@color/lightBlue"
-                app:cardCornerRadius="5dp"
+                android:clickable="true"
                 android:elevation="4dp"
                 android:foreground="?android:attr/selectableItemBackground"
-                android:clickable="true" >
+                app:cardCornerRadius="5dp">
 
                 <android.support.constraint.ConstraintLayout
                     android:layout_width="match_parent"
@@ -153,7 +195,7 @@
                         android:text="@string/label_prog_anuncio_default"
                         android:textAlignment="center"
                         android:textColor="@color/white"
-                        android:textSize="24sp"
+                        android:textSize="20sp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/imStar1"
@@ -166,12 +208,12 @@
                 android:id="@+id/cvWaistDash"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="5dp"
                 android:layout_marginTop="12dp"
                 android:backgroundTint="@color/lightBlue"
+                android:clickable="true"
                 android:elevation="4dp"
                 android:foreground="?android:attr/selectableItemBackground"
-                android:clickable="true" >
+                app:cardCornerRadius="5dp">
 
                 <android.support.constraint.ConstraintLayout
                     android:layout_width="match_parent"
@@ -185,11 +227,11 @@
                         android:layout_marginStart="32dp"
                         android:layout_marginTop="8dp"
                         android:text="@string/label_waist"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
                         android:textColor="@color/white"
                         android:textSize="20sp"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <android.support.v7.widget.AppCompatImageView
                         android:id="@+id/imWaistState"
@@ -224,8 +266,8 @@
                         android:layout_marginEnd="16dp"
                         android:layout_marginRight="16dp"
                         android:layout_marginTop="16dp"
-                        android:backgroundTint="@color/white"
                         android:background="@drawable/icono_subida"
+                        android:backgroundTint="@color/white"
                         app:layout_constraintEnd_toStartOf="@+id/tvPreviousWaist"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -265,7 +307,7 @@
                         android:text="@string/label_prog_anuncio_default"
                         android:textAlignment="center"
                         android:textColor="@color/white"
-                        android:textSize="24sp"
+                        android:textSize="20sp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/imStar2"
@@ -278,13 +320,13 @@
                 android:id="@+id/cvFatDash"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="5dp"
-                android:layout_marginTop="12dp"
                 android:layout_marginBottom="60dp"
+                android:layout_marginTop="12dp"
                 android:backgroundTint="@color/lightBlue"
+                android:clickable="true"
                 android:elevation="4dp"
                 android:foreground="?android:attr/selectableItemBackground"
-                android:clickable="true" >
+                app:cardCornerRadius="5dp">
 
                 <android.support.constraint.ConstraintLayout
                     android:layout_width="match_parent"
@@ -298,11 +340,11 @@
                         android:layout_marginStart="32dp"
                         android:layout_marginTop="8dp"
                         android:text="@string/label_fat_average"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
                         android:textColor="@color/white"
                         android:textSize="20sp"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <android.support.v7.widget.AppCompatImageView
                         android:id="@+id/imFatState"
@@ -316,6 +358,7 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/tvFatLabel" />
+
                     <TextView
                         android:id="@+id/tvPreviousFat"
                         android:layout_width="wrap_content"
@@ -336,8 +379,8 @@
                         android:layout_marginEnd="16dp"
                         android:layout_marginRight="16dp"
                         android:layout_marginTop="16dp"
-                        android:backgroundTint="@color/white"
                         android:background="@drawable/icono_subida"
+                        android:backgroundTint="@color/white"
                         app:layout_constraintEnd_toStartOf="@+id/tvPreviousFat"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -377,7 +420,7 @@
                         android:text="@string/label_prog_anuncio_default"
                         android:textAlignment="center"
                         android:textColor="@color/white"
-                        android:textSize="24sp"
+                        android:textSize="20sp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/imStar3"

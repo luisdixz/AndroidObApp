@@ -27,7 +27,7 @@ public class InternetAccessibility extends AsyncTask<Void, Void, Boolean> {
     protected Boolean doInBackground(Void... voids) {
         try {
             Socket sock = new Socket();
-            sock.connect(new InetSocketAddress("8.8.8.8", 53), 1500);
+            sock.connect(new InetSocketAddress("8.8.8.8", 53), 4000);
             sock.close();
             return true;
         } catch (IOException e) {

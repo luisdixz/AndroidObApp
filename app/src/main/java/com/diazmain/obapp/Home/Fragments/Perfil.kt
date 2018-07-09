@@ -19,13 +19,14 @@ class Perfil : Fragment(), View.OnClickListener {
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
-        btnPerfilLogout.setOnClickListener(this)
+        //btnPerfilLogout.setOnClickListener(this)
 
         val user: User = SharedPrefManager.getInstance((activity as HomeActivity).applicationContext)?.getUser()!!
 
         val nombre: String = user.getName()+" "+user.getLastname()
 
         tvProfileName.setText(nombre)
+        tvProfileUsername.setText(user.getUsername())
 
         super.onActivityCreated(savedInstanceState)
     }
@@ -35,11 +36,11 @@ class Perfil : Fragment(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
-        if (v == btnPerfilLogout) {
+        /*if (v == btnPerfilLogout) {
             activity?.finish()
             startActivity(Intent(activity, SplashScreen::class.java))
             SharedPrefManager.getInstance(activity?.applicationContext!!)?.logout()
-        }
+        }*/
     }
 
 }

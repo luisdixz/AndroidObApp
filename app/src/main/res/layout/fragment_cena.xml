@@ -1,110 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Reminder.Fragments.CenaFragment"
     android:orientation="vertical">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:text="@string/tab_dinner"
-        android:textSize="24sp"
-        android:textColor="@color/black"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"/>
+        android:orientation="vertical"
+        android:padding="@dimen/activity_vertical_margin">
 
-    <CheckBox
-        android:id="@+id/cbce1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Filete de pescado a la plancha" />
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/tilCenPorcion1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone">
-
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/tietCenPorcion1"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:hint="Porción"/>
+            android:textAlignment="center"
+            android:text="@string/tab_dinner"
+            android:textSize="24sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"/>
 
-    </android.support.design.widget.TextInputLayout>
-
-    <CheckBox
-        android:id="@+id/cbce2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Taza de espinacas cocidas" />
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/tilCenPorcion2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone">
-
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/tietCenPorcion2"
+        <CheckBox
+            android:id="@+id/cbce1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:hint="Porción"/>
+            android:text="Filete de pescado a la plancha" />
 
-    </android.support.design.widget.TextInputLayout>
-
-    <CheckBox
-        android:id="@+id/cbce3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Papa horneada con 1 cucharadita de mantequilla" />
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/tilCenPorcion3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone">
-
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/tietCenPorcion3"
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilCenPorcion1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:hint="Porción"/>
+            android:visibility="gone">
 
-    </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/tietCenPorcion1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="Porción"/>
 
-    <CheckBox
-        android:id="@+id/cbce4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Té" />
+        </android.support.design.widget.TextInputLayout>
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/tilCenPorcion4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone">
-
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/tietCenPorcion4"
+        <CheckBox
+            android:id="@+id/cbce2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:hint="Porción"/>
+            android:text="Taza de espinacas cocidas" />
 
-    </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilCenPorcion2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
 
-    <Button
-        android:id="@+id/btnFin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:text="Enviar" />
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/tietCenPorcion2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="Porción"/>
 
-</LinearLayout>
+        </android.support.design.widget.TextInputLayout>
+
+        <CheckBox
+            android:id="@+id/cbce3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Papa horneada con 1 cucharadita de mantequilla" />
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilCenPorcion3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/tietCenPorcion3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="Porción"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <CheckBox
+            android:id="@+id/cbce4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Té" />
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilCenPorcion4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/tietCenPorcion4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="Porción"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/btnFin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            android:layout_marginBottom="64dp"
+            android:text="Enviar" />
+    </LinearLayout>
+</ScrollView>

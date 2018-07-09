@@ -12,21 +12,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme2">
-        <activity
-            android:name=".Home.HomeActivity">
+        <activity android:name=".Home.HomeActivity">
 
-
-            <!--<intent-filter>
+            <!--
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
+            -->
 
         </activity>
         <activity android:name=".Home.Fragments.Perfil" />
-        <activity android:name=".Login.SignInActivity"
+        <activity
+            android:name=".Login.SignInActivity"
             android:theme="@style/AppTheme" />
-        <activity android:name=".Login.SplashScreen"
+        <activity
+            android:name=".Login.SplashScreen"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,14 +36,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Login.SignUpActivity"
-            android:theme="@style/AppTheme"/>
         <activity
-            android:name=".Reminder.ReminderActivity">
+            android:name=".Login.SignUpActivity"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".Reminder.ReminderActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Home.HomeActivity"/>
+                android:value=".Home.HomeActivity" />
         </activity>
+        <activity android:name=".Home.ChangePassword"></activity>
     </application>
 
 </manifest>

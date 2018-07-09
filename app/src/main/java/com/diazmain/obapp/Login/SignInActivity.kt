@@ -4,6 +4,7 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.Snackbar
+import android.util.Log
 import android.view.View
 import com.diazmain.obapp.Home.HomeActivity
 import com.diazmain.obapp.api.APIService
@@ -56,8 +57,10 @@ class SignInActivity : AppCompatActivity(), View.OnClickListener {
             override fun onResponse(call: Call<Result>?, response: Response<Result>?) {
                 pbSignIn.visibility = View.INVISIBLE
                 if (!response?.body()?.getError()!!) {
-                    finish()
+                    Log.w("Login -> UserID", response.body().getUser().getId().toString())
+                    Log.w("Login -> User Name", response.body().getUser().getName())
                     SharedPrefManager.getInstance(applicationContext)?.userLogin(response.body().getUser())
+                    finish()
                     startActivity(Intent(applicationContext, HomeActivity::class.java))
                 } else {
                     Snackbar.make(

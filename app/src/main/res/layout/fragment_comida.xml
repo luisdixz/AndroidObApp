@@ -1,146 +1,156 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Reminder.Fragments.ComidaFragment"
     android:orientation="vertical">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:text="@string/tab_lunch"
-        android:textSize="24sp"
-        android:textColor="@color/black"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"/>
+        android:orientation="vertical"
+        android:padding="@dimen/activity_vertical_margin">
 
-    <CheckBox
-        android:id="@+id/cbco1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Falda de res" />
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/tilComPorcion1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone">
-
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/tietComPorcion1"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:hint="Porción"/>
+            android:textAlignment="center"
+            android:text="@string/tab_lunch"
+            android:textSize="24sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"/>
 
-    </android.support.design.widget.TextInputLayout>
-
-    <CheckBox
-        android:id="@+id/cbco2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="1 taza de coliflor cocida" />
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/tilComPorcion2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone">
-
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/tietComPorcion2"
+        <CheckBox
+            android:id="@+id/cbco1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:hint="Porción"/>
+            android:text="Falda de res" />
 
-    </android.support.design.widget.TextInputLayout>
-
-    <CheckBox
-        android:id="@+id/cbco3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="1 cucharada (5mil) de aceite de oliva" />
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/tilComPorcion3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone">
-
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/tietComPorcion3"
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilComPorcion1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:hint="Porción"/>
+            android:visibility="gone">
 
-    </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/tietComPorcion1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="Porción"/>
 
-    <CheckBox
-        android:id="@+id/cbco4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Lentejas" />
+        </android.support.design.widget.TextInputLayout>
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/tilComPorcion4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone">
-
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/tietComPorcion4"
+        <CheckBox
+            android:id="@+id/cbco2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:hint="Porción"/>
+            android:text="1 taza de coliflor cocida" />
 
-    </android.support.design.widget.TextInputLayout>
-
-    <CheckBox
-        android:id="@+id/cbco5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Arroz integral al vapor" />
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/tilComPorcion5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone">
-
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/tietComPorcion5"
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilComPorcion2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:hint="Porción"/>
+            android:visibility="gone">
 
-    </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/tietComPorcion2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="Porción"/>
 
+        </android.support.design.widget.TextInputLayout>
 
-    <CheckBox
-        android:id="@+id/cbco6"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Agua: alfalfa c/limón" />
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/tilComPorcion6"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone">
-
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/tietComPorcion6"
+        <CheckBox
+            android:id="@+id/cbco3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:hint="Porción"/>
+            android:text="1 cucharada (5mil) de aceite de oliva" />
 
-    </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilComPorcion3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
 
-</LinearLayout>
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/tietComPorcion3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="Porción"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <CheckBox
+            android:id="@+id/cbco4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lentejas" />
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilComPorcion4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/tietComPorcion4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="Porción"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <CheckBox
+            android:id="@+id/cbco5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Arroz integral al vapor" />
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilComPorcion5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/tietComPorcion5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="Porción"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+
+        <CheckBox
+            android:id="@+id/cbco6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Agua: alfalfa c/limón" />
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilComPorcion6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_marginBottom="64dp">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/tietComPorcion6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="Porción"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+
+    </LinearLayout>
+
+</ScrollView>

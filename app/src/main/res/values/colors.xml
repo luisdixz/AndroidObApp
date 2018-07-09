@@ -13,5 +13,7 @@
     <color name="blue">#0059BB</color>
     <color name="lightBlue">#2599EE</color>
     <color name="white">#FFFFFF</color>
+    <color name="red">#DD1111</color>
+    <color name="magenta">#FF3190</color>
 
 </resources>
