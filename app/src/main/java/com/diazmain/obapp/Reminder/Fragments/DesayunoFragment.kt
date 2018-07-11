@@ -1,28 +1,35 @@
 package com.diazmain.obapp.Reminder.Fragments
 
+import android.annotation.SuppressLint
+import android.app.DatePickerDialog
+import android.app.TimePickerDialog
 import android.content.ContentValues
+import android.os.Build
 import android.os.Bundle
+import android.support.annotation.RequiresApi
 import android.support.design.widget.TextInputLayout
 import android.support.v4.app.Fragment
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.CheckBox
 import android.widget.CompoundButton
+import com.diazmain.obapp.Home.HomeActivity
 
 import com.diazmain.obapp.R
 import com.diazmain.obapp.Reminder.Pojo.Alimentos
 import com.diazmain.obapp.Reminder.Pojo.CamposCheck
 import com.diazmain.obapp.Reminder.ReminderActivity
 import kotlinx.android.synthetic.main.fragment_desayuno.*
+import java.text.SimpleDateFormat
+import java.util.*
 
-class DesayunoFragment : Fragment(), CompoundButton.OnCheckedChangeListener {
+class DesayunoFragment : Fragment(), CompoundButton.OnCheckedChangeListener, View.OnClickListener {
 
     companion object {
         fun newInstance() = DesayunoFragment()
     }
 
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         //(activity as ReminderActivity).desayuno.clear()
         //(activity as ReminderActivity).checks.clear()
@@ -34,7 +41,9 @@ class DesayunoFragment : Fragment(), CompoundButton.OnCheckedChangeListener {
         cbd3.setOnCheckedChangeListener(this)
         cbd4.setOnCheckedChangeListener(this)
 
+        btnDesTime.setOnClickListener(this)
 
+        (activity as ReminderActivity).window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN)
         //checkCheckeablesChecked()
 
 
@@ -108,6 +117,33 @@ class DesayunoFragment : Fragment(), CompoundButton.OnCheckedChangeListener {
                 }
             }
         }
+    }
+
+    override fun onClick(v: View?) {
+        if (v == btnDesTime) {
+            pickDate()
+        }
+    }
+
+    fun pickDate() {
+        val cal = Calendar.getInstance()
+
+        TimePickerDialog(
+                (activity as ReminderActivity).fragment_desayuno.context,
+                TimePickerDialog.OnTimeSetListener { timePicker, hour, minute ->
+                    run {
+                        cal.set(Calendar.HOUR_OF_DAY, hour)
+                        cal.set(Calendar.MINUTE, minute)
+                        //Log.w("Hora sin formato", cal.toString())
+                        //Log.w("Hora con formato", SimpleDateFormat("HH:mm").format(cal.time))
+                        val hora: String = SimpleDateFormat("HH:mm").format(cal.time)
+                        tietDesTime.setText(hora)
+                        (activity as ReminderActivity).desHora = hora
+                    }
+                },
+                cal.get(Calendar.HOUR_OF_DAY),
+                cal.get(Calendar.MINUTE),
+                false).show()
     }
 
     fun clearChecks() {

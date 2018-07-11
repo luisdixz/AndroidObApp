@@ -14,13 +14,16 @@ class User {
     private val username: String
     @SerializedName("password")
     private val password: String
+    @SerializedName("birthdate")
+    private val birth: String
 
-    constructor(id: Int, name: String, lastname: String, username: String, password: String) {
+    constructor(id: Int, name: String, lastname: String, username: String, birth: String) {
         this.id = id
         this.nombre = name
         this.username = username
         this.apellidos = lastname
-        this.password = password
+        this.password = ""
+        this.birth = birth
     }
 
     constructor(name: String, lastname: String, username: String, password: String){
@@ -29,6 +32,7 @@ class User {
         this.apellidos = lastname
         this.username = username
         this.password = password
+        this.birth = ""
     }
 
     constructor(id: Int, name: String, lastname: String, username: String) {
@@ -37,7 +41,9 @@ class User {
         this.apellidos = lastname
         this.username = username
         this.password = ""
+        this.birth = ""
     }
+
 
     fun getId(): Int {
         return id
@@ -59,4 +65,7 @@ class User {
         return username
     }
 
+    fun getBirth() : String{
+        return birth
+    }
 }

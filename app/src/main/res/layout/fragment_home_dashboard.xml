@@ -247,7 +247,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/tvWaistLabel" />
 
                     <TextView
-                        android:id="@+id/tvPreviousWaist"
+                        android:id="@+id/tvNextWaist"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="24dp"
@@ -268,11 +268,11 @@
                         android:layout_marginTop="16dp"
                         android:background="@drawable/icono_subida"
                         android:backgroundTint="@color/white"
-                        app:layout_constraintEnd_toStartOf="@+id/tvPreviousWaist"
+                        app:layout_constraintEnd_toStartOf="@+id/tvNextWaist"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/tvNextWaist"
+                        android:id="@+id/tvPreviousWaist"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="16dp"
@@ -360,7 +360,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/tvFatLabel" />
 
                     <TextView
-                        android:id="@+id/tvPreviousFat"
+                        android:id="@+id/tvNextFat"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="24dp"
@@ -381,11 +381,11 @@
                         android:layout_marginTop="16dp"
                         android:background="@drawable/icono_subida"
                         android:backgroundTint="@color/white"
-                        app:layout_constraintEnd_toStartOf="@+id/tvPreviousFat"
+                        app:layout_constraintEnd_toStartOf="@+id/tvNextFat"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/tvNextFat"
+                        android:id="@+id/tvPreviousFat"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="16dp"

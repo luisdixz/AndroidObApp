@@ -2,7 +2,7 @@ package com.diazmain.obapp.Home.model
 
 import com.google.gson.annotations.SerializedName
 
-class GenericResult(_error: Boolean, _message: String, _isStatusChanging: Boolean) {
+class GenericResult(_error: Boolean, _message: String, _isStatusChanging: Int) {
 
     @SerializedName("error")
     var error: Boolean = _error
@@ -19,7 +19,7 @@ class GenericResult(_error: Boolean, _message: String, _isStatusChanging: Boolea
     }
 
     @SerializedName("affectedRows")
-    var isStatusChanging: Boolean = _isStatusChanging
+    var isStatusChanging: Int = _isStatusChanging
     get() = field
     set(value) {
         field = value

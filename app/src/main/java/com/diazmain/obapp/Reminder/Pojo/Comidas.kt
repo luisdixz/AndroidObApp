@@ -1,8 +1,8 @@
 package com.diazmain.obapp.Reminder.Pojo
 
-class Comidas (_hora: Int, _alimentos: ArrayList<Alimentos>){
+class Comidas (_hora: String, _alimentos: ArrayList<Alimentos>){
 
-    var hora: Int = _hora
+    var hora: String = _hora
     get() = field
     set(value) {field = value}
 

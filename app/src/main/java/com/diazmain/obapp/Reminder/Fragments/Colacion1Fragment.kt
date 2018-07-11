@@ -1,6 +1,7 @@
 package com.diazmain.obapp.Reminder.Fragments
 
 import android.annotation.SuppressLint
+import android.app.TimePickerDialog
 import android.content.ContentValues.TAG
 import android.content.Context
 import android.net.Uri
@@ -10,6 +11,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import android.widget.Button
 import android.widget.CompoundButton
 import android.widget.Toast
@@ -21,8 +23,11 @@ import com.diazmain.obapp.Reminder.ReminderActivity
 import kotlinx.android.synthetic.main.activity_reminder.*
 import kotlinx.android.synthetic.main.fragment_cena.*
 import kotlinx.android.synthetic.main.fragment_colacion1.*
+import kotlinx.android.synthetic.main.fragment_desayuno.*
+import java.text.SimpleDateFormat
+import java.util.*
 
-class Colacion1Fragment : Fragment(), CompoundButton.OnCheckedChangeListener {
+class Colacion1Fragment : Fragment(), CompoundButton.OnCheckedChangeListener, View.OnClickListener {
 
     companion object {
         fun newInstance() = Colacion1Fragment()
@@ -38,6 +43,10 @@ class Colacion1Fragment : Fragment(), CompoundButton.OnCheckedChangeListener {
         cbc12.setOnCheckedChangeListener(this)
         cbc13.setOnCheckedChangeListener(this)
         cbc14.setOnCheckedChangeListener(this)
+
+        btnCo1Time.setOnClickListener(this)
+
+        (activity as ReminderActivity).window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN)
 
         super.onActivityCreated(savedInstanceState)
     }
@@ -107,6 +116,34 @@ class Colacion1Fragment : Fragment(), CompoundButton.OnCheckedChangeListener {
                 }
             }
         }
+    }
+
+    override fun onClick(v: View?) {
+        if (v == btnCo1Time) {
+            pickDate()
+        }
+    }
+
+
+    fun pickDate() {
+        val cal = Calendar.getInstance()
+
+        TimePickerDialog(
+                (activity as ReminderActivity).fragment_colacion1.context,
+                TimePickerDialog.OnTimeSetListener { timePicker, hour, minute ->
+                    run {
+                        cal.set(Calendar.HOUR_OF_DAY, hour)
+                        cal.set(Calendar.MINUTE, minute)
+                        //Log.w("Hora sin formato", cal.toString())
+                        //Log.w("Hora con formato", SimpleDateFormat("HH:mm").format(cal.time))
+                        val hora: String = SimpleDateFormat("HH:mm").format(cal.time)
+                        tietCo1Time.setText(hora)
+                        (activity as ReminderActivity).desHora = hora
+                    }
+                },
+                cal.get(Calendar.HOUR_OF_DAY),
+                cal.get(Calendar.MINUTE),
+                false).show()
     }
 
     fun clearChecks() {

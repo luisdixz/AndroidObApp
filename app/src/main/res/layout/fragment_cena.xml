@@ -3,8 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Reminder.Fragments.CenaFragment"
-    android:orientation="vertical">
+    android:id="@+id/fragment_cena">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -106,12 +107,55 @@
 
         </android.support.design.widget.TextInputLayout>
 
-        <Button
-            android:id="@+id/btnFin"
+        <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="@dimen/activity_vertical_margin"
+            android:layout_marginRight="@dimen/activity_vertical_margin"
             android:layout_marginTop="64dp"
+            android:layout_marginBottom="64dp">
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/tilCenTime"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                app:layout_constraintEnd_toStartOf="@+id/btnCenTime"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/tietCenTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Hora de la cena"
+                    android:inputType="time" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <ImageButton
+                android:id="@+id/btnCenTime"
+                android:layout_width="72dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="end"
+                android:background="@drawable/button_blue_shape"
+                android:src="@drawable/ic_alarm"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <Button
+            android:id="@+id/btnFin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginBottom="64dp"
-            android:text="Enviar" />
+            android:background="@drawable/button_blue_shape"
+            android:text="  Enviar"
+            android:textColor="@color/white"
+            android:drawableLeft="@drawable/ic_send"/>
     </LinearLayout>
 </ScrollView>

@@ -31,6 +31,7 @@ import android.os.AsyncTask
 import com.diazmain.obapp.Home.model.*
 import com.diazmain.obapp.Threads.*
 import com.diazmain.obapp.Threads.HomeThreadSaversManager.AsyncResponse
+import kotlinx.android.synthetic.main.fragment_progress.*
 
 
 /**
@@ -85,7 +86,7 @@ class HomeActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
         myViewPager.addOnPageChangeListener(this)
         myViewPager.offscreenPageLimit = 2
 
-        Log.w("Location","onCreate -> HomeActivity")
+        Log.w("Location", "onCreate -> HomeActivity")
         USER_ID = SharedPrefManager.getInstance(apContext)!!.getUser().getId()
         USER_NAME = SharedPrefManager.getInstance(apContext)!!.getUser().getName()
         USER_LASTNAME = SharedPrefManager.getInstance(apContext)!!.getUser().getLastname()
@@ -138,8 +139,7 @@ class HomeActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
 
     fun getAllFromServer() {
         if (isNetworkAvailable()) {
-            InternetAccessibility {
-                internet ->
+            InternetAccessibility { internet ->
                 if (internet) {
                     getMeasuresFromServer()
                     getAppointFromServer()
@@ -148,7 +148,7 @@ class HomeActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
         }
     }
 
-    fun getMeasuresFromServer()  {
+    fun getMeasuresFromServer() {
         Log.w("USER_ID", USER_ID.toString())
 
         measuresList = ArrayList()
@@ -217,20 +217,32 @@ class HomeActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
                 measuresList = SharedPrefManager.getInstance(apContext)!!.getAllMeasures()
                 //Log.w("MeasuresArraySize", measuresList.size.toString())
 
-                UpdateHomeUI(apContext).execute(
-                        tvResWeight,
-                        tvResWaist,
-                        tvResFat,
-                        imWeightLittleProgress,
-                        imWaistLittleProgress,
-                        imFatLittleProgress,
-                        tvPreviousWeight,
-                        tvPreviousWaist,
-                        tvPreviousFat,
-                        tvNextWeight,
-                        tvNextWaist,
-                        tvNextFat
-                )
+                if (measuresList.size != 0) {
+                    UpdateHomeUI(apContext).execute(
+                            tvResWeight,
+                            tvResWaist,
+                            tvResFat,
+                            imWeightLittleProgress,
+                            imWaistLittleProgress,
+                            imFatLittleProgress,
+                            tvPreviousWeight,
+                            tvPreviousWaist,
+                            tvPreviousFat,
+                            tvNextWeight,
+                            tvNextWaist,
+                            tvNextFat
+                    )
+                    UpdateProgressUI(apContext, measuresList).execute(
+                            line_view,
+                            imProgressWeigthTrend,
+                            imProgressWaistTrend,
+                            imProgressFatTrend,
+                            tvProgressWeigthPercent,
+                            tvProgressWaistPercent,
+                            tvProgressFatPercent
+                    )
+
+                }
             }
         })
 
@@ -257,15 +269,22 @@ class HomeActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
             }
 
             override fun onResponse(call: Call<Citas>?, response: Response<Citas>?) {
-                //Log.w("Location", "onResponse -> getAppoitnmentFromServer")
-                if (response?.body()?.citas?.size != 0){
+                Log.w("Location", "onResponse -> getAppoitnmentFromServer")
+                Log.w("Response", response?.body()?.citas.toString())
+                if (SharedPrefManager.getInstance(apContext)?.storeAppoint(response?.body()?.citas!!)!!) {
+                    UpdateHomeAppointUI(apContext).execute(
+                            llNextAppo,
+                            tvAppoDate
+                    )
+                }
+                /*if (response?.body()?.citas?.size != 0){
                     if (SharedPrefManager.getInstance(apContext)?.storeAppoint(response?.body()?.citas!![0])!!){
                         UpdateHomeAppointUI(apContext).execute(
                                 llNextAppo,
                                 tvAppoDate
                         )
                     }
-                }
+                }*/
             }
         })
     }
@@ -279,7 +298,7 @@ class HomeActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
         //Log.w("loadMeasuresData", "Llegó aquí")
         measuresList = SharedPrefManager.getInstance(apContext)!!.getAllMeasures()
         //Log.w("MeasuresArraySize", measuresList.size.toString())
-        if (!measuresList.isEmpty())
+        if (!measuresList.isEmpty()) {
             UpdateHomeUI(apContext).execute(
                     tvResWeight,
                     tvResWaist,
@@ -294,7 +313,17 @@ class HomeActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
                     tvNextWaist,
                     tvNextFat
             )
-            //refreshUI()
+            UpdateProgressUI(apContext, measuresList).execute(
+                    line_view,
+                    imProgressWeigthTrend,
+                    imProgressWaistTrend,
+                    imProgressFatTrend,
+                    tvProgressWeigthPercent,
+                    tvProgressWaistPercent,
+                    tvProgressFatPercent
+            )
+        }
+        //refreshUI()
     }
 
     internal fun loadNextAppoint() {
@@ -314,7 +343,7 @@ class HomeActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
                 tvResWaist.setText(getString(R.string.label_prog_anuncio_default))
                 tvResFat.setText(getString(R.string.label_prog_anuncio_default))
             }
-            last.months == 1 ->{
+            last.months == 1 -> {
                 // TODO cambiar el label por default para este caso
                 tvResWeight.setText(getString(R.string.label_prog_anuncio_default))
                 tvResWaist.setText(getString(R.string.label_prog_anuncio_default))
@@ -384,7 +413,5 @@ class HomeActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
         val activeNetworkInfo = connectivityManager.activeNetworkInfo
         return activeNetworkInfo != null
     }
-
-
 
 }

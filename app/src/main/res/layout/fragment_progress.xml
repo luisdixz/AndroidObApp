@@ -121,8 +121,6 @@
                     android:layout_alignTop="@+id/tvProgressWeightLabel"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginRight="16dp"
                     android:background="@drawable/ic_trending_down"
                     android:backgroundTint="@color/black" />
 
@@ -171,8 +169,6 @@
                     android:layout_alignTop="@+id/tvProgressWaistLabel"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginRight="16dp"
                     android:background="@drawable/ic_trending_down"
                     android:backgroundTint="@color/black" />
 
@@ -222,8 +218,6 @@
                     android:layout_alignTop="@+id/tvProgressFatLabel"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginRight="16dp"
                     android:background="@drawable/ic_trending_down"
                     android:backgroundTint="@color/black" />
 

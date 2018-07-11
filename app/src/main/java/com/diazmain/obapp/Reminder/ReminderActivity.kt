@@ -21,6 +21,7 @@ import com.diazmain.obapp.Reminder.Pojo.Alimentos
 import com.diazmain.obapp.Reminder.Pojo.CamposCheck
 import com.diazmain.obapp.Reminder.Pojo.Comidas
 import com.diazmain.obapp.Reminder.Pojo.Recordatorio
+import com.diazmain.obapp.helper.SharedPrefManager
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -53,6 +54,12 @@ class ReminderActivity : AppCompatActivity(), OnPageChangeListener, Callback<Res
 
     //var isEmpty: ArrayList<Boolean> = ArrayList()
     var checks: ArrayList<CamposCheck> = ArrayList()
+
+    var desHora: String = "00:00"
+    var co1Hora: String = "00:00"
+    var comHora: String = "00:00"
+    var co2Hora: String = "00:00"
+    var cenHora: String = "00:00"
 
     override fun onPageScrollStateChanged(state: Int) {
 
@@ -276,11 +283,11 @@ class ReminderActivity : AppCompatActivity(), OnPageChangeListener, Callback<Res
     fun sendData() {
 
         if (fillArrays()) {
-            val desayunoAll = Comidas(1, desayuno)
-            val colacion1All = Comidas(1, colacion1)
-            val comidaAll = Comidas(1, comida)
-            val colacion2All = Comidas(1, colacion2)
-            val cenaAll = Comidas(1, cena)
+            val desayunoAll = Comidas(desHora, desayuno)
+            val colacion1All = Comidas(co1Hora, colacion1)
+            val comidaAll = Comidas(comHora, comida)
+            val colacion2All = Comidas(co2Hora, colacion2)
+            val cenaAll = Comidas(cenHora, cena)
 
             Log.w("Array -> desayunoAll", desayunoAll.toString())
             Log.w("Array -> colacion1All", colacion1All.toString())
@@ -318,6 +325,7 @@ class ReminderActivity : AppCompatActivity(), OnPageChangeListener, Callback<Res
     override fun onResponse(call: Call<Result>?, response: Response<Result>?) {
         Toast.makeText(applicationContext, "Enviado", Toast.LENGTH_SHORT).show()
         //Log.w("2.0 getFeed > Full json res wrapped in pretty printed gson => ", GsonBuilder().setPrettyPrinting().create().toJson(response))
+        SharedPrefManager.getInstance(applicationContext)?.setAppointStatus(0)
         finish()
     }
 

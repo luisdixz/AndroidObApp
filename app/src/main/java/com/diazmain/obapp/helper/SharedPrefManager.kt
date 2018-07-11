@@ -21,6 +21,7 @@ class SharedPrefManager (private val mCtx: Context) {
         private val KEY_USER_NAME = "keyusername"
         private val KEY_USER_LASTNAME = "keyuserlastname"
         private val KEY_USER_USERNAME = "keyuserusername"
+        private val KEY_USER_BIRTH = "keyuserbirth"
 
         private val KEY_MEASURES_HISTORY = "keymeasureshistory"
 
@@ -51,6 +52,7 @@ class SharedPrefManager (private val mCtx: Context) {
         editor.putString(KEY_USER_NAME, user.getName())
         editor.putString(KEY_USER_LASTNAME, user.getLastname())
         editor.putString(KEY_USER_USERNAME, user.getUsername())
+        editor.putString(KEY_USER_BIRTH, user.getBirth())
         editor.apply()
 
         return true
@@ -73,9 +75,10 @@ class SharedPrefManager (private val mCtx: Context) {
 
         val user: User = User(
                 sPref.getInt(KEY_USER_ID, 0),
-                sPref.getString(KEY_USER_NAME, null),
-                sPref.getString(KEY_USER_LASTNAME, null),
-                sPref.getString(KEY_USER_USERNAME, null)
+                sPref.getString(KEY_USER_NAME, ""),
+                sPref.getString(KEY_USER_LASTNAME, ""),
+                sPref.getString(KEY_USER_USERNAME, ""),
+                sPref.getString(KEY_USER_BIRTH, "")
         )
         return user
     }
@@ -127,7 +130,6 @@ class SharedPrefManager (private val mCtx: Context) {
     fun getLastMeasures() : LastMeasures{
         val sPref: SharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
 
-        val gson: Gson = Gson()
         val measures: List<MeasuresValue> = this.getAllMeasures()
 
         val emptyMeasures: MeasuresValue = MeasuresValue()
@@ -161,11 +163,13 @@ class SharedPrefManager (private val mCtx: Context) {
             val sPref: SharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
             val editor: SharedPreferences.Editor = sPref.edit()
 
-            editor.putInt(KEY_APPOINT_ID, cita.idCita)
-            editor.putString(KEY_APPOINT_TIPO, cita.tipoCita)
-            editor.putString(KEY_APPOINT_HORA, cita.hora)
-            editor.putString(KEY_APPOINT_FECHA, cita.fecha)
-            editor.putInt(KEY_APPOINT_STATUS, cita.status)
+            if (sPref.getInt(KEY_APPOINT_STATUS, 0) != 2) {
+                editor.putInt(KEY_APPOINT_ID, cita.idCita)
+                editor.putString(KEY_APPOINT_TIPO, cita.tipoCita)
+                editor.putString(KEY_APPOINT_HORA, cita.hora)
+                editor.putString(KEY_APPOINT_FECHA, cita.fecha)
+                editor.putInt(KEY_APPOINT_STATUS, cita.status)
+            }
             editor.apply()
 
             return true
@@ -194,7 +198,7 @@ class SharedPrefManager (private val mCtx: Context) {
     fun isAppointAvaliable() : Boolean {
         val sPref: SharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
 
-        if (sPref.getInt(KEY_APPOINT_STATUS, 0) != 1)
+        if (sPref.getInt(KEY_APPOINT_STATUS, 0) == 0)
             return false
         else if (sPref.getString(KEY_APPOINT_TIPO, null) == null)
             return false
@@ -208,6 +212,12 @@ class SharedPrefManager (private val mCtx: Context) {
 
         editor.putInt(KEY_APPOINT_STATUS, newStatus)
         editor.apply()
+    }
+
+    fun getAppointStatus() : Int {
+        val sPref: SharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
+
+        return sPref.getInt(KEY_APPOINT_STATUS, 0)
     }
 
 }

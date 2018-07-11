@@ -47,7 +47,7 @@ class SaveIncomingAppoint (_id: Int, _context: Context, _delegate: AsyncResponse
 
         val service: APIService = retrofit.create(APIService::class.java)
 
-        val call: Call<Citas> = service.getAllAppoint(id)
+        /*val call: Call<Citas> = service.getAllAppoint(id)
 
         call.enqueue(object : Callback<Citas> {
             override fun onFailure(call: Call<Citas>?, t: Throwable?) {
@@ -55,10 +55,10 @@ class SaveIncomingAppoint (_id: Int, _context: Context, _delegate: AsyncResponse
                 cancel(true)
             }
 
-            override fun onResponse(call: Call<Citas>?, response: Response<Citas>?) {
-                //SharedPrefManager.getInstance(context)?.storeAppoint(response?.body().)
+            override fun onResponse(call: Call<Citas>?, response: Response<Citas>) {
+                SharedPrefManager.getInstance(context)?.storeAppoint(response?.body())
             }
-        })
+        })*/
 
         //return resultCita
         return true

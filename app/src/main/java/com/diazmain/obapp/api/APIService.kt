@@ -41,6 +41,7 @@ interface APIService {
     @GET("appoint/get/{id}")
     fun getAllAppoint(
             @Path("id") id: Int
+    //): Call<CitasValue>
     ): Call<Citas>
 
     @FormUrlEncoded
@@ -51,6 +52,11 @@ interface APIService {
     ) : Call<GenericResult>
 
     //TODO éstos request no se han implementado en el proyecto
+    @POST("meals/get")
+    fun getMeals(
+
+    )
+
     @GET("measures/get/{id},{month}")
     fun getLastMeasures(
             @Path("id") id: Int,

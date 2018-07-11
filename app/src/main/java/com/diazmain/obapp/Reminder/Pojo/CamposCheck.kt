@@ -29,7 +29,6 @@ class CamposCheck (_pagina: Int, _comida: String, _til: TextInputLayout, _tiet: 
         field = value
     }
 
-
     override fun toString(): String {
         return "Página -> " +pagina + ", Comida -> " + comida + "\n"
     }

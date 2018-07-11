@@ -42,10 +42,10 @@ class HomeDashboardFragment: Fragment(), View.OnClickListener {
         //Log.w("isMeasuresListEmpty", SharedPrefManager.getInstance((activity as HomeActivity).apContext)!!.isMeasuresArrayEmpty().toString())
 
         Log.w("Location","onActivityCreated -> HomeDashboardFragment")
-        if (SharedPrefManager.getInstance((activity as HomeActivity).apContext)!!.isMeasuresArrayEmpty())
+        /*if (SharedPrefManager.getInstance((activity as HomeActivity).apContext)!!.isMeasuresArrayEmpty())
             (activity as HomeActivity).getAllFromServer()
         else
-            (activity as HomeActivity).loadAllFromStorage()
+            (activity as HomeActivity).loadAllFromStorage()*/
 
 
         btnCancelAppo.setOnClickListener(this)
@@ -59,14 +59,17 @@ class HomeDashboardFragment: Fragment(), View.OnClickListener {
     override fun onClick(v: View?) {
         if (v == cvNextAppo) {
             //Checar el status de la cita
-            startActivity(Intent(activity, ReminderActivity::class.java))
+            if (SharedPrefManager.getInstance((activity as HomeActivity).apContext)?.getAppointStatus() == 2) {
+                startActivity(Intent(activity, ReminderActivity::class.java))
+            }
         } else if (v == btnCancelAppo) {
             //Enviar request para cancelar cita
             cancelAppoint()
         } else if (v == btnConfirmAppo) {
             //Enviar request para confirmar cita
             confirmAppoint()
-
+            /*startActivity(Intent(activity, ReminderActivity::class.java))
+            llNextAppo.visibility = View.GONE*/
         }
     }
 
@@ -139,6 +142,7 @@ class HomeDashboardFragment: Fragment(), View.OnClickListener {
         val service: APIService = retrofit.create(APIService::class.java)
 
 
+        Log.w("incomingAppoint -> id", (activity as HomeActivity).incomingAppoint.idCita.toString())
         val call: Call<GenericResult> = service.setAppointStatus(
                 (activity as HomeActivity).incomingAppoint.idCita,
                 2
@@ -150,6 +154,8 @@ class HomeDashboardFragment: Fragment(), View.OnClickListener {
             }
 
             override fun onResponse(call: Call<GenericResult>?, response: Response<GenericResult>?) {
+                Log.w("Location", "onResponse -> HomeDashboardFragment")
+                Log.w("Response message", response?.body()?.message)
                 SharedPrefManager.getInstance((activity as HomeActivity))!!.setAppointStatus(2)
                 startActivity(Intent(activity, ReminderActivity::class.java))
                 llNextAppo.visibility = View.GONE

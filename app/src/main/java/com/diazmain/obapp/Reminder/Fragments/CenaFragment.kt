@@ -1,16 +1,22 @@
 package com.diazmain.obapp.Reminder.Fragments
 
+import android.app.TimePickerDialog
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import android.widget.CompoundButton
 import com.diazmain.obapp.R
 
 import com.diazmain.obapp.Reminder.Pojo.CamposCheck
 import com.diazmain.obapp.Reminder.ReminderActivity
 import kotlinx.android.synthetic.main.fragment_cena.*
+import kotlinx.android.synthetic.main.fragment_comida.*
+import kotlinx.android.synthetic.main.fragment_desayuno.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 class CenaFragment : Fragment(), View.OnClickListener, CompoundButton.OnCheckedChangeListener {
 
@@ -32,6 +38,10 @@ class CenaFragment : Fragment(), View.OnClickListener, CompoundButton.OnCheckedC
 
         btnFin.setOnClickListener(this)
         btnFin.isEnabled = true
+
+        btnCenTime.setOnClickListener(this)
+        (activity as ReminderActivity).window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN)
+
         super.onActivityCreated(savedInstanceState)
     }
 
@@ -42,6 +52,9 @@ class CenaFragment : Fragment(), View.OnClickListener, CompoundButton.OnCheckedC
     }
 
     override fun onClick(v: View?) {
+        if (v == btnCenTime) {
+            pickDate()
+        }
         if (v == btnFin) {
             (activity as ReminderActivity).sendData()
         }
@@ -107,6 +120,27 @@ class CenaFragment : Fragment(), View.OnClickListener, CompoundButton.OnCheckedC
                 }
             }
         }
+    }
+
+    fun pickDate() {
+        val cal = Calendar.getInstance()
+
+        TimePickerDialog(
+                (activity as ReminderActivity).fragment_cena.context,
+                TimePickerDialog.OnTimeSetListener { timePicker, hour, minute ->
+                    run {
+                        cal.set(Calendar.HOUR_OF_DAY, hour)
+                        cal.set(Calendar.MINUTE, minute)
+                        //Log.w("Hora sin formato", cal.toString())
+                        //Log.w("Hora con formato", SimpleDateFormat("HH:mm").format(cal.time))
+                        val hora: String = SimpleDateFormat("HH:mm").format(cal.time)
+                        tietCenTime.setText(hora)
+                        (activity as ReminderActivity).desHora = hora
+                    }
+                },
+                cal.get(Calendar.HOUR_OF_DAY),
+                cal.get(Calendar.MINUTE),
+                false).show()
     }
 
     fun clearChecks() {

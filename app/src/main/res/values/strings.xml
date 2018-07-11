@@ -10,6 +10,8 @@
     <string name="tab_collation2">Collation 2</string>
 
     <string name="title_login">Log In</string>
+    <string name="title_edit_profile">Edit profile data</string>
+
     <string name="hint_username">username</string>
     <string name="hint_password">password</string>
     <string name="hint_enter_username">Enter username</string>
@@ -24,6 +26,7 @@
     <string name="btn_sign_in">Sign in</string>
     <string name="btn_cancel">Cancel</string>
     <string name="btn_confirm">Confirm</string>
+    <string name="btn_accept">Accept</string>
 
     <string name="action_logout">Log out</string>
     <string name="action_refresh">Refresh data</string>

@@ -59,15 +59,36 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tvProfileName"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Mi nombre"
-                android:textSize="24sp"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:layout_margin="@dimen/activity_vertical_margin"/>
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_margin="@dimen/activity_vertical_margin">
+
+                <TextView
+                    android:id="@+id/tvProfileName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nombre"
+                    android:textSize="24sp"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" "
+                    android:textSize="24sp"/>
+
+                <TextView
+                    android:id="@+id/tvProfileLastname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Apellido"
+                    android:textSize="24sp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
 
 
             <android.support.v7.widget.CardView
@@ -103,11 +124,11 @@
                             android:layout_height="wrap_content"
                             android:text="Username"/>
 
-                        <ImageView
+                        <!--<ImageView
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:src="@drawable/ic_mode_edit_black"
-                            android:layout_marginBottom="8dp"/>
+                            android:layout_marginBottom="8dp"/>-->
 
                     </LinearLayout>
 
@@ -131,11 +152,11 @@
                             android:layout_height="wrap_content"
                             android:text="*****"/>
 
-                        <ImageView
+                        <!--<ImageView
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:src="@drawable/ic_mode_edit_black"
-                            android:layout_marginBottom="8dp"/>
+                            android:layout_marginBottom="8dp"/>-->
 
                     </LinearLayout>
 
@@ -159,10 +180,11 @@
                             android:layout_height="wrap_content"
                             android:text="9999-99-99"/>
 
-                        <ImageView
+                        <!--<ImageView
                             android:layout_width="24dp"
                             android:layout_height="24dp"
-                            android:src="@drawable/ic_mode_edit_black"/>
+                            android:src="@drawable/ic_mode_edit_black"
+                            android:layout_marginBottom="8dp"/>-->
 
                     </LinearLayout>
 
@@ -184,26 +206,43 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
+                    android:orientation="horizontal"
                     android:padding="@dimen/activity_vertical_margin">
 
-                    <TextView
+                    <top.defaults.view.TextButton
+                        android:id="@+id/tbProfileEdit"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Info"
-                        android:textSize="16sp"/>
+                        android:text="Editar perfil"
+                        android:padding="4dp"
+                        app:backgroundEffect="ripple"
+                        app:effectDuration="200"
+                        app:textEffect="animateColor"
+                        app:underline="true"/>
 
-                    <TextView
+                    <top.defaults.view.TextButton
+                        android:id="@+id/tbProfileHelp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Info"
-                        android:textSize="16sp"/>
+                        android:text="Ayuda"
+                        android:layout_marginLeft="@dimen/activity_vertical_margin"
+                        android:layout_marginRight="@dimen/activity_vertical_margin"
+                        android:padding="4dp"
+                        app:backgroundEffect="ripple"
+                        app:effectDuration="200"
+                        app:textEffect="animateColor"
+                        app:underline="true"/>
 
-                    <TextView
+                    <top.defaults.view.TextButton
+                        android:id="@+id/tbProfileAbout"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Info"
-                        android:textSize="16sp"/>
+                        android:text="Acerca de"
+                        android:padding="4dp"
+                        app:backgroundEffect="ripple"
+                        app:effectDuration="200"
+                        app:textEffect="animateColor"
+                        app:underline="true"/>
 
                 </LinearLayout>
 

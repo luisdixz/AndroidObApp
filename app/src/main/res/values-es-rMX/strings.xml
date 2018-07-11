@@ -36,4 +36,6 @@
     <string name="label_prog_stay">Mismo peso</string>
     <string name="btn_cancel">Cancelar</string>
     <string name="btn_confirm">Confirmar</string>
+    <string name="title_edit_profile">Editar datos del perfil</string>
+    <string name="btn_accept">Aceptar</string>
 </resources>

@@ -3,12 +3,16 @@ package com.diazmain.obapp.Home.Fragments
 import android.graphics.Color
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.diazmain.obapp.Home.HomeActivity
 import com.diazmain.obapp.R
+import com.diazmain.obapp.Threads.UpdateHomeAppointUI
+import com.diazmain.obapp.helper.SharedPrefManager
 import im.dacer.androidcharts.LineView
+import kotlinx.android.synthetic.main.fragment_home_dashboard.*
 import kotlinx.android.synthetic.main.fragment_progress.*
 import java.text.DecimalFormat
 import java.text.NumberFormat
@@ -26,8 +30,13 @@ class ProgressFragment: Fragment() {
         //(activity as HomeActivity).measuresList
 
         //fillGraphExample()
-        fillGraph()
-        updateProgresIndicators()
+        //fillGraph()
+        //updateProgresIndicators()
+        Log.w("Location","onActivityCreated -> ProgressFragment")
+        if (SharedPrefManager.getInstance((activity as HomeActivity).apContext)!!.isMeasuresArrayEmpty())
+            (activity as HomeActivity).getAllFromServer()
+        else
+            (activity as HomeActivity).loadAllFromStorage()
 
     }
 
@@ -71,34 +80,40 @@ class ProgressFragment: Fragment() {
 
     fun updateProgresIndicators() {
 
-        var progPeso: Double = (activity as HomeActivity).measuresList[0].peso.toDouble() - (activity as HomeActivity).measuresList.last().peso.toDouble()
-        var progCint: Double = (activity as HomeActivity).measuresList[0].cintura.toDouble() - (activity as HomeActivity).measuresList.last().cintura.toDouble()
-        var progGras: Double = (activity as HomeActivity).measuresList[0].grasa.toDouble() - (activity as HomeActivity).measuresList.last().grasa.toDouble()
+        if ((activity as HomeActivity).measuresList.size !=0) {
+            var progPeso: Double = (activity as HomeActivity).measuresList[0].peso.toDouble() - (activity as HomeActivity).measuresList.last().peso.toDouble()
+            var progCint: Double = (activity as HomeActivity).measuresList[0].cintura.toDouble() - (activity as HomeActivity).measuresList.last().cintura.toDouble()
+            var progGras: Double = (activity as HomeActivity).measuresList[0].grasa.toDouble() - (activity as HomeActivity).measuresList.last().grasa.toDouble()
 
-        if (progPeso < 0) {
-            progPeso *= -1
-            imProgressWeigthTrend.setBackgroundResource(R.drawable.ic_trending_up)
-        } else {
-            imProgressWeigthTrend.setBackgroundResource(R.drawable.ic_trending_down)
-        }
-        if (progCint < 0) {
-            progCint *= -1
-            imProgressWaistTrend.setBackgroundResource(R.drawable.ic_trending_up)
-        } else {
-            imProgressWaistTrend.setBackgroundResource(R.drawable.ic_trending_down)
-        }
-        if (progGras < 0) {
-            progGras *= -1
-            imProgressFatTrend.setBackgroundResource(R.drawable.ic_trending_up)
-        } else {
-            imProgressFatTrend.setBackgroundResource(R.drawable.ic_trending_down)
+
+
+            if (progPeso < 0) {
+                progPeso *= -1
+                imProgressWeigthTrend.setBackgroundResource(R.drawable.ic_trending_up)
+            } else {
+                imProgressWeigthTrend.setBackgroundResource(R.drawable.ic_trending_down)
+            }
+            if (progCint < 0) {
+                progCint *= -1
+                imProgressWaistTrend.setBackgroundResource(R.drawable.ic_trending_up)
+            } else {
+                imProgressWaistTrend.setBackgroundResource(R.drawable.ic_trending_down)
+            }
+            if (progGras < 0) {
+                progGras *= -1
+                imProgressFatTrend.setBackgroundResource(R.drawable.ic_trending_up)
+            } else {
+                imProgressFatTrend.setBackgroundResource(R.drawable.ic_trending_down)
+            }
+
+            val formater: NumberFormat = DecimalFormat("#0.00")
+
+            tvProgressWeigthPercent.setText(formater.format(progPeso).toString() + getString(R.string.label_kilo))
+            tvProgressWaistPercent.setText(formater.format(progCint).toString() + getString(R.string.label_centimeter))
+            tvProgressFatPercent.setText(formater.format(progGras).toString() + getString(R.string.label_percent))
+
         }
 
-        val formater: NumberFormat = DecimalFormat("#0.00")
-
-        tvProgressWeigthPercent.setText(formater.format(progPeso).toString() + getString(R.string.label_kilo))
-        tvProgressWaistPercent.setText(formater.format(progCint).toString() + getString(R.string.label_centimeter))
-        tvProgressFatPercent.setText(formater.format(progGras).toString() + getString(R.string.label_percent))
     }
 
     fun fillGraphExample() {
@@ -143,4 +158,11 @@ class ProgressFragment: Fragment() {
         line_view.setFloatDataList(data1)
     }
 
+    /*override fun onResume() {
+        super.onResume()
+        UpdateHomeAppointUI((activity as HomeActivity).apContext).execute(
+                llNextAppo,
+                tvAppoDate
+        )
+    }*/
 }
