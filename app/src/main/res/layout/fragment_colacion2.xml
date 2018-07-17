@@ -23,11 +23,45 @@
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"/>
 
-        <CheckBox
-            android:id="@+id/cbc21"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Tunas" />
+            android:text="@string/label_pick_option"
+            android:textColor="@color/black" />
+
+        <Spinner
+            android:id="@+id/spCo2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:padding="@dimen/activity_vertical_margin" />
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/clyCo21"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <CheckBox
+                android:id="@+id/cbc21"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/imbCo21"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/imbCo21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_blue_shape"
+                android:contentDescription="@string/btn_swap_ingredient"
+                android:src="@drawable/ic_swap_vertical_circle"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </android.support.constraint.ConstraintLayout>
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/tilCo2Porcion1"
@@ -40,15 +74,36 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
-                android:hint="Porción"/>
+                android:hint="@string/label_portion"/>
 
         </android.support.design.widget.TextInputLayout>
 
-        <CheckBox
-            android:id="@+id/cbc22"
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/clyCo22"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Zanahoria rallada c/limón y chile" />
+            android:layout_height="wrap_content">
+
+            <CheckBox
+                android:id="@+id/cbc22"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/imbCo22"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/imbCo22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_blue_shape"
+                android:contentDescription="@string/btn_swap_ingredient"
+                android:src="@drawable/ic_swap_vertical_circle"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </android.support.constraint.ConstraintLayout>
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/tilCo2Porcion2"
@@ -61,15 +116,36 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
-                android:hint="Porción"/>
+                android:hint="@string/label_portion"/>
 
         </android.support.design.widget.TextInputLayout>
 
-        <CheckBox
-            android:id="@+id/cbc23"
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/clyCo23"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Almendras" />
+            android:layout_height="wrap_content">
+
+            <CheckBox
+                android:id="@+id/cbc23"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/imbCo23"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/imbCo23"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_blue_shape"
+                android:contentDescription="@string/btn_swap_ingredient"
+                android:src="@drawable/ic_swap_vertical_circle"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </android.support.constraint.ConstraintLayout>
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/tilCo2Porcion3"
@@ -83,7 +159,136 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
-                android:hint="Porción"/>
+                android:hint="@string/label_portion"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/clyCo24"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <CheckBox
+                android:id="@+id/cbc24"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/imbCo24"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/imbCo24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_blue_shape"
+                android:contentDescription="@string/btn_swap_ingredient"
+                android:src="@drawable/ic_swap_vertical_circle"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilCo2Porcion4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_marginBottom="64dp">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/tietCo2Porcion4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="@string/label_portion"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/clyCo25"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <CheckBox
+                android:id="@+id/cbc25"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/imbCo25"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/imbCo25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_blue_shape"
+                android:contentDescription="@string/btn_swap_ingredient"
+                android:src="@drawable/ic_swap_vertical_circle"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilCo2Porcion5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_marginBottom="64dp">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/tietCo2Porcion5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="@string/label_portion"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/clyCo26"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <CheckBox
+                android:id="@+id/cbc26"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/imbCo26"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/imbCo26"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_blue_shape"
+                android:contentDescription="@string/btn_swap_ingredient"
+                android:src="@drawable/ic_swap_vertical_circle"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilCo2Porcion6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_marginBottom="64dp">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/tietCo2Porcion6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="@string/label_portion"/>
 
         </android.support.design.widget.TextInputLayout>
 

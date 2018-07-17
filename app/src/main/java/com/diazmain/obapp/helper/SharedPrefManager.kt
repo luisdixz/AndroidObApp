@@ -6,6 +6,7 @@ import android.util.Log
 import com.diazmain.obapp.Home.model.CitasValue
 import com.diazmain.obapp.Home.model.LastMeasures
 import com.diazmain.obapp.Home.model.MeasuresValue
+import com.diazmain.obapp.Home.model.meals.MealMenuResult
 import com.diazmain.obapp.Login.model.User
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -30,6 +31,8 @@ class SharedPrefManager (private val mCtx: Context) {
         private val KEY_APPOINT_HORA = "keyappointhora"
         private val KEY_APPOINT_FECHA = "keyappointfecha"
         private val KEY_APPOINT_STATUS = "keyappointstatus"
+
+        private val KEY_MEAL_MENU = "keymealmenu"
 
         private var mInstance: SharedPrefManager? = null
 
@@ -117,13 +120,12 @@ class SharedPrefManager (private val mCtx: Context) {
         var measures: List<MeasuresValue> = ArrayList()
         if (!isMeasuresArrayEmpty()) {
             Log.wtf("getAllMeasures -> KeyContent", sPref.getString(KEY_MEASURES_HISTORY, null))
+
             var response: String = sPref.getString(KEY_MEASURES_HISTORY,null)
             val type: Type = object: TypeToken<List<MeasuresValue>>(){}.type
 
             measures = gson.fromJson(response, type)
-
         }
-
         return measures
     }
 
@@ -163,7 +165,7 @@ class SharedPrefManager (private val mCtx: Context) {
             val sPref: SharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
             val editor: SharedPreferences.Editor = sPref.edit()
 
-            if (sPref.getInt(KEY_APPOINT_STATUS, 0) != 2) {
+            if (sPref.getInt(KEY_APPOINT_STATUS, 0) != 1) {
                 editor.putInt(KEY_APPOINT_ID, cita.idCita)
                 editor.putString(KEY_APPOINT_TIPO, cita.tipoCita)
                 editor.putString(KEY_APPOINT_HORA, cita.hora)
@@ -218,6 +220,33 @@ class SharedPrefManager (private val mCtx: Context) {
         val sPref: SharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
 
         return sPref.getInt(KEY_APPOINT_STATUS, 0)
+    }
+
+    fun storeMealsMenu(menu: MealMenuResult) {
+        val sPref: SharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
+        val editor: SharedPreferences.Editor = sPref.edit()
+
+        val gson: Gson = Gson()
+        val json: String = gson.toJson(menu)
+
+        editor.putString(KEY_MEAL_MENU, json)
+        editor.apply()
+
+    }
+
+    fun isMenuStored(): Boolean {
+        val sPref: SharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
+
+        return !sPref.getString(KEY_MEAL_MENU, "").equals("")
+    }
+
+    fun getMealsMenu(): MealMenuResult {
+        val sPref: SharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
+
+        val gson: Gson = Gson()
+        val result: String = sPref.getString(KEY_MEAL_MENU, "")
+
+        return gson.fromJson(result, MealMenuResult::class.java)
     }
 
 }

@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.diazmain.obapp.Home.model.CitasValue
+import com.diazmain.obapp.Notification.JobsManager
 import com.diazmain.obapp.R
 import com.diazmain.obapp.helper.SharedPrefManager
 import java.util.*
@@ -47,40 +48,40 @@ class UpdateHomeAppointUI(_context: Context) : AsyncTask<View, Void, CitasValue>
             0 -> {
                 llNextAppo.visibility = View.GONE
                 tvAppoDate.setText(context.getString(R.string.label_next_appointment_default))
+
+                JobsManager(context).scheduleJob(0)
             }
             1 -> {
-                llNextAppo.visibility = View.VISIBLE
-                val date: String = cita.fecha +" - a las "+cita.hora+" hrs"
-                tvAppoDate.setText(date)
+                if (isApponitOutdate(cita)) {
+                    tvAppoDate.setText(context.getString(R.string.label_next_appointment_default))
+
+                    JobsManager(context).scheduleJob(1)
+
+                } else {
+                    llNextAppo.visibility = View.VISIBLE
+                    val date: String = cita.fecha +" - a las "+cita.hora+" hrs"
+                    tvAppoDate.setText(date)
+
+                    JobsManager(context).scheduleJob(1)
+
+                }
             }
             2 -> {
                 llNextAppo.visibility = View.GONE
                 if (isApponitOutdate(cita)) {
                     tvAppoDate.setText(context.getString(R.string.label_next_appointment_default))
+
+                    JobsManager(context).scheduleJob(2)
                 } else {
-                    tvAppoDate.setText("Completa el formulario")
+                    val date: String = cita.fecha +" - a las "+cita.hora+" hrs"
+                    tvAppoDate.setText(date +"\nCompleta el formulario de 24hrs antes de tu cita ")
+
+                    //JobsManager(context).cancelJobs()
+                    JobsManager(context).scheduleJob(0)
+
                 }
             }
         }
-        /*val currentTime = Calendar.getInstance().time
-
-        val timeFormat = SimpleDateFormat("HH:mm:ss")
-        val dateFormat = SimpleDateFormat("yyyy-MM-dd")
-
-        val date: Date = dateFormat.parse(cita.fecha)
-        val time: Date = timeFormat.parse(cita.hora)
-
-        //Log.w("currentTime.after", "currentTime.after -> " + currentTime.after(date))
-        //Log.w("currentTime.after", "currentTime.after -> " + currentTime.after(time))
-        //Log.w("currentTime", currentTime.toString())
-        Log.w("currentTime", System.currentTimeMillis().toString())
-        Log.w("date", date.toString())
-        Log.w("time", time.toString())
- ,
-        // true = la fecha proporcionada pasado con respecto a la actualidad
-        Log.w("currentTime > date", (System.currentTimeMillis() > date.time).toString() )
-        Log.w("currentTime > date", (System.currentTimeMillis() > time.time).toString() )*/
-
 
     }
 
@@ -97,4 +98,13 @@ class UpdateHomeAppointUI(_context: Context) : AsyncTask<View, Void, CitasValue>
         return (System.currentTimeMillis() > date.time) && (System.currentTimeMillis() > time.time)
     }
 
+    fun getHour(cita: CitasValue) : Int {
+        val hourFormat = SimpleDateFormat("HH")
+        return Integer.parseInt(hourFormat.parse(cita.hora).toString())
+    }
+
+    fun getMin(cita: CitasValue) : Int {
+        val minFormat = SimpleDateFormat("mm")
+        return Integer.parseInt(minFormat.parse(cita.hora).toString())
+    }
 }

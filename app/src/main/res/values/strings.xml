@@ -11,6 +11,7 @@
 
     <string name="title_login">Log In</string>
     <string name="title_edit_profile">Edit profile data</string>
+    <string name="title_attention">Attention</string>
 
     <string name="hint_username">username</string>
     <string name="hint_password">password</string>
@@ -27,6 +28,7 @@
     <string name="btn_cancel">Cancel</string>
     <string name="btn_confirm">Confirm</string>
     <string name="btn_accept">Accept</string>
+    <string name="btn_swap_ingredient">Swap Ingredient</string>
 
     <string name="action_logout">Log out</string>
     <string name="action_refresh">Refresh data</string>
@@ -41,13 +43,36 @@
     <string name="label_centimeter" translatable="false">cm</string>
     <string name="label_kilo" translatable="false">kg</string>
     <string name="label_prog_anuncio_default">No data</string>
-    <string name="label_prog_up">you went up </string>
-    <string name="label_prog_down">you went down </string>
-    <string name="label_prog_stay">you kept your </string>
+    <string name="label_prog_up">You went up </string>
+    <string name="label_prog_down">You went down </string>
+    <string name="label_prog_stay">Without changes</string>
+    <string name="label_confirm_logout">Are you sure that you want to logout?</string>
+    <string name="label_portion">Portion</string>
+    <string name="label_title_1S">Fruits</string>
+    <string name="label_title_2S">Nuts and seeds</string>
+    <string name="label_title_3S">Foods of animal origin (meats)</string>
+    <string name="label_dialogContent_default">You can change one of the ingredients of this food for any of the following</string>
+    <string name="label_dialogContent_default1">You can change one of the ingredients of this food for any of the following</string>
+    <string name="label_dialogContent_default2">You can change one of the ingredients of this food for any of the following</string>
+    <string name="label_pick_option">Pick an option:</string>
+
+    <string name="info_unknown_error_meals">Something wrong happened, refresh the screen</string>
 
     <string name="validate_empty">Empty field</string>
 
+    <string name="notification_title_confirm_appoint">New appointment incoming</string>
+    <string name="notification_defaultTo_content_confirm_appoint">You have a new appointment scheduled on </string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    
+    
+    <string-array name="meal_options">
+        <item>Option 1</item>
+        <item>Option 2</item>
+        <item>Option 3</item>
+        <item>Option 4</item>
+        <item>Option 5</item>
+    </string-array>
 
 </resources>

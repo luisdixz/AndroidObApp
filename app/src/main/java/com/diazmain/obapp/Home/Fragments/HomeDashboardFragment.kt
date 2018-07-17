@@ -60,7 +60,11 @@ class HomeDashboardFragment: Fragment(), View.OnClickListener {
         if (v == cvNextAppo) {
             //Checar el status de la cita
             if (SharedPrefManager.getInstance((activity as HomeActivity).apContext)?.getAppointStatus() == 2) {
-                startActivity(Intent(activity, ReminderActivity::class.java))
+
+                if (SharedPrefManager.getInstance((activity as HomeActivity).apContext)?.isMenuStored()!!)
+                    startActivity(Intent(activity, ReminderActivity::class.java))
+                else
+                    Snackbar.make(activity_home, R.string.info_unknown_error_meals, Snackbar.LENGTH_SHORT).show()
             }
         } else if (v == btnCancelAppo) {
             //Enviar request para cancelar cita
@@ -150,14 +154,19 @@ class HomeDashboardFragment: Fragment(), View.OnClickListener {
 
         call.enqueue(object : Callback<GenericResult> {
             override fun onFailure(call: Call<GenericResult>?, t: Throwable?) {
-                Toast.makeText((activity as HomeActivity).apContext, "Error: no se pudo confirmar la cita, intente de nuevo", Toast.LENGTH_SHORT)
+                Snackbar.make(activity_home, "Error: no se pudo confirmar la cita, intente de nuevo", Snackbar.LENGTH_SHORT).show()
             }
 
             override fun onResponse(call: Call<GenericResult>?, response: Response<GenericResult>?) {
                 Log.w("Location", "onResponse -> HomeDashboardFragment")
                 Log.w("Response message", response?.body()?.message)
                 SharedPrefManager.getInstance((activity as HomeActivity))!!.setAppointStatus(2)
-                startActivity(Intent(activity, ReminderActivity::class.java))
+
+                if (SharedPrefManager.getInstance((activity as HomeActivity).apContext)?.isMenuStored()!!)
+                    startActivity(Intent(activity, ReminderActivity::class.java))
+                else
+                    Snackbar.make(activity_home, R.string.info_unknown_error_meals, Snackbar.LENGTH_SHORT).show()
+
                 llNextAppo.visibility = View.GONE
             }
         })

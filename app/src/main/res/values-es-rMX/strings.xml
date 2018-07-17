@@ -33,9 +33,32 @@
     <string name="validate_empty">Campo vacío</string>
     <string name="action_refresh">Actualizar datos</string>
     <string name="action_refreshing">Obteniendo datos del servidor</string>
-    <string name="label_prog_stay">Mismo peso</string>
+    <string name="label_prog_stay">Sin cambios</string>
     <string name="btn_cancel">Cancelar</string>
     <string name="btn_confirm">Confirmar</string>
     <string name="title_edit_profile">Editar datos del perfil</string>
     <string name="btn_accept">Aceptar</string>
+    <string name="notification_title_confirm_appoint">Nueva cita</string>
+    <string name="notification_defaultTo_content_confirm_appoint">"Tienes una nueva cita programada para el dia "</string>
+    <string name="title_attention">Atención</string>
+    <string name="label_confirm_logout">¿Estas seguro que deseas cerrar sesión?</string>
+    <string name="info_unknown_error_meals">Error, intente refrescar la pantalla para llenar formulario</string>
+    <string name="btn_swap_ingredient">Cambiar ingrediente</string>
+    <string name="label_portion">Porción</string>
+
+
+    <string-array name="meal_options">
+        <item>Opción 1</item>
+        <item>Opción 2</item>
+        <item>Opción 3</item>
+        <item>Opción 4</item>
+        <item>Opción 5</item>
+    </string-array>
+    <string name="label_title_1S">Frutas</string>
+    <string name="label_title_2S">Frutos secos y semillas</string>
+    <string name="label_title_3S">Alimentos de origen animal (carnes)</string>
+    <string name="label_dialogContent_default2">Puedes cambiar uno de los ingredientes de este alimento por cualquier de los siguientes</string>
+    <string name="label_dialogContent_default1">Puedes cambiar uno de los ingredientes de este alimento por cualquier de las siguientes</string>
+    <string name="label_dialogContent_default">Puedes cambiar uno de los ingredientes de este alimento por cualquier de las siguientes opciones</string>
+    <string name="label_pick_option">Selecciona una opción</string>
 </resources>

@@ -4,6 +4,7 @@ import com.diazmain.obapp.Home.model.Citas
 import com.diazmain.obapp.Home.model.CitasValue
 import com.diazmain.obapp.Home.model.GenericResult
 import com.diazmain.obapp.Home.model.MeasuresResult
+import com.diazmain.obapp.Home.model.meals.MealMenuResult
 import com.diazmain.obapp.Login.model.Result
 import com.diazmain.obapp.Reminder.Pojo.Recordatorio
 import retrofit2.Call
@@ -51,12 +52,13 @@ interface APIService {
             @Field("status") status: Int
     ) : Call<GenericResult>
 
-    //TODO éstos request no se han implementado en el proyecto
+    @FormUrlEncoded
     @POST("meals/get")
     fun getMeals(
+            @Field("id") id: Int
+    ): Call<MealMenuResult>
 
-    )
-
+    //TODO éstos request no se han implementado en el proyecto
     @GET("measures/get/{id},{month}")
     fun getLastMeasures(
             @Path("id") id: Int,

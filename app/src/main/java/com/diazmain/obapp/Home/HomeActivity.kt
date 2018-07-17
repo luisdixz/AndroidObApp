@@ -1,6 +1,7 @@
 package com.diazmain.obapp.Home
 
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -28,7 +29,11 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.net.SocketTimeoutException
 import android.net.ConnectivityManager
 import android.os.AsyncTask
+import android.support.v7.app.AlertDialog
+import android.widget.Toast
 import com.diazmain.obapp.Home.model.*
+import com.diazmain.obapp.Home.model.meals.MealMenuResult
+import com.diazmain.obapp.Notification.JobsManager
 import com.diazmain.obapp.Threads.*
 import com.diazmain.obapp.Threads.HomeThreadSaversManager.AsyncResponse
 import kotlinx.android.synthetic.main.fragment_progress.*
@@ -43,6 +48,7 @@ class HomeActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
     internal var measuresList: List<MeasuresValue> = ArrayList()
     internal lateinit var incomingAppoint: CitasValue
     internal val apContext: Context = this
+
 
     internal var USER_ID: Int = 0
     lateinit var USER_NAME: String
@@ -120,9 +126,21 @@ class HomeActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
         // as you specify a parent activity in AndroidManifest.xml.
         when (item.itemId) {
             R.id.action_logout -> {
-                finish()
-                startActivity(Intent(apContext, SplashScreen::class.java))
-                return SharedPrefManager.getInstance(apContext)?.logout()!!
+                var ret: Boolean = false
+                val alBuilder: AlertDialog.Builder = AlertDialog.Builder(apContext)
+                        .setTitle(getString(R.string.title_attention))
+                        .setMessage(getString(R.string.label_confirm_logout))
+                        .setPositiveButton(getString(R.string.btn_accept), DialogInterface.OnClickListener() {
+                            dialog, which ->
+                            JobsManager(apContext).cancelJobs()
+                            finish()
+                            startActivity(Intent(apContext, SplashScreen::class.java))
+                            ret = SharedPrefManager.getInstance(apContext)?.logout()!!
+                        })
+                        .setNegativeButton(getString(R.string.btn_cancel), null)
+                val alert: AlertDialog = alBuilder.create()
+                alert.show()
+                return ret
             }
             R.id.action_refresh -> {
                 try {
@@ -143,12 +161,13 @@ class HomeActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
                 if (internet) {
                     getMeasuresFromServer()
                     getAppointFromServer()
+                    getMealsMenuFromServer()
                 }
             }
         }
     }
 
-    fun getMeasuresFromServer() {
+    private fun getMeasuresFromServer() {
         Log.w("USER_ID", USER_ID.toString())
 
         measuresList = ArrayList()
@@ -286,6 +305,60 @@ class HomeActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
                     }
                 }*/
             }
+        })
+    }
+
+    internal fun getMealsMenuFromServer() {
+        val interceptor: HttpLoggingInterceptor = HttpLoggingInterceptor()
+        interceptor.level = HttpLoggingInterceptor.Level.BODY
+        val client: OkHttpClient = OkHttpClient.Builder().addInterceptor(interceptor).build()
+
+        val retrofit: Retrofit = Retrofit.Builder()
+                .baseUrl(APIUrl.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(client)
+                .build()
+
+        val service: APIService = retrofit.create(APIService::class.java)
+        val call: Call<MealMenuResult> = service.getMeals(USER_ID)
+        call.enqueue(object: Callback<MealMenuResult> {
+            override fun onFailure(call: Call<MealMenuResult>?, t: Throwable?) {
+                Log.w("throwable -> MealMenu", t.toString())
+                //Toast.makeText(apContext, t.toString(), Toast.LENGTH_LONG).show()
+            }
+
+            override fun onResponse(call: Call<MealMenuResult>?, response: Response<MealMenuResult>) {
+                //Toast.makeText(apContext, response!!.body().menuCal.desayuno.op1[0].alimento, Toast.LENGTH_LONG).show()
+                //Log.w("Response -> MealMenu", response!!.body().menuCal.desayuno.op1[0].cambio.cambioTres.size.toString())
+                /*Log.w("Desayuno -> op1" , response.body().menuCal.desayuno.op1.size.toString())
+                Log.w("Desayuno -> op2" , response.body().menuCal.desayuno.op2.size.toString())
+                Log.w("Desayuno -> op3" , response.body().menuCal.desayuno.op3.size.toString())
+                Log.w("Desayuno -> op4" , response.body().menuCal.desayuno.op4.size.toString())
+                Log.w("Desayuno -> op5" , response.body().menuCal.desayuno.op5.size.toString())
+                Log.w("Colación1 -> op1" , response.body().menuCal.colacion1.op1.size.toString())
+                Log.w("Colación1 -> op2" , response.body().menuCal.colacion1.op2.size.toString())
+                Log.w("Colación1 -> op3" , response.body().menuCal.colacion1.op3.size.toString())
+                Log.w("Colación1 -> op4" , response.body().menuCal.colacion1.op4.size.toString())
+                Log.w("Colación1 -> op5" , response.body().menuCal.colacion1.op5.size.toString())
+                Log.w("Comida -> op1" , response.body().menuCal.comida.op1.size.toString())
+                Log.w("Comida -> op2" , response.body().menuCal.comida.op2.size.toString())
+                Log.w("Comida -> op3" , response.body().menuCal.comida.op3.size.toString())
+                Log.w("Comida -> op4" , response.body().menuCal.comida.op4.size.toString())
+                Log.w("Comida -> op5" , response.body().menuCal.comida.op5.size.toString())
+                Log.w("Colación2 -> op1" , response.body().menuCal.colacion2.op1.size.toString())
+                Log.w("Colación2 -> op2" , response.body().menuCal.colacion2.op2.size.toString())
+                Log.w("Colación2 -> op3" , response.body().menuCal.colacion2.op3.size.toString())
+                Log.w("Colación2 -> op4" , response.body().menuCal.colacion2.op4.size.toString())
+                Log.w("Colación2 -> op5" , response.body().menuCal.colacion2.op5.size.toString())
+                Log.w("Cena -> op1" , response.body().menuCal.cena.op1.size.toString())
+                Log.w("Cena -> op2" , response.body().menuCal.cena.op2.size.toString())
+                Log.w("Cena -> op3" , response.body().menuCal.cena.op3.size.toString())
+                Log.w("Cena -> op4" , response.body().menuCal.cena.op4.size.toString())
+                Log.w("Cena -> op5" , response.body().menuCal.cena.op5.size.toString())*/
+                SharedPrefManager.getInstance(apContext)!!.storeMealsMenu(response.body())
+
+            }
+
         })
     }
 
