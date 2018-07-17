@@ -33,6 +33,7 @@ import android.support.v7.app.AlertDialog
 import android.widget.Toast
 import com.diazmain.obapp.Home.model.*
 import com.diazmain.obapp.Home.model.meals.MealMenuResult
+import com.diazmain.obapp.Login.AlternativeLoginActivity
 import com.diazmain.obapp.Notification.JobsManager
 import com.diazmain.obapp.Threads.*
 import com.diazmain.obapp.Threads.HomeThreadSaversManager.AsyncResponse
@@ -80,7 +81,7 @@ class HomeActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
 
         if (!SharedPrefManager.getInstance(apContext)?.isLoggedIn()!!) {
             finish()
-            startActivity(Intent(this, SplashScreen::class.java))
+            startActivity(Intent(this, AlternativeLoginActivity::class.java))
         }
 
         bottMenu.setOnNavigationItemSelectedListener {
@@ -134,7 +135,7 @@ class HomeActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
                             dialog, which ->
                             JobsManager(apContext).cancelJobs()
                             finish()
-                            startActivity(Intent(apContext, SplashScreen::class.java))
+                            startActivity(Intent(apContext, AlternativeLoginActivity::class.java))
                             ret = SharedPrefManager.getInstance(apContext)?.logout()!!
                         })
                         .setNegativeButton(getString(R.string.btn_cancel), null)

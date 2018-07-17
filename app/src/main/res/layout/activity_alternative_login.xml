@@ -2,81 +2,156 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_alternative_login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AlternativeLoginActivity"
-    android:background="@color/colorPrimaryDark"
-    android:padding="@dimen/activity_vertical_margin">
+    android:background="@color/dark_green"
+    tools:context=".Login.AlternativeLoginActivity">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/civLogoImss"
-        android:layout_width="144dp"
-        android:layout_height="144dp"
-        android:layout_alignParentTop="true"
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="36dp"
+        android:contentDescription="@string/notification_defaultTo_content_confirm_appoint"
         android:scaleType="centerCrop"
-        android:src="@drawable/logo_imss_large"
-        app:civ_border_color="@color/white"
-        app:civ_border_width="2dp"
-        app:civ_circle_background_color="@color/white"/>
+        app:srcCompat="@drawable/fruits_material" />
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/cvLogin"
+    <ScrollView
+        android:id="@+id/scLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/civLogoImss"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:elevation="@dimen/cardview_default_elevation">
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="@dimen/activity_vertical_margin">
+            android:layout_height="wrap_content">
 
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/tilUsername"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/civLogoImss"
+                android:layout_width="144dp"
+                android:layout_height="144dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="36dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/logo_imss_large"
+                app:civ_border_color="@color/white"
+                app:civ_border_width="2dp"
+                app:civ_circle_background_color="@color/white" />
 
-                <android.support.design.widget.TextInputEditText
-                    android:id="@+id/tietUsername"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/hint_username"
-                    android:inputType="text" />
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/tilPass"
+            <TextView
+                android:id="@+id/tvTitleSignIn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:passwordToggleEnabled="true">
+                android:layout_marginTop="16dp"
+                android:layout_below="@id/civLogoImss"
+                android:text="Unidad de Investigación Biomédica"
+                android:textAlignment="center"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:textColor="@color/white" />
 
-                <android.support.design.widget.TextInputEditText
-                    android:id="@+id/tietPass"
+            <android.support.v7.widget.CardView
+                android:id="@+id/cvLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvTitleSignIn"
+                android:layout_centerHorizontal="true"
+                android:layout_marginEnd="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="36dp"
+                android:elevation="@dimen/cardview_default_elevation">
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/hint_password"
-                    android:inputType="textPassword"/>
-            </android.support.design.widget.TextInputLayout>
-        </LinearLayout>
-    </android.support.v7.widget.CardView>
+                    android:orientation="vertical"
+                    android:padding="@dimen/activity_vertical_margin">
 
-    <Button
-        android:id="@+id/btnSignIn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/cvLogin"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="36dp"
-        android:background="@drawable/button_accent_color_shape"
-        android:text="@string/btn_sign_in"
-        android:textColor="@color/white"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/btn_sign_in"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="24sp" />
 
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/tilUsername"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/activity_vertical_margin">
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/tietUsername"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/ic_account_circle"
+                            android:drawablePadding="@dimen/activity_vertical_margin"
+                            android:drawableTint="@color/colorAccent"
+                            android:hint="@string/hint_username"
+                            android:inputType="text" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/tilPass"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/activity_vertical_margin"
+                        app:passwordToggleEnabled="true">
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/tietPass"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="@dimen/activity_vertical_margin"
+                            android:drawableStart="@drawable/ic_https"
+                            android:drawableTint="@color/colorAccent"
+                            android:hint="@string/hint_password"
+                            android:inputType="textPassword" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <top.defaults.view.TextButton
+                        android:id="@+id/tbPassForgotten"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="12dp"
+                        android:drawablePadding="@dimen/activity_vertical_margin"
+                        android:drawableStart="@drawable/ic_info"
+                        android:drawableTint="@color/colorPrimaryDark"
+                        android:text="@string/label_forgotten_pass"
+                        android:textStyle="italic"
+                        android:textColor="@color/colorPrimaryDark"
+                        app:backgroundEffect="ripple"
+                        app:effectDuration="200"
+                        app:textEffect="animateColor"
+                        app:underline="true" />
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <Button
+                android:id="@+id/btnSignIn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/cvLogin"
+                android:layout_marginEnd="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="36dp"
+                android:layout_marginBottom="36dp"
+                android:background="@drawable/button_accent_color_shape"
+                android:text="@string/btn_sign_in"
+                android:textColor="@color/white" />
+
+            <ProgressBar
+                android:id="@+id/pbSignIn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+    </ScrollView>
 </RelativeLayout>

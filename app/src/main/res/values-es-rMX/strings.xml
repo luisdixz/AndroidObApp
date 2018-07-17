@@ -61,4 +61,7 @@
     <string name="label_dialogContent_default1">Puedes cambiar uno de los ingredientes de este alimento por cualquier de las siguientes</string>
     <string name="label_dialogContent_default">Puedes cambiar uno de los ingredientes de este alimento por cualquier de las siguientes opciones</string>
     <string name="label_pick_option">Selecciona una opción</string>
+    <string name="label_wrong_login">Nombre de usuario o contraseña incorrectas</string>
+    <string name="label_connection_failure">Error al conectarse al servidor, cheque la conexión a internet</string>
+    <string name="label_forgotten_pass">Olvidé mi contraseña...</string>
 </resources>
