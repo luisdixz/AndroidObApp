@@ -23,7 +23,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Medidas por cita"
+            android:text="@string/label_title_measures"
             android:textAlignment="center"
             android:textSize="24sp"
             android:textColor="@color/black"
@@ -32,7 +32,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Peso"
+            android:text="@string/label_weight"
             android:textColor="@color/black"
             android:drawableLeft="@drawable/ic_brightness"
             android:drawableTint="@color/black"
@@ -41,7 +41,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cintura"
+            android:text="@string/label_waist"
             android:textColor="@color/black"
             android:drawableLeft="@drawable/ic_brightness"
             android:drawableTint="@color/red"
@@ -50,7 +50,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Porcentaje de grasa"
+            android:text="@string/label_fat_average_complete"
             android:textColor="@color/black"
             android:drawableLeft="@drawable/ic_brightness"
             android:drawableTint="@color/lightBlue"
@@ -65,7 +65,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Progreso"
+            android:text="@string/tab_progress"
             android:textAlignment="center"
             android:textSize="24sp"
             android:textColor="@color/black"
@@ -74,7 +74,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="(Aumento/Decremento desde la primera medida)"
+            android:text="@string/label_subtitle_progress_example"
             android:textAlignment="center"
             android:textSize="16sp"
             android:textColor="@color/black"
@@ -99,7 +99,7 @@
                     android:id="@+id/tvProgressWeightLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Peso"
+                    android:text="@string/label_weight"
                     android:textColor="@color/black"
                     android:textSize="24sp" />
 
@@ -147,7 +147,7 @@
                     android:id="@+id/tvProgressWaistLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Cintura"
+                    android:text="@string/label_waist"
                     android:textColor="@color/black"
                     android:textSize="24sp" />
 
@@ -196,8 +196,11 @@
                     android:id="@+id/tvProgressFatLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Porcentaje de grasa"
+                    android:text="@string/label_fat_average_complete"
                     android:textColor="@color/black"
+                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/tvProgressFatPercent"
+                    android:layout_marginEnd="@dimen/activity_vertical_margin"
                     android:textSize="22sp" />
 
                 <TextView

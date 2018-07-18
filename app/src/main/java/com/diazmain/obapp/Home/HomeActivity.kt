@@ -163,6 +163,8 @@ class HomeActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
                     getMeasuresFromServer()
                     getAppointFromServer()
                     getMealsMenuFromServer()
+                }else {
+                    Snackbar.make(activity_home, getString(R.string.notification_unstable_connection), Snackbar.LENGTH_LONG).show()
                 }
             }
         }
@@ -218,9 +220,9 @@ class HomeActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
             override fun onFailure(call: Call<MeasuresResult>?, t: Throwable?) {
                 Log.wtf("onFailure -> getMeasuresFromServer()", t.toString())
                 if (t is SocketTimeoutException) {
-                    Snackbar.make(activity_home, "Error de conexión: Conexión lenta", Snackbar.LENGTH_LONG).show()
+                    Snackbar.make(activity_home, getString(R.string.label_connection_failure), Snackbar.LENGTH_LONG).show()
                 } else {
-                    Snackbar.make(activity_home, "Error al obtener datos del servidor", Snackbar.LENGTH_LONG).show()
+                    Snackbar.make(activity_home, getString(R.string.notification_error_fetch), Snackbar.LENGTH_LONG).show()
                 }
                 cvRefreshing.visibility = View.GONE
             }
@@ -250,7 +252,10 @@ class HomeActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
                             tvPreviousFat,
                             tvNextWeight,
                             tvNextWaist,
-                            tvNextFat
+                            tvNextFat,
+                            imWeightState,
+                            imWaistState,
+                            imFatState
                     )
                     UpdateProgressUI(apContext, measuresList).execute(
                             line_view,
@@ -286,6 +291,7 @@ class HomeActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
         call.enqueue(object : Callback<Citas> {
             override fun onFailure(call: Call<Citas>?, t: Throwable?) {
                 Log.wtf("onFailure -> SaveIncomingAppoint", t.toString())
+                Snackbar.make(activity_home, getString(R.string.notification_error_fetch), Snackbar.LENGTH_LONG).show()
             }
 
             override fun onResponse(call: Call<Citas>?, response: Response<Citas>?) {
@@ -326,6 +332,7 @@ class HomeActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
             override fun onFailure(call: Call<MealMenuResult>?, t: Throwable?) {
                 Log.w("throwable -> MealMenu", t.toString())
                 //Toast.makeText(apContext, t.toString(), Toast.LENGTH_LONG).show()
+                Snackbar.make(activity_home, getString(R.string.notification_error_fetch), Snackbar.LENGTH_LONG).show()
             }
 
             override fun onResponse(call: Call<MealMenuResult>?, response: Response<MealMenuResult>) {
@@ -385,7 +392,10 @@ class HomeActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
                     tvPreviousFat,
                     tvNextWeight,
                     tvNextWaist,
-                    tvNextFat
+                    tvNextFat,
+                    imWeightState,
+                    imWaistState,
+                    imFatState
             )
             UpdateProgressUI(apContext, measuresList).execute(
                     line_view,

@@ -117,7 +117,7 @@ class HomeDashboardFragment: Fragment(), View.OnClickListener {
 
         call.enqueue(object : Callback<GenericResult> {
             override fun onFailure(call: Call<GenericResult>?, t: Throwable?) {
-                Toast.makeText((activity as HomeActivity).apContext, "Error: no se pudo cancelar la cita, intente de nuevo", Toast.LENGTH_SHORT)
+                Snackbar.make(activity_home, getString(R.string.notification_appoint_cancel_error), Snackbar.LENGTH_SHORT).show()
             }
 
             override fun onResponse(call: Call<GenericResult>?, response: Response<GenericResult>?) {
@@ -154,7 +154,7 @@ class HomeDashboardFragment: Fragment(), View.OnClickListener {
 
         call.enqueue(object : Callback<GenericResult> {
             override fun onFailure(call: Call<GenericResult>?, t: Throwable?) {
-                Snackbar.make(activity_home, "Error: no se pudo confirmar la cita, intente de nuevo", Snackbar.LENGTH_SHORT).show()
+                Snackbar.make(activity_home, getString(R.string.notification_appoint_confirm_error), Snackbar.LENGTH_SHORT).show()
             }
 
             override fun onResponse(call: Call<GenericResult>?, response: Response<GenericResult>?) {

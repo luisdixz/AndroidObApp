@@ -311,7 +311,7 @@
                     android:id="@+id/tietComTime"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Hora de la comida"
+                    android:hint="@string/label_time_lunch_hint"
                     android:inputType="time" />
 
             </android.support.design.widget.TextInputLayout>

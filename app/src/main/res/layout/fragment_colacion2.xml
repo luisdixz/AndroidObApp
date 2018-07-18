@@ -314,7 +314,7 @@
                     android:id="@+id/tietCo2Time"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Hora de la segunda colación"
+                    android:hint="@string/label_time_collation_hint"
                     android:inputType="time" />
 
             </android.support.design.widget.TextInputLayout>

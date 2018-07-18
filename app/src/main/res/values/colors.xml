@@ -26,5 +26,6 @@
     <color name="dark_red">#BB1111</color>
     <color name="magenta">#FF3190</color>
     <color name="dark_green">#005662</color>
+    <color name="dark_success_green">#00A642</color>
 
 </resources>

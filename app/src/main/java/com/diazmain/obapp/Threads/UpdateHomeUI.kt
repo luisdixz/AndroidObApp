@@ -44,6 +44,13 @@ class UpdateHomeUI(_apContext: Context) : AsyncTask<View, Void, LastMeasures>() 
     @SuppressLint("StaticFieldLeak")
     lateinit var tvNextFat: TextView
 
+    @SuppressLint("StaticFieldLeak")
+    lateinit var imWeightState: ImageView
+    @SuppressLint("StaticFieldLeak")
+    lateinit var imWaistState: ImageView
+    @SuppressLint("StaticFieldLeak")
+    lateinit var imFatState: ImageView
+
     override fun doInBackground(vararg params: View?): LastMeasures {
         tvResWeight = params[0] as TextView
         tvResWaist = params[1] as TextView
@@ -59,6 +66,10 @@ class UpdateHomeUI(_apContext: Context) : AsyncTask<View, Void, LastMeasures>() 
         tvNextWeight = params[9] as TextView
         tvNextWaist = params[10] as TextView
         tvNextFat = params[11] as TextView
+
+        imWeightState = params[12] as ImageView
+        imWaistState = params[13] as ImageView
+        imFatState = params[14] as ImageView
 
         return SharedPrefManager.getInstance(apContext)!!.getLastMeasures()
     }
@@ -100,42 +111,51 @@ class UpdateHomeUI(_apContext: Context) : AsyncTask<View, Void, LastMeasures>() 
                     result.lastMonth.cintura < result.currentMonth.cintura -> {
                         tvResWaist.setText(apContext.getString(R.string.label_prog_up))
                         imWaistLittleProgress.setBackgroundResource(R.drawable.icono_subida)
+                        imWaistState.setBackgroundResource(R.drawable.official_sad)
                     }
                     result.lastMonth.cintura > result.currentMonth.cintura -> {
                         tvResWaist.setText(apContext.getString(R.string.label_prog_down))
                         imWaistLittleProgress.setBackgroundResource(R.drawable.icono_bajada)
+                        imWaistState.setBackgroundResource(R.drawable.official_smiley)
                     }
                     else -> {
                         tvResWaist.setText(apContext.getString(R.string.label_prog_stay))
                         imWaistLittleProgress.setBackgroundResource(R.drawable.icono_bajada)
+                        imWaistState.setBackgroundResource(R.drawable.official_smiley)
                     }
                 }
                 when {
                     result.lastMonth.peso < result.currentMonth.peso -> {
                         tvResWeight.setText(apContext.getString(R.string.label_prog_up))
                         imWeightLittleProgress.setBackgroundResource(R.drawable.icono_subida)
+                        imWeightState.setBackgroundResource(R.drawable.official_sad)
                     }
                     result.lastMonth.peso > result.currentMonth.peso -> {
                         tvResWeight.setText(apContext.getString(R.string.label_prog_down))
                         imWeightLittleProgress.setBackgroundResource(R.drawable.icono_bajada)
+                        imWeightState.setBackgroundResource(R.drawable.official_smiley)
                     }
                     else -> {
                         tvResWeight.setText(apContext.getString(R.string.label_prog_stay))
                         imWeightLittleProgress.setBackgroundResource(R.drawable.icono_bajada)
+                        imWeightState.setBackgroundResource(R.drawable.official_smiley)
                     }
                 }
                 when {
                     result.lastMonth.grasa < result.currentMonth.grasa -> {
                         tvResFat.setText(apContext.getString(R.string.label_prog_up))
                         imFatLittleProgress.setBackgroundResource(R.drawable.icono_subida)
+                        imFatState.setBackgroundResource(R.drawable.official_sad)
                     }
                     result.lastMonth.grasa > result.currentMonth.grasa -> {
                         tvResFat.setText(apContext.getString(R.string.label_prog_down))
                         imFatLittleProgress.setBackgroundResource(R.drawable.icono_bajada)
+                        imFatState.setBackgroundResource(R.drawable.official_smiley)
                     }
                     else -> {
                         tvResFat.setText(apContext.getString(R.string.label_prog_stay))
                         imFatLittleProgress.setBackgroundResource(R.drawable.icono_bajada)
+                        imFatState.setBackgroundResource(R.drawable.official_smiley)
                     }
                 }
             }

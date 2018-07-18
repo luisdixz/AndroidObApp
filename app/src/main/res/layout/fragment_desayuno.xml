@@ -310,7 +310,7 @@
                     android:id="@+id/tietDesTime"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Hora del desayuno"
+                    android:hint="@string/label_time_breakfast_hint"
                     android:inputType="time" />
 
             </android.support.design.widget.TextInputLayout>

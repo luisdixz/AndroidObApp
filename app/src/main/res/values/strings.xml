@@ -4,7 +4,7 @@
     <string name="tab_progress">Progress</string>
     <string name="tab_profile">Profile</string>
     <string name="tab_breakfast">Breakfast</string>
-    <string name="tab_lunch">Lunch</string>
+    <string name="tab_lunch">Meal</string>
     <string name="tab_dinner">Dinner</string>
     <string name="tab_collation1">Collation 1</string>
     <string name="tab_collation2">Collation 2</string>
@@ -29,6 +29,10 @@
     <string name="btn_confirm">Confirm</string>
     <string name="btn_accept">Accept</string>
     <string name="btn_swap_ingredient">Swap Ingredient</string>
+    <string name="btn_success">Success</string>
+    <string name="btn_loading">Loading</string>
+    <string name="btn_sign_in_again">Error, sign in again</string>
+    <string name="btn_send">Send</string>
 
     <string name="action_logout">Log out</string>
     <string name="action_refresh">Refresh data</string>
@@ -39,6 +43,7 @@
     <string name="label_weight">Weight</string>
     <string name="label_waist">Waist</string>
     <string name="label_fat_average">% Fat</string>
+    <string name="label_fat_average_complete">Fat percentage</string>
     <string name="label_percent" translatable="false">%</string>
     <string name="label_centimeter" translatable="false">cm</string>
     <string name="label_kilo" translatable="false">kg</string>
@@ -57,7 +62,15 @@
     <string name="label_pick_option">Pick an option:</string>
     <string name="label_wrong_login">Incorrect username or password</string>
     <string name="label_connection_failure">Error connecting to server, check your internet connection</string>
-    <string name="label_forgotten_pass">I forgot my password...</string>
+    <string name="label_forgotten_pass">I forgot my password…</string>
+    <string name="label_birthdate">Birthdate</string>
+    <string name="label_title_measures">Measures per appointment</string>
+    <string name="label_subtitle_progress_example">(Increase / Decrease from the first measurement)</string>
+    <string name="label_time_breakfast_hint">Breakfast time (hh:ss)</string>
+    <string name="label_time_collation1_hint">Time of first collation (hh:ss)</string>
+    <string name="label_time_lunch_hint">Meal time (hh:ss)</string>
+    <string name="label_time_collation_hint">Time of second collation (hh:ss)</string>
+    <string name="label_time_dinner_hint">Dinner time (hh:ss)</string>
 
     <string name="info_unknown_error_meals">Something wrong happened, refresh the screen</string>
 
@@ -65,7 +78,11 @@
 
     <string name="notification_title_confirm_appoint">New appointment incoming</string>
     <string name="notification_defaultTo_content_confirm_appoint">You have a new appointment scheduled on </string>
-    
+    <string name="notification_error_fetch">Something wrong has happened, please refresh the screen</string>
+    <string name="notification_appoint_cancel_error">Error: the appointment could not be canceled, try again</string>
+    <string name="notification_appoint_confirm_error">Error: the appointment could not be confirmed, try again</string>
+    <string name="notification_unstable_connection">The connection to the internet is unstable, check your network</string>
+
     <string-array name="meal_options">
         <item>Option 1</item>
         <item>Option 2</item>

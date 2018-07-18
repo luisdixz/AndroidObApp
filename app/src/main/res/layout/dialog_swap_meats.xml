@@ -14,60 +14,73 @@
         android:textSize="16sp"
         android:layout_marginBottom="@dimen/activity_vertical_margin"/>
 
-    <RadioGroup
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <CheckBox
-            android:id="@+id/cbMeat1"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-        <CheckBox
-            android:id="@+id/cbMeat2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        <CheckBox
-            android:id="@+id/cbMeat3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+                <CheckBox
+                    android:id="@+id/cbMeat1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
 
-        <CheckBox
-            android:id="@+id/cbMeat4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+                <CheckBox
+                    android:id="@+id/cbMeat2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
 
-        <CheckBox
-            android:id="@+id/cbMeat5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+                <CheckBox
+                    android:id="@+id/cbMeat3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
 
-        <CheckBox
-            android:id="@+id/cbMeat6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+                <CheckBox
+                    android:id="@+id/cbMeat4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
 
-        <CheckBox
-            android:id="@+id/cbMeat7"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+                <CheckBox
+                    android:id="@+id/cbMeat5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
 
-        <CheckBox
-            android:id="@+id/cbMeat8"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+                <CheckBox
+                    android:id="@+id/cbMeat6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
 
-        <CheckBox
-            android:id="@+id/cbMeat9"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+                <CheckBox
+                    android:id="@+id/cbMeat7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
 
-        <CheckBox
-            android:id="@+id/cbMeat10"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+                <CheckBox
+                    android:id="@+id/cbMeat8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
 
-    </RadioGroup>
+                <CheckBox
+                    android:id="@+id/cbMeat9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <CheckBox
+                    android:id="@+id/cbMeat10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

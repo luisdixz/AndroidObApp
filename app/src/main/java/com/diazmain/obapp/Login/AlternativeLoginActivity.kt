@@ -30,18 +30,25 @@ class AlternativeLoginActivity : AppCompatActivity(), View.OnClickListener {
             startActivity(Intent(this, HomeActivity::class.java))
         }
 
+        //btnSignIn.setMode(ActionProcessButton.Mode.ENDLESS)
         btnSignIn.setOnClickListener(this)
+        pbSignIn.visibility = View.GONE
     }
 
     override fun onClick(v: View?) {
         if (v == btnSignIn) {
             userSignIn()
         }
+        if (v == tbPassForgotten) {
+
+        }
     }
 
     fun userSignIn() {
         pbSignIn.visibility = View.VISIBLE
-
+        btnSignIn.isEnabled = false
+        btnSignIn.alpha = 0.75f
+        //btnSignIn.progress = 1
         val username: String = tietUsername.text.toString()
         val password: String = tietPass.text.toString()
 
@@ -49,14 +56,15 @@ class AlternativeLoginActivity : AppCompatActivity(), View.OnClickListener {
                 .baseUrl(APIUrl.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
-
         val service: APIService = retrofit.create(APIService::class.java)
-
         val call: Call<Result> = service.userLogin(username, password)
 
         call.enqueue(object : Callback<Result> {
             override fun onFailure(call: Call<Result>?, t: Throwable?) {
                 pbSignIn.visibility = View.GONE
+                btnSignIn.isEnabled = false
+                btnSignIn.alpha = 1f
+                //btnSignIn.progress = -1
                 Snackbar.make(
                         activity_alternative_login,
                         getString(R.string.label_connection_failure),
@@ -66,13 +74,17 @@ class AlternativeLoginActivity : AppCompatActivity(), View.OnClickListener {
 
             override fun onResponse(call: Call<Result>?, response: Response<Result>?) {
                 pbSignIn.visibility = View.GONE
+                btnSignIn.isEnabled = false
+                btnSignIn.alpha = 1f
                 if (!response?.body()?.getError()!!) {
                     Log.w("Login -> UserID", response.body().getUser().getId().toString())
                     Log.w("Login -> User Name", response.body().getUser().getName())
+                    //btnSignIn.progress = 100
                     SharedPrefManager.getInstance(applicationContext)?.userLogin(response.body().getUser())
                     finish()
                     startActivity(Intent(applicationContext, HomeActivity::class.java))
                 } else {
+                    //btnSignIn.progress = -1
                     Snackbar.make(
                             activity_alternative_login,
                             getString(R.string.label_wrong_login),

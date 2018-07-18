@@ -42,9 +42,9 @@ class Perfil : Fragment(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
-        if (v == tbProfileEdit) {
+        /*if (v == tbProfileEdit) {
             showEditDialog()
-        }
+        }*/
         /*if (v == btnPerfilLogout) {
             activity?.finish()
             startActivity(Intent(activity, SplashScreen::class.java))
