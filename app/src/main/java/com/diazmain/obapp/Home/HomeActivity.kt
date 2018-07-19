@@ -99,6 +99,7 @@ class HomeActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
         USER_LASTNAME = SharedPrefManager.getInstance(apContext)!!.getUser().getLastname()
         USER_USERNAME = SharedPrefManager.getInstance(apContext)!!.getUser().getUsername()
         Log.w("USER_ID", USER_ID.toString())
+
         //val save: SaveIncomingAppoint = SaveIncomingAppoint(1, apContext)
         //save.execute()
     }

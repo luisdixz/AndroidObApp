@@ -60,7 +60,7 @@ class Colacion2Fragment : Fragment(), CompoundButton.OnCheckedChangeListener, Vi
         val adapter: ArrayAdapter<CharSequence> = ArrayAdapter.createFromResource(
                 (activity as ReminderActivity).context,
                 R.array.meal_options,
-                android.R.layout.simple_spinner_item
+                R.layout.spinner_item
         )
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -82,7 +82,7 @@ class Colacion2Fragment : Fragment(), CompoundButton.OnCheckedChangeListener, Vi
             cbc21 -> {
                 if (cbc21.isChecked) {
                     tilCo2Porcion1.visibility = View.VISIBLE
-                    (activity as ReminderActivity).checks.add(CamposCheck(4,cbc21.text.toString(), tilCo2Porcion1, tietCo2Porcion1))
+                    (activity as ReminderActivity).checks.add(CamposCheck(4,cbc21, tilCo2Porcion1, tietCo2Porcion1))
                 } else {
                     val it = (activity as ReminderActivity).checks.iterator()
                     while (it.hasNext()) {
@@ -96,7 +96,7 @@ class Colacion2Fragment : Fragment(), CompoundButton.OnCheckedChangeListener, Vi
             cbc22 -> {
                 if (cbc22.isChecked) {
                     tilCo2Porcion2.visibility = View.VISIBLE
-                    (activity as ReminderActivity).checks.add(CamposCheck(4,cbc22.text.toString(), tilCo2Porcion2, tietCo2Porcion2))
+                    (activity as ReminderActivity).checks.add(CamposCheck(4,cbc22, tilCo2Porcion2, tietCo2Porcion2))
                 } else {
                     val it = (activity as ReminderActivity).checks.iterator()
                     while (it.hasNext()) {
@@ -110,7 +110,7 @@ class Colacion2Fragment : Fragment(), CompoundButton.OnCheckedChangeListener, Vi
             cbc23 -> {
                 if (cbc23.isChecked) {
                     tilCo2Porcion3.visibility = View.VISIBLE
-                    (activity as ReminderActivity).checks.add(CamposCheck(4,cbc23.text.toString(), tilCo2Porcion3, tietCo2Porcion3))
+                    (activity as ReminderActivity).checks.add(CamposCheck(4,cbc23, tilCo2Porcion3, tietCo2Porcion3))
                 } else {
                     val it = (activity as ReminderActivity).checks.iterator()
                     while (it.hasNext()) {
@@ -119,6 +119,48 @@ class Colacion2Fragment : Fragment(), CompoundButton.OnCheckedChangeListener, Vi
                             it.remove()
                     }
                     tilCo2Porcion3.visibility = View.GONE
+                }
+            }
+            cbc24 -> {
+                if (cbc24.isChecked) {
+                    tilCo2Porcion4.visibility = View.VISIBLE
+                    (activity as ReminderActivity).checks.add(CamposCheck(4,cbc24, tilCo2Porcion4, tietCo2Porcion4))
+                } else {
+                    val it = (activity as ReminderActivity).checks.iterator()
+                    while (it.hasNext()) {
+                        val check: CamposCheck = it.next()
+                        if (check.equals(cbc24))
+                            it.remove()
+                    }
+                    tilCo2Porcion4.visibility = View.GONE
+                }
+            }
+            cbc25 -> {
+                if (cbc25.isChecked) {
+                    tilCo2Porcion5.visibility = View.VISIBLE
+                    (activity as ReminderActivity).checks.add(CamposCheck(4,cbc25, tilCo2Porcion5, tietCo2Porcion5))
+                } else {
+                    val it = (activity as ReminderActivity).checks.iterator()
+                    while (it.hasNext()) {
+                        val check: CamposCheck = it.next()
+                        if (check.equals(cbc25))
+                            it.remove()
+                    }
+                    tilCo2Porcion5.visibility = View.GONE
+                }
+            }
+            cbc26 -> {
+                if (cbc26.isChecked) {
+                    tilCo2Porcion6.visibility = View.VISIBLE
+                    (activity as ReminderActivity).checks.add(CamposCheck(4,cbc26, tilCo2Porcion6, tietCo2Porcion6))
+                } else {
+                    val it = (activity as ReminderActivity).checks.iterator()
+                    while (it.hasNext()) {
+                        val check: CamposCheck = it.next()
+                        if (check.equals(cbc26))
+                            it.remove()
+                    }
+                    tilCo2Porcion6.visibility = View.GONE
                 }
             }
         }

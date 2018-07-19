@@ -61,7 +61,7 @@ class ComidaFragment : Fragment(), CompoundButton.OnCheckedChangeListener, View.
         val adapter: ArrayAdapter<CharSequence> = ArrayAdapter.createFromResource(
                 (activity as ReminderActivity).context,
                 R.array.meal_options,
-                android.R.layout.simple_spinner_item
+                R.layout.spinner_item
         )
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -83,7 +83,7 @@ class ComidaFragment : Fragment(), CompoundButton.OnCheckedChangeListener, View.
             cbco1 -> {
                 if (cbco1.isChecked) {
                     tilComPorcion1.visibility = View.VISIBLE
-                    (activity as ReminderActivity).checks.add(CamposCheck(3,cbco1.text.toString(), tilComPorcion1, tietComPorcion1))
+                    (activity as ReminderActivity).checks.add(CamposCheck(3,cbco1, tilComPorcion1, tietComPorcion1))
                 } else {
                     val it = (activity as ReminderActivity).checks.iterator()
                     while (it.hasNext()) {
@@ -97,7 +97,7 @@ class ComidaFragment : Fragment(), CompoundButton.OnCheckedChangeListener, View.
             cbco2 -> {
                 if (cbco2.isChecked) {
                     tilComPorcion2.visibility = View.VISIBLE
-                    (activity as ReminderActivity).checks.add(CamposCheck(3,cbco2.text.toString(), tilComPorcion2, tietComPorcion2))
+                    (activity as ReminderActivity).checks.add(CamposCheck(3,cbco2, tilComPorcion2, tietComPorcion2))
                 } else {
                     val it = (activity as ReminderActivity).checks.iterator()
                     while (it.hasNext()) {
@@ -111,7 +111,7 @@ class ComidaFragment : Fragment(), CompoundButton.OnCheckedChangeListener, View.
             cbco3 -> {
                 if (cbco3.isChecked) {
                     tilComPorcion3.visibility = View.VISIBLE
-                    (activity as ReminderActivity).checks.add(CamposCheck(3,cbco3.text.toString(), tilComPorcion3, tietComPorcion3))
+                    (activity as ReminderActivity).checks.add(CamposCheck(3,cbco3, tilComPorcion3, tietComPorcion3))
                 } else {
                     val it = (activity as ReminderActivity).checks.iterator()
                     while (it.hasNext()) {
@@ -125,7 +125,7 @@ class ComidaFragment : Fragment(), CompoundButton.OnCheckedChangeListener, View.
             cbco4 -> {
                 if (cbco4.isChecked) {
                     tilComPorcion4.visibility = View.VISIBLE
-                    (activity as ReminderActivity).checks.add(CamposCheck(3,cbco4.text.toString(), tilComPorcion4, tietComPorcion4))
+                    (activity as ReminderActivity).checks.add(CamposCheck(3,cbco4, tilComPorcion4, tietComPorcion4))
                 } else {
                     val it = (activity as ReminderActivity).checks.iterator()
                     while (it.hasNext()) {
@@ -139,7 +139,7 @@ class ComidaFragment : Fragment(), CompoundButton.OnCheckedChangeListener, View.
             cbco5 -> {
                 if (cbco5.isChecked) {
                     tilComPorcion5.visibility = View.VISIBLE
-                    (activity as ReminderActivity).checks.add(CamposCheck(3,cbco5.text.toString(), tilComPorcion5, tietComPorcion5))
+                    (activity as ReminderActivity).checks.add(CamposCheck(3,cbco5, tilComPorcion5, tietComPorcion5))
                 } else {
                     val it = (activity as ReminderActivity).checks.iterator()
                     while (it.hasNext()) {
@@ -153,7 +153,7 @@ class ComidaFragment : Fragment(), CompoundButton.OnCheckedChangeListener, View.
             cbco6 -> {
                 if (cbco6.isChecked) {
                     tilComPorcion6.visibility = View.VISIBLE
-                    (activity as ReminderActivity).checks.add(CamposCheck(3,cbco6.text.toString(), tilComPorcion6, tietComPorcion6))
+                    (activity as ReminderActivity).checks.add(CamposCheck(3,cbco6, tilComPorcion6, tietComPorcion6))
                 } else {
                     val it = (activity as ReminderActivity).checks.iterator()
                     while (it.hasNext()) {

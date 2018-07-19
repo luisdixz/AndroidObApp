@@ -2,8 +2,9 @@ package com.diazmain.obapp.Reminder.Pojo
 
 import android.support.design.widget.TextInputEditText
 import android.support.design.widget.TextInputLayout
+import android.widget.CheckBox
 
-class CamposCheck(_pagina: Int, _comida: String, _til: TextInputLayout, _tiet: TextInputEditText) {
+class CamposCheck(_pagina: Int, _comida: CheckBox, _til: TextInputLayout, _tiet: TextInputEditText) {
 
     var pagina: Int = _pagina
         get() = field
@@ -11,7 +12,7 @@ class CamposCheck(_pagina: Int, _comida: String, _til: TextInputLayout, _tiet: T
             field = value
         }
 
-    var comida: String = _comida
+    var comida: CheckBox = _comida
         get() = field
         set(value) {
             field = value

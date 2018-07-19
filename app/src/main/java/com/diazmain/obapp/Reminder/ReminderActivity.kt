@@ -28,6 +28,8 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class ReminderActivity : AppCompatActivity(), OnPageChangeListener, Callback<Result> {
@@ -36,6 +38,7 @@ class ReminderActivity : AppCompatActivity(), OnPageChangeListener, Callback<Res
     private val pageAdapter = ReminderFragmentAdapter(supportFragmentManager)
     internal lateinit var mealsMenu: MealMenuResult
     internal lateinit var context: Context
+    internal var USER_ID: Int = 0
 
     //private var desayunoAll: Comidas? = null
     var desayuno: ArrayList<Alimentos> = ArrayList()
@@ -64,167 +67,12 @@ class ReminderActivity : AppCompatActivity(), OnPageChangeListener, Callback<Res
     var cenHora: String = "00:00"
 
     override fun onPageScrollStateChanged(state: Int) {
-
-        //Log.i("Estado", state.toString())
     }
 
     override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
-
-        var cambio: Boolean = true
-
-        /*when (position) {
-            0 -> {
-                if (desayuno.isEmpty()){
-                    for (i in checks.indices) {
-                        if (!validateEmptyField(checks[i].til, checks[i].tiet)) {
-                            //cambio = false
-                            myViewPager.currentItem = 0
-                        } else {
-                            desayuno.add(Alimentos(checks[i].comida, checks[i].tiet.text.toString()))
-                        }
-                    }
-                }
-
-                //desayuno.clear()
-            }
-            1 -> {
-                if (colacion1.isEmpty()) {
-                    for (i in checks.indices) {
-                        if (!validateEmptyField(checks[i].til, checks[i].tiet)) {
-                            //cambio = false
-                            myViewPager.currentItem = 1
-                        } else {
-                            colacion1.add(Alimentos(checks[i].comida, checks[i].tiet.text.toString()))
-                        }
-                    }
-                }
-                //colacion1.clear()
-            }
-            2 -> {
-                if (comida.isEmpty()){
-                    for (i in checks.indices) {
-                        if (!validateEmptyField(checks[i].til, checks[i].tiet)) {
-                            //cambio = false
-                            myViewPager.currentItem = 2
-                        } else {
-                            comida.add(Alimentos(checks[i].comida, checks[i].tiet.text.toString()))
-                        }
-                    }
-                }
-                //comida.clear()
-            }
-            3 -> {
-                //Log.i("isEmpty", colacion2.isEmpty().toString())
-                if (colacion2.isEmpty()){
-                    for (i in checks.indices) {
-                        if (!validateEmptyField(checks[i].til, checks[i].tiet)) {
-                            //cambio = false
-                            myViewPager.currentItem = 3
-                        } else {
-                            colacion2.add(Alimentos(checks[i].comida, checks[i].tiet.text.toString()))
-                        }
-                    }
-                }
-                //colacion2.clear()
-            }
-            4 -> {
-                if (cena.isEmpty()){
-                    for (i in checks.indices) {
-                        if (!validateEmptyField(checks[i].til, checks[i].tiet)) {
-                            //cambio = false
-                            myViewPager.currentItem = 4
-                        } else {
-                            cena.add(Alimentos(checks[i].comida, checks[i].tiet.text.toString()))
-                        }
-                    }
-                }
-                //cena.clear()
-            }
-        }*/
-
-        /*if (!cambio){
-            myViewPager.setPagingEnabled(false)
-            //bottMenu.isEnabled = false
-        } else {
-            myViewPager.setPagingEnabled(true)
-        }*/
-
-        //Log.i("Posición", position.toString())
     }
 
     override fun onPageSelected(newPosition: Int) {
-
-        /*val fragmentToShow = pageAdapter.getItem(newPosition) as FragmentLifecycle
-        fragmentToShow.onResumeFragment()
-
-        val fragmentToHide = pageAdapter.getItem(currentPosition) as FragmentLifecycle
-        fragmentToHide.onPauseFragment()
-
-        currentPosition = newPosition*/
-
-        /*when (newPosition) {
-            1 -> {
-                if (desayuno.isEmpty())
-                    for (i in checks.indices) {
-                        if (!validateEmptyField(checks[i].til, checks[i].tiet)) {
-                            //cambio = false
-                            myViewPager.currentItem = 0
-                        } else {
-                            desayuno.add(Alimentos(checks[i].comida, checks[i].tiet.text.toString()))
-                        }
-                    }
-                //desayuno.clear()
-            }
-            2 -> {
-                if (colacion1.isEmpty())
-                    for (i in checks.indices) {
-                        if (!validateEmptyField(checks[i].til, checks[i].tiet)) {
-                            //cambio = false
-                            myViewPager.currentItem = 1
-                        } else {
-                            colacion1.add(Alimentos(checks[i].comida, checks[i].tiet.text.toString()))
-                        }
-                    }
-                //colacion1.clear()
-            }
-            3 -> {
-                if (comida.isEmpty())
-                    for (i in checks.indices) {
-                        if (!validateEmptyField(checks[i].til, checks[i].tiet)) {
-                            //cambio = false
-                            myViewPager.currentItem = 2
-                        } else {
-                            comida.add(Alimentos(checks[i].comida, checks[i].tiet.text.toString()))
-                        }
-                    }
-                //comida.clear()
-            }
-            4 -> {
-                //Log.i("isEmpty", colacion2.isEmpty().toString())
-                if (colacion2.isEmpty())
-                    for (i in checks.indices) {
-                        if (!validateEmptyField(checks[i].til, checks[i].tiet)) {
-                            //cambio = false
-                            myViewPager.currentItem = 3
-                        } else {
-                            colacion2.add(Alimentos(checks[i].comida, checks[i].tiet.text.toString()))
-                        }
-                    }
-                //colacion2.clear()
-            }
-            5 -> {
-                if (cena.isEmpty())
-                    for (i in checks.indices) {
-                        if (!validateEmptyField(checks[i].til, checks[i].tiet)) {
-                            //cambio = false
-                            myViewPager.currentItem = 4
-                        } else {
-                            cena.add(Alimentos(checks[i].comida, checks[i].tiet.text.toString()))
-                        }
-                    }
-                //cena.clear()
-            }
-        }*/
 
         val currentItem = bottMenu.menu.getItem(newPosition).itemId
         if (currentItem != bottMenu.selectedItemId) {
@@ -241,6 +89,8 @@ class ReminderActivity : AppCompatActivity(), OnPageChangeListener, Callback<Res
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_reminder)
+
+        USER_ID = intent.getExtras().getInt("USER_ID")
 
         bottMenu.setOnNavigationItemSelectedListener {
             selectItem(it)
@@ -298,7 +148,10 @@ class ReminderActivity : AppCompatActivity(), OnPageChangeListener, Callback<Res
             Log.w("Array -> colacion2All", colacion2All.toString())
             Log.w("Array -> cenaAll", cenaAll.toString())
 
-            val recordatorio: Recordatorio = Recordatorio(1, "2018-07-02", 2, desayunoAll, colacion1All, comidaAll, colacion2All, cenaAll)
+            val dateFormat: SimpleDateFormat = SimpleDateFormat("yyyy-MM-dd")
+            val dayFormat: SimpleDateFormat = SimpleDateFormat("dd")
+
+            val recordatorio: Recordatorio = Recordatorio(USER_ID, dateFormat.format(System.currentTimeMillis()).toString(), Integer.parseInt(dayFormat.format(System.currentTimeMillis()).toString()), desayunoAll, colacion1All, comidaAll, colacion2All, cenaAll)
 
             val interceptor: HttpLoggingInterceptor = HttpLoggingInterceptor()
             interceptor.level = HttpLoggingInterceptor.Level.BODY
@@ -356,7 +209,7 @@ class ReminderActivity : AppCompatActivity(), OnPageChangeListener, Callback<Res
                         return false
                     } else {
                         //var cambio: String = ""
-                        desayuno.add(Alimentos(checks[i].comida, checks[i].tiet.text.toString(), getFoodSwap(1, i)))
+                        desayuno.add(Alimentos(checks[i].comida.text.toString(), checks[i].tiet.text.toString(), getFoodSwap(1, i)))
                     }
                 }
                 2 -> {
@@ -365,7 +218,7 @@ class ReminderActivity : AppCompatActivity(), OnPageChangeListener, Callback<Res
                         myViewPager.currentItem = 1
                         return false
                     } else {
-                        colacion1.add(Alimentos(checks[i].comida, checks[i].tiet.text.toString(), getFoodSwap(2, i)))
+                        colacion1.add(Alimentos(checks[i].comida.text.toString(), checks[i].tiet.text.toString(), getFoodSwap(2, i)))
                     }
                 }
                 3 -> {
@@ -374,7 +227,7 @@ class ReminderActivity : AppCompatActivity(), OnPageChangeListener, Callback<Res
                         myViewPager.currentItem = 2
                         return false
                     } else {
-                        comida.add(Alimentos(checks[i].comida, checks[i].tiet.text.toString(), getFoodSwap(3, i)))
+                        comida.add(Alimentos(checks[i].comida.text.toString(), checks[i].tiet.text.toString(), getFoodSwap(3, i)))
                     }
                 }
                 4 -> {
@@ -383,7 +236,7 @@ class ReminderActivity : AppCompatActivity(), OnPageChangeListener, Callback<Res
                         myViewPager.currentItem = 3
                         return false
                     } else {
-                        colacion2.add(Alimentos(checks[i].comida, checks[i].tiet.text.toString(), getFoodSwap(4, i)))
+                        colacion2.add(Alimentos(checks[i].comida.text.toString(), checks[i].tiet.text.toString(), getFoodSwap(4, i)))
                     }
                 }
                 5 -> {
@@ -392,8 +245,7 @@ class ReminderActivity : AppCompatActivity(), OnPageChangeListener, Callback<Res
                         myViewPager.currentItem = 4
                         return false
                     } else {
-                        Log.wtf("Comida", checks[i].comida)
-                        cena.add(Alimentos(checks[i].comida, checks[i].tiet.text.toString(), getFoodSwap(5, i)))
+                        cena.add(Alimentos(checks[i].comida.text.toString(), checks[i].tiet.text.toString(), getFoodSwap(5, i)))
                     }
                 }
             }
@@ -413,11 +265,11 @@ class ReminderActivity : AppCompatActivity(), OnPageChangeListener, Callback<Res
             if (swaps[i].pagina == pag) {
                 if (swaps[i].food.equals(checks[index].comida))
                     if (!swaps[i].swap1.isEmpty())
-                        builder.append(swaps[i].swap1+", ")
+                        builder.append(swaps[i].swap1 + ", ")
                     else if (!swaps[i].swap2.isEmpty())
-                        builder.append(swaps[i].swap2+", ")
+                        builder.append(swaps[i].swap2 + ", ")
                     else if (!swaps[i].swap3.isEmpty())
-                        builder.append(swaps[i].swap1+", ")
+                        builder.append(swaps[i].swap1 + ", ")
             }
         }
 
@@ -425,10 +277,10 @@ class ReminderActivity : AppCompatActivity(), OnPageChangeListener, Callback<Res
         val result: String = builder.toString()
         //val res2: String = result.substring(0, result.length - 2)
 
-        Log.w("Builder -> lenght", result.length.toString())
-
-        //return res2
-        return result
+        if (result.length != 0)
+            return result.substring(0, result.length - 2)
+        else
+            return result
     }
 
     fun initViewPager() {

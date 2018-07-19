@@ -67,7 +67,7 @@ class DesayunoFragment : Fragment(), CompoundButton.OnCheckedChangeListener, Vie
         val adapter: ArrayAdapter<CharSequence> = ArrayAdapter.createFromResource(
                 (activity as ReminderActivity).context,
                 R.array.meal_options,
-                android.R.layout.simple_spinner_item
+                R.layout.spinner_item
         )
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -90,7 +90,7 @@ class DesayunoFragment : Fragment(), CompoundButton.OnCheckedChangeListener, Vie
                 if (cbd1.isChecked) {
                     Log.w("isChecked", cbd1.isChecked.toString())
                     tilDesPorcion1.visibility = View.VISIBLE
-                    (activity as ReminderActivity).checks.add(CamposCheck(1, cbd1.text.toString(), tilDesPorcion1, tietDesPorcion1))
+                    (activity as ReminderActivity).checks.add(CamposCheck(1, cbd1, tilDesPorcion1, tietDesPorcion1))
                     Log.wtf("checksSize", (activity as ReminderActivity).checks.size.toString())
                 } else {
                     val it = (activity as ReminderActivity).checks.iterator()
@@ -105,7 +105,7 @@ class DesayunoFragment : Fragment(), CompoundButton.OnCheckedChangeListener, Vie
             cbd2 -> {
                 if (cbd2.isChecked) {
                     tilDesPorcion2.visibility = View.VISIBLE
-                    (activity as ReminderActivity).checks.add(CamposCheck(1, cbd2.text.toString(), tilDesPorcion2, tietDesPorcion2))
+                    (activity as ReminderActivity).checks.add(CamposCheck(1, cbd2, tilDesPorcion2, tietDesPorcion2))
                 } else {
                     val it = (activity as ReminderActivity).checks.iterator()
                     while (it.hasNext()) {
@@ -119,7 +119,7 @@ class DesayunoFragment : Fragment(), CompoundButton.OnCheckedChangeListener, Vie
             cbd3 -> {
                 if (cbd3.isChecked) {
                     tilDesPorcion3.visibility = View.VISIBLE
-                    (activity as ReminderActivity).checks.add(CamposCheck(1, cbd3.text.toString(), tilDesPorcion3, tietDesPorcion3))
+                    (activity as ReminderActivity).checks.add(CamposCheck(1, cbd3, tilDesPorcion3, tietDesPorcion3))
                 } else {
                     val it = (activity as ReminderActivity).checks.iterator()
                     while (it.hasNext()) {
@@ -133,7 +133,7 @@ class DesayunoFragment : Fragment(), CompoundButton.OnCheckedChangeListener, Vie
             cbd4 -> {
                 if (cbd4.isChecked) {
                     tilDesPorcion4.visibility = View.VISIBLE
-                    (activity as ReminderActivity).checks.add(CamposCheck(1, cbd4.text.toString(), tilDesPorcion4, tietDesPorcion4))
+                    (activity as ReminderActivity).checks.add(CamposCheck(1, cbd4, tilDesPorcion4, tietDesPorcion4))
                 } else {
                     val it = (activity as ReminderActivity).checks.iterator()
                     while (it.hasNext()) {
@@ -147,7 +147,7 @@ class DesayunoFragment : Fragment(), CompoundButton.OnCheckedChangeListener, Vie
             cbd5 -> {
                 if (cbd5.isChecked) {
                     tilDesPorcion5.visibility = View.VISIBLE
-                    (activity as ReminderActivity).checks.add(CamposCheck(1, cbd5.text.toString(), tilDesPorcion5, tietDesPorcion5))
+                    (activity as ReminderActivity).checks.add(CamposCheck(1, cbd5, tilDesPorcion5, tietDesPorcion5))
                 } else {
                     val it = (activity as ReminderActivity).checks.iterator()
                     while (it.hasNext()) {
@@ -161,7 +161,7 @@ class DesayunoFragment : Fragment(), CompoundButton.OnCheckedChangeListener, Vie
             cbd6 -> {
                 if (cbd6.isChecked) {
                     tilDesPorcion6.visibility = View.VISIBLE
-                    (activity as ReminderActivity).checks.add(CamposCheck(1, cbd6.text.toString(), tilDesPorcion6, tietDesPorcion6))
+                    (activity as ReminderActivity).checks.add(CamposCheck(1, cbd6, tilDesPorcion6, tietDesPorcion6))
                 } else {
                     val it = (activity as ReminderActivity).checks.iterator()
                     while (it.hasNext()) {
@@ -297,7 +297,9 @@ class DesayunoFragment : Fragment(), CompoundButton.OnCheckedChangeListener, Vie
                             mealElement[i].ibutton.visibility = View.GONE
                         }
                     }
+                    Log.w("For -> 1", i.toString())
                 }
+                Log.w("Op -> 1", "Finalized")
             }
             1 -> {
                 val optionsSize: Int = desMenu.op2.size
@@ -731,6 +733,8 @@ class DesayunoFragment : Fragment(), CompoundButton.OnCheckedChangeListener, Vie
 
         for (n in swapOne.indices) {
             swapOne[n].setText(cambioUno[n])
+            Log.w("swapOne.text", swapOne[n].text.toString())
+            Log.w("cambioUno.text", cambioUno[n])
         }
 
         val alBuilder: AlertDialog.Builder = AlertDialog.Builder(this.context)

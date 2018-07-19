@@ -30,12 +30,16 @@
                 <CheckBox
                     android:id="@+id/cbNuts1"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:buttonTint="@color/colorAccent" />
 
                 <CheckBox
                     android:id="@+id/cbNuts2"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:buttonTint="@color/colorAccent" />
 
                 <CheckBox
                     android:id="@+id/cbNuts3"
@@ -45,47 +49,65 @@
                 <CheckBox
                     android:id="@+id/cbNuts4"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:buttonTint="@color/colorAccent" />
 
                 <CheckBox
                     android:id="@+id/cbNuts5"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:buttonTint="@color/colorAccent" />
 
                 <CheckBox
                     android:id="@+id/cbNuts6"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:buttonTint="@color/colorAccent" />
 
                 <CheckBox
                     android:id="@+id/cbNuts7"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:buttonTint="@color/colorAccent" />
 
                 <CheckBox
                     android:id="@+id/cbNuts8"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:buttonTint="@color/colorAccent" />
 
                 <CheckBox
                     android:id="@+id/cbNuts9"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:buttonTint="@color/colorAccent" />
 
                 <CheckBox
                     android:id="@+id/cbNuts10"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:buttonTint="@color/colorAccent" />
 
                 <CheckBox
                     android:id="@+id/cbNuts11"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:buttonTint="@color/colorAccent" />
 
                 <CheckBox
                     android:id="@+id/cbNuts12"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:buttonTint="@color/colorAccent" />
 
             </RadioGroup>
 

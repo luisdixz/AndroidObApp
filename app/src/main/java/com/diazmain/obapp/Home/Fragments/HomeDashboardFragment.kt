@@ -59,13 +59,15 @@ class HomeDashboardFragment: Fragment(), View.OnClickListener {
     override fun onClick(v: View?) {
         if (v == cvNextAppo) {
             //Checar el status de la cita
-            if (SharedPrefManager.getInstance((activity as HomeActivity).apContext)?.getAppointStatus() == 2) {
+            startActivity(Intent(activity, ReminderActivity::class.java).putExtra("USER_ID", (activity as HomeActivity).USER_ID))
+
+            /*if (SharedPrefManager.getInstance((activity as HomeActivity).apContext)?.getAppointStatus() == 2) {
 
                 if (SharedPrefManager.getInstance((activity as HomeActivity).apContext)?.isMenuStored()!!)
-                    startActivity(Intent(activity, ReminderActivity::class.java))
+                    startActivity(Intent(activity, ReminderActivity::class.java).putExtra("USER_ID", (activity as HomeActivity).USER_ID))
                 else
                     Snackbar.make(activity_home, R.string.info_unknown_error_meals, Snackbar.LENGTH_SHORT).show()
-            }
+            }*/
         } else if (v == btnCancelAppo) {
             //Enviar request para cancelar cita
             cancelAppoint()
@@ -76,26 +78,6 @@ class HomeDashboardFragment: Fragment(), View.OnClickListener {
             llNextAppo.visibility = View.GONE*/
         }
     }
-
-    /*override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.action_logout -> {
-                (activity as HomeActivity).finish()
-                startActivity(Intent((activity as HomeActivity).apContext, SplashScreen::class.java))
-                return SharedPrefManager.getInstance((activity as HomeActivity).apContext)?.logout()!!
-            }
-            R.id.action_refresh -> {
-                try {
-                    Toast.makeText((activity as HomeActivity).apContext, "Estoy en HomeDashboardFragment", Toast.LENGTH_SHORT).show()
-                } catch (e: Exception) {
-                    Log.wtf("action_refresh -> Exception", e.localizedMessage)
-                }
-                return true
-            }
-            else -> { return super.onOptionsItemSelected(item) }
-
-        }
-    }*/
 
     private fun cancelAppoint() {
         val interceptor: HttpLoggingInterceptor = HttpLoggingInterceptor()
@@ -163,7 +145,7 @@ class HomeDashboardFragment: Fragment(), View.OnClickListener {
                 SharedPrefManager.getInstance((activity as HomeActivity))!!.setAppointStatus(2)
 
                 if (SharedPrefManager.getInstance((activity as HomeActivity).apContext)?.isMenuStored()!!)
-                    startActivity(Intent(activity, ReminderActivity::class.java))
+                    startActivity(Intent(activity, ReminderActivity::class.java).putExtra("USER_ID", (activity as HomeActivity).USER_ID))
                 else
                     Snackbar.make(activity_home, R.string.info_unknown_error_meals, Snackbar.LENGTH_SHORT).show()
 
