@@ -1,0 +1,686 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cvFillReminder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:text="@string/label_fill_reminder"
+                    android:textColor="@color/black"
+                    android:textAlignment="center"
+                    android:textSize="20sp"/>
+
+                <HorizontalScrollView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:columnCount="5"
+                        android:rowCount="1">
+
+                        <android.support.v7.widget.CardView
+                            android:id="@+id/cvReminderBreakfast"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="4dp"
+                            android:padding="8dp"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            android:clickable="true"
+                            android:foreground="?android:attr/selectableItemBackground">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:padding="8dp">
+
+                                <ImageView
+                                    android:id="@+id/imvBreakfastState"
+                                    android:layout_width="48dp"
+                                    android:layout_height="48dp"
+                                    android:layout_gravity="center"
+                                    android:background="@drawable/ic_info_blue"/>
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/tab_breakfast"
+                                    android:textColor="@color/black"
+                                    android:textSize="10sp"
+                                    android:textAlignment="center"/>
+
+                            </LinearLayout>
+                        </android.support.v7.widget.CardView>
+
+                        <android.support.v7.widget.CardView
+                            android:id="@+id/cvReminderCollation1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_margin="4dp"
+                            android:padding="8dp"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            android:clickable="true"
+                            android:foreground="?android:attr/selectableItemBackground">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:padding="8dp">
+
+                                <ImageView
+                                    android:id="@+id/imvCol1State"
+                                    android:layout_width="48dp"
+                                    android:layout_height="48dp"
+                                    android:layout_gravity="center"
+                                    android:background="@drawable/ic_info_blue"/>
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/tab_collation1"
+                                    android:textColor="@color/black"
+                                    android:textSize="10sp"
+                                    android:textAlignment="center"/>
+
+                            </LinearLayout>
+                        </android.support.v7.widget.CardView>
+
+                        <android.support.v7.widget.CardView
+                            android:id="@+id/cvReminderMeal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_margin="4dp"
+                            android:padding="8dp"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            android:clickable="true"
+                            android:foreground="?android:attr/selectableItemBackground">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:padding="8dp">
+
+                                <ImageView
+                                    android:id="@+id/imvMealState"
+                                    android:layout_width="48dp"
+                                    android:layout_height="48dp"
+                                    android:layout_gravity="center"
+                                    android:background="@drawable/ic_info_blue"/>
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/tab_lunch"
+                                    android:textColor="@color/black"
+                                    android:textSize="10sp"
+                                    android:textAlignment="center"/>
+
+                            </LinearLayout>
+                        </android.support.v7.widget.CardView>
+
+                        <android.support.v7.widget.CardView
+                            android:id="@+id/cvReminderCollation2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_margin="4dp"
+                            android:padding="8dp"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            android:clickable="true"
+                            android:foreground="?android:attr/selectableItemBackground">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:padding="8dp">
+
+                                <ImageView
+                                    android:id="@+id/imvCol2State"
+                                    android:layout_width="48dp"
+                                    android:layout_height="48dp"
+                                    android:layout_gravity="center"
+                                    android:background="@drawable/ic_info_blue"/>
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/tab_collation2"
+                                    android:textColor="@color/black"
+                                    android:textSize="10sp"
+                                    android:textAlignment="center"/>
+
+                            </LinearLayout>
+                        </android.support.v7.widget.CardView>
+
+                        <android.support.v7.widget.CardView
+                            android:id="@+id/cvReminderDinner"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_margin="4dp"
+                            android:padding="8dp"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            android:clickable="true"
+                            android:foreground="?android:attr/selectableItemBackground">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:padding="8dp">
+
+                                <ImageView
+                                    android:id="@+id/imvDinnerState"
+                                    android:layout_width="48dp"
+                                    android:layout_height="48dp"
+                                    android:layout_gravity="center"
+                                    android:background="@drawable/ic_info_blue"/>
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/tab_dinner"
+                                    android:textColor="@color/black"
+                                    android:textSize="10sp"
+                                    android:textAlignment="center"/>
+
+
+                            </LinearLayout>
+                        </android.support.v7.widget.CardView>
+
+                    </GridLayout>
+
+                </HorizontalScrollView>
+
+                <LinearLayout
+                    android:id="@+id/llSendButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="end"
+                    android:padding="8dp"
+                    android:visibility="gone">
+
+                    <Button
+                        android:id="@+id/btnSendReminder"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/btn_send"
+                        android:textColor="@color/white"
+                        android:drawableStart="@drawable/ic_send"
+                        android:drawablePadding="@dimen/activity_vertical_margin"
+                        android:background="@drawable/button_blue_shape"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cvCalendar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_agenda"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:textSize="20sp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="start|center"
+                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:layout_marginStart="@dimen/activity_vertical_margin"
+                    android:layout_marginEnd="@dimen/activity_vertical_margin">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ic_brightness"
+                        android:backgroundTint="@color/green_accent_1"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dia de cita"
+                        android:textColor="@color/black"
+                        android:drawablePadding="@dimen/activity_vertical_margin"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="start|center"
+                    android:layout_margin="@dimen/activity_vertical_margin">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ic_brightness"
+                        android:backgroundTint="@color/green_accent_2"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Llenar recordatorio"
+                        android:textColor="@color/black"
+                        android:drawablePadding="@dimen/activity_vertical_margin" />
+
+                </LinearLayout>
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorAccent">
+
+                    <TextView
+                        android:id="@+id/tvMonth"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textAlignment="center"
+                        android:textSize="18sp"
+                        android:textColor="@color/white"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/imvNextMonth"
+                        app:layout_constraintStart_toEndOf="@+id/imvPreviousMonth"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/imvNextMonth"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:background="@drawable/ic_right_arrow"
+                        android:backgroundTint="@color/white" />
+
+                    <ImageView
+                        android:id="@+id/imvPreviousMonth"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.0"
+                        android:background="@drawable/ic_left_arrow"
+                        android:backgroundTint="@color/white"/>
+                </android.support.constraint.ConstraintLayout>
+
+                <com.github.sundeepk.compactcalendarview.CompactCalendarView
+                    android:id="@+id/compactCalendarView"
+                    android:layout_width="match_parent"
+                    android:layout_height="225dp"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:compactCalendarBackgroundColor="@color/colorAccent"
+                    app:compactCalendarCurrentDayBackgroundColor="@color/colorPrimary"
+                    app:compactCalendarCurrentDayIndicatorStyle="fill_large_indicator"
+                    app:compactCalendarCurrentDayTextColor="@color/white"
+
+                    app:compactCalendarCurrentSelectedDayBackgroundColor="@color/colorPrimaryDark"
+                    app:compactCalendarCurrentSelectedDayTextColor="@color/white"
+
+                    app:compactCalendarDisplayOtherMonthDays="true"
+                    app:compactCalendarEventIndicatorStyle="small_indicator"
+                    app:compactCalendarMultiEventIndicatorColor="@color/cardview_shadow_start_color"
+                    app:compactCalendarOtherMonthDaysTextColor="@color/colorPrimary"
+                    app:compactCalendarShouldSelectFirstDayOfMonthOnScroll="true"
+                    app:compactCalendarTextColor="@color/white"
+                    app:compactCalendarTextSize="12sp" />
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cvSeeReminder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="64dp">
+
+
+            <com.github.florent37.expansionpanel.viewgroup.ExpansionsViewGroupLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:expansion_openOnlyOne="true">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_margin="8dp"
+                    android:layout_gravity="center_horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/label_reminder_from_yesterday"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"/>
+
+                    <TextView
+                        android:id="@+id/tvCurrentDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="00-00-0000"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:visibility="gone"/>
+
+
+                </LinearLayout>
+
+                <com.github.florent37.expansionpanel.ExpansionHeader
+                    android:id="@+id/exhBreakfast"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:expansion_headerIndicator="@id/hiBreakfast"
+                    app:expansion_layout="@id/exlBreakfast"
+                    app:expansion_toggleOnClick="true"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:padding="8dp">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_gravity="start|center"
+                        android:text="@string/tab_breakfast"
+                        android:textColor="@color/black"/>
+
+                    <android.support.v7.widget.AppCompatImageView
+                        android:id="@+id/hiBreakfast"
+                        android:adjustViewBounds="true"
+                        android:layout_gravity="center_vertical|right"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_width="wrap_content"
+                        app:srcCompat="@drawable/ic_expansion_header_indicator_grey_24dp" />
+
+                </com.github.florent37.expansionpanel.ExpansionHeader>
+
+                <com.github.florent37.expansionpanel.ExpansionLayout
+                    android:id="@+id/exlBreakfast"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/light_gray">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:id="@+id/tvexlBreakfastContent"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
+                </com.github.florent37.expansionpanel.ExpansionLayout>
+
+
+                <com.github.florent37.expansionpanel.ExpansionHeader
+                    android:id="@+id/exhCollation1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+
+                    app:expansion_headerIndicator="@id/hiCollation1"
+                    app:expansion_layout="@id/exlCollation1"
+                    app:expansion_toggleOnClick="true"
+                    android:padding="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_gravity="start|center"
+                        android:text="@string/tab_collation1"
+                        android:textColor="@color/black"/>
+
+                    <android.support.v7.widget.AppCompatImageView
+                        android:id="@+id/hiCollation1"
+                        android:adjustViewBounds="true"
+                        android:layout_gravity="center_vertical|right"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_width="wrap_content"
+                        app:srcCompat="@drawable/ic_expansion_header_indicator_grey_24dp" />
+
+                </com.github.florent37.expansionpanel.ExpansionHeader>
+
+                <com.github.florent37.expansionpanel.ExpansionLayout
+                    android:id="@+id/exlCollation1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/light_gray">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:id="@+id/tvexlCollation1Content"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
+                </com.github.florent37.expansionpanel.ExpansionLayout>
+
+                <com.github.florent37.expansionpanel.ExpansionHeader
+                    android:id="@+id/exhMeal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+
+                    app:expansion_headerIndicator="@id/hiMeal"
+                    app:expansion_layout="@id/exlMeal"
+                    app:expansion_toggleOnClick="true"
+                    android:padding="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_gravity="start|center"
+                        android:text="@string/tab_lunch"
+                        android:textColor="@color/black"/>
+
+                    <android.support.v7.widget.AppCompatImageView
+                        android:id="@+id/hiMeal"
+                        android:adjustViewBounds="true"
+                        android:layout_gravity="center_vertical|right"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_width="wrap_content"
+                        app:srcCompat="@drawable/ic_expansion_header_indicator_grey_24dp" />
+
+                </com.github.florent37.expansionpanel.ExpansionHeader>
+
+                <com.github.florent37.expansionpanel.ExpansionLayout
+                    android:id="@+id/exlMeal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/light_gray">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:id="@+id/tvexlMealContent"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
+                </com.github.florent37.expansionpanel.ExpansionLayout>
+
+                <com.github.florent37.expansionpanel.ExpansionHeader
+                    android:id="@+id/exhCollation2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+
+                    app:expansion_headerIndicator="@id/hiCollation2"
+                    app:expansion_layout="@id/exlCollation2"
+                    app:expansion_toggleOnClick="true"
+                    android:padding="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_gravity="start|center"
+                        android:text="@string/tab_collation2"
+                        android:textColor="@color/black"/>
+
+                    <android.support.v7.widget.AppCompatImageView
+                        android:id="@+id/hiCollation2"
+                        android:adjustViewBounds="true"
+                        android:layout_gravity="center_vertical|right"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_width="wrap_content"
+                        app:srcCompat="@drawable/ic_expansion_header_indicator_grey_24dp" />
+
+                </com.github.florent37.expansionpanel.ExpansionHeader>
+
+                <com.github.florent37.expansionpanel.ExpansionLayout
+                    android:id="@+id/exlCollation2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/light_gray">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:id="@+id/tvexlCollation2Content"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
+                </com.github.florent37.expansionpanel.ExpansionLayout>
+
+                <com.github.florent37.expansionpanel.ExpansionHeader
+                    android:id="@+id/exhDinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+
+                    app:expansion_headerIndicator="@id/hiDinner"
+                    app:expansion_layout="@id/exlDinner"
+                    app:expansion_toggleOnClick="true"
+                    android:padding="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_gravity="start|center"
+                        android:text="@string/tab_dinner"
+                        android:textColor="@color/black"/>
+
+                    <android.support.v7.widget.AppCompatImageView
+                        android:id="@+id/hiDinner"
+                        android:adjustViewBounds="true"
+                        android:layout_gravity="center_vertical|right"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_width="wrap_content"
+                        app:srcCompat="@drawable/ic_expansion_header_indicator_grey_24dp" />
+
+                </com.github.florent37.expansionpanel.ExpansionHeader>
+
+                <com.github.florent37.expansionpanel.ExpansionLayout
+                    android:id="@+id/exlDinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/light_gray">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tvexlDinnerContent"/>
+
+                    </LinearLayout>
+                </com.github.florent37.expansionpanel.ExpansionLayout>
+
+
+            </com.github.florent37.expansionpanel.viewgroup.ExpansionsViewGroupLinearLayout>
+
+        </android.support.v7.widget.CardView>
+    </android.support.v7.widget.LinearLayoutCompat>
+</android.support.v4.widget.NestedScrollView>

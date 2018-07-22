@@ -12,13 +12,14 @@ class HomeFragmentAdapter (fragmentManager: FragmentManager): FragmentPagerAdapt
     override fun getItem(position: Int): Fragment {
         return when (position) {
             0 -> HomeDashboardFragment.newInstance()
-            1 -> Perfil.newInstance()
+            1 -> ReminderSummaryFragment.newInstance()
             2 -> ProgressFragment.newInstance()
+            3 -> Perfil.newInstance()
             else -> HomeDashboardFragment.newInstance()
         }
     }
 
     override fun getCount(): Int {
-        return 3
+        return 4
     }
 }

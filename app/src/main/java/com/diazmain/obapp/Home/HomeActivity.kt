@@ -38,6 +38,8 @@ import com.diazmain.obapp.Notification.JobsManager
 import com.diazmain.obapp.Threads.*
 import com.diazmain.obapp.Threads.HomeThreadSaversManager.AsyncResponse
 import kotlinx.android.synthetic.main.fragment_progress.*
+import kotlinx.android.synthetic.main.fragment_reminder_summary.*
+import java.text.SimpleDateFormat
 
 
 /**
@@ -91,7 +93,7 @@ class HomeActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
         val pageAdapter = HomeFragmentAdapter(supportFragmentManager)
         myViewPager.adapter = pageAdapter
         myViewPager.addOnPageChangeListener(this)
-        myViewPager.offscreenPageLimit = 2
+        myViewPager.offscreenPageLimit = 3
 
         Log.w("Location", "onCreate -> HomeActivity")
         USER_ID = SharedPrefManager.getInstance(apContext)!!.getUser().getId()
@@ -108,8 +110,9 @@ class HomeActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
     private fun selectItem(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.action_home -> myViewPager.currentItem = 0
-            R.id.action_profile -> myViewPager.currentItem = 1
+            R.id.action_reminder -> myViewPager.currentItem = 1
             R.id.action_progress -> myViewPager.currentItem = 2
+            R.id.action_profile -> myViewPager.currentItem = 3
             else -> myViewPager.currentItem = 0
         }
 
@@ -298,10 +301,15 @@ class HomeActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
             override fun onResponse(call: Call<Citas>?, response: Response<Citas>?) {
                 Log.w("Location", "onResponse -> getAppoitnmentFromServer")
                 Log.w("Response", response?.body()?.citas.toString())
-                if (SharedPrefManager.getInstance(apContext)?.storeAppoint(response?.body()?.citas!!)!!) {
+                if (!response!!.body().citas.fecha.equals("")) {
+                    SharedPrefManager.getInstance(apContext)?.storeAppoint(response.body().citas)
                     UpdateHomeAppointUI(apContext).execute(
                             llNextAppo,
                             tvAppoDate
+                    )
+                    MarkEventsOnCalendar(apContext, compactCalendarView).execute(
+                            response!!.body().citas.fecha,
+                            response.body().citas.hora
                     )
                 }
                 /*if (response?.body()?.citas?.size != 0){
@@ -417,6 +425,10 @@ class HomeActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
                 llNextAppo,
                 tvAppoDate
         )
+        MarkEventsOnCalendar(apContext, compactCalendarView).execute(
+                incomingAppoint.fecha,
+                incomingAppoint.hora
+        )
     }
 
     private fun refreshUI() {
@@ -493,10 +505,26 @@ class HomeActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
         Log.w("Llegó aquí", "refreshUI")
     }
 
-    private fun isNetworkAvailable(): Boolean {
+    internal fun isNetworkAvailable(): Boolean {
         val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val activeNetworkInfo = connectivityManager.activeNetworkInfo
         return activeNetworkInfo != null
+    }
+
+    override fun onResume() {
+        super.onResume()
+        var fecha = SharedPrefManager.getInstance(apContext)!!.getAppoint().fecha
+        var diaAppo = 0;
+        if (!fecha.isEmpty())
+            diaAppo = Integer.parseInt(fecha.split("-")[2])
+
+        val dia: Int = diaAppo - Integer.parseInt(SimpleDateFormat("dd").format(System.currentTimeMillis()))
+
+        if (!(dia>=0 || dia <=2)) {
+            JobsManager(apContext).cancelJobs()
+        } else {
+            JobsManager(apContext).scheduleJob(0)
+        }
     }
 
 }

@@ -59,7 +59,7 @@ class HomeDashboardFragment: Fragment(), View.OnClickListener {
     override fun onClick(v: View?) {
         if (v == cvNextAppo) {
             //Checar el status de la cita
-            startActivity(Intent(activity, ReminderActivity::class.java).putExtra("USER_ID", (activity as HomeActivity).USER_ID))
+            //startActivity(Intent(activity, ReminderActivity::class.java).putExtra("USER_ID", (activity as HomeActivity).USER_ID))
 
             /*if (SharedPrefManager.getInstance((activity as HomeActivity).apContext)?.getAppointStatus() == 2) {
 
@@ -68,6 +68,7 @@ class HomeDashboardFragment: Fragment(), View.OnClickListener {
                 else
                     Snackbar.make(activity_home, R.string.info_unknown_error_meals, Snackbar.LENGTH_SHORT).show()
             }*/
+
         } else if (v == btnCancelAppo) {
             //Enviar request para cancelar cita
             cancelAppoint()
@@ -142,12 +143,12 @@ class HomeDashboardFragment: Fragment(), View.OnClickListener {
             override fun onResponse(call: Call<GenericResult>?, response: Response<GenericResult>?) {
                 Log.w("Location", "onResponse -> HomeDashboardFragment")
                 Log.w("Response message", response?.body()?.message)
-                SharedPrefManager.getInstance((activity as HomeActivity))!!.setAppointStatus(2)
+                SharedPrefManager.getInstance((activity as HomeActivity).apContext)!!.setAppointStatus(2)
 
-                if (SharedPrefManager.getInstance((activity as HomeActivity).apContext)?.isMenuStored()!!)
+                /*if (SharedPrefManager.getInstance((activity as HomeActivity).apContext)?.isMenuStored()!!)
                     startActivity(Intent(activity, ReminderActivity::class.java).putExtra("USER_ID", (activity as HomeActivity).USER_ID))
                 else
-                    Snackbar.make(activity_home, R.string.info_unknown_error_meals, Snackbar.LENGTH_SHORT).show()
+                    Snackbar.make(activity_home, R.string.info_unknown_error_meals, Snackbar.LENGTH_SHORT).show()*/
 
                 llNextAppo.visibility = View.GONE
             }

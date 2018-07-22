@@ -40,7 +40,8 @@ class CitasValue (_idCita: Int, _tipoCita: String, _fecha: String, _hora: String
     }
 
     override fun toString(): String {
-        return "idCita: "+idCita+"\ntipoCita: "+tipoCita+"\nfecha: "+ fecha+"\nhora: "+hora+"\nstatus: "+status
+        //return "idCita: "+idCita+"\ntipoCita: "+tipoCita+"\nfecha: "+ fecha+"\nhora: "+hora+"\nstatus: "+status
+        return tipoCita+"\n"+ fecha+"\n"+hora
     }
 
 }

@@ -27,5 +27,8 @@
     <color name="magenta">#FF3190</color>
     <color name="dark_green">#005662</color>
     <color name="dark_success_green">#00A642</color>
+    <color name="green_accent_1">#CAFFCA</color>
+    <color name="green_accent_2">#75F0A1</color>
+    <color name="light_gray">#DDDDDD</color>
 
 </resources>

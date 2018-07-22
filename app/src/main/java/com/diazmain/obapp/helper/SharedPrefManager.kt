@@ -8,6 +8,8 @@ import com.diazmain.obapp.Home.model.LastMeasures
 import com.diazmain.obapp.Home.model.MeasuresValue
 import com.diazmain.obapp.Home.model.meals.MealMenuResult
 import com.diazmain.obapp.Login.model.User
+import com.diazmain.obapp.Reminder.Pojo.Comidas
+import com.diazmain.obapp.Reminder.Pojo.Recordatorio
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.lang.reflect.Type
@@ -34,6 +36,15 @@ class SharedPrefManager (private val mCtx: Context) {
 
         private val KEY_MEAL_MENU = "keymealmenu"
 
+        private val KEY_BREAKFAST_MEAL_TIME = "keybreakfastmealtime"
+        private val KEY_FCOLLATION_MEAL_TIME = "keyfcollationmealtime"
+        private val KEY_MEAL_MEAL_TIME = "keymealmealtime"
+        private val KEY_SCOLLATION_MEAL_TIME = "keyscollationmealtime"
+        private val KEY_DINNER_MEAL_TIME = "keydinnermealtime"
+
+        private val KEY_LAST_REMINDER = "keylastreminder"
+        private val KEY_LAST_REMINDER_DATE = "keylastreminderdate"
+
         private var mInstance: SharedPrefManager? = null
 
         fun getInstance(context: Context): SharedPrefManager? {
@@ -47,6 +58,17 @@ class SharedPrefManager (private val mCtx: Context) {
         }
     }
 
+    private fun initKeys() {
+        val sPref: SharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
+        val editor: SharedPreferences.Editor = sPref.edit()
+
+        editor.putString(KEY_BREAKFAST_MEAL_TIME,"")
+        editor.putString(KEY_FCOLLATION_MEAL_TIME,"")
+        editor.putString(KEY_MEAL_MEAL_TIME,"")
+        editor.putString(KEY_SCOLLATION_MEAL_TIME,"")
+        editor.putString(KEY_DINNER_MEAL_TIME,"")
+    }
+
     fun userLogin(user: User) : Boolean {
         val sPref: SharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
         val editor: SharedPreferences.Editor = sPref.edit()
@@ -57,6 +79,8 @@ class SharedPrefManager (private val mCtx: Context) {
         editor.putString(KEY_USER_USERNAME, user.getUsername())
         editor.putString(KEY_USER_BIRTH, user.getBirth())
         editor.apply()
+
+        initKeys()
 
         return true
     }
@@ -249,4 +273,102 @@ class SharedPrefManager (private val mCtx: Context) {
         return gson.fromJson(result, MealMenuResult::class.java)
     }
 
+    fun storeReminderPart(mealTime: Int, food: Comidas) {
+        val sPref: SharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
+        val editor: SharedPreferences.Editor = sPref.edit()
+
+        val gson: Gson = Gson()
+        val json: String = gson.toJson(food)
+        when (mealTime) {
+            1 -> { editor.putString(KEY_BREAKFAST_MEAL_TIME, json)
+            Log.w("storeReminderPart", "breakfast -> "+json)}
+            2 -> { editor.putString(KEY_FCOLLATION_MEAL_TIME, json) }
+            3 -> { editor.putString(KEY_MEAL_MEAL_TIME, json) }
+            4 -> { editor.putString(KEY_SCOLLATION_MEAL_TIME, json) }
+            5 -> { editor.putString(KEY_DINNER_MEAL_TIME, json) }
+        }
+        editor.apply()
+    }
+
+    fun getReminderPart(mealTime: Int) : Comidas {
+        val sPref: SharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
+
+        val gson: Gson = Gson()
+        var result: String = ""
+        when (mealTime) {
+            1 -> { result = sPref.getString(KEY_BREAKFAST_MEAL_TIME, "") }
+            2 -> { result = sPref.getString(KEY_FCOLLATION_MEAL_TIME, "") }
+            3 -> { result = sPref.getString(KEY_MEAL_MEAL_TIME, "") }
+            4 -> { result = sPref.getString(KEY_SCOLLATION_MEAL_TIME, "") }
+            5 -> { result = sPref.getString(KEY_DINNER_MEAL_TIME, "") }
+        }
+        return gson.fromJson(result, Comidas::class.java)
+    }
+
+    fun isBreakfastStored(): Boolean {
+        val sPref: SharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
+        Log.w("isBreakfastStored", "Breakfast -> "+sPref.getString(KEY_BREAKFAST_MEAL_TIME, ""))
+        return !sPref.getString(KEY_BREAKFAST_MEAL_TIME, "").equals("")
+    }
+
+    fun isFirstCollationStored(): Boolean {
+        val sPref: SharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
+        return !sPref.getString(KEY_FCOLLATION_MEAL_TIME, "").equals("")
+    }
+
+    fun isMealTimeStored(): Boolean {
+        val sPref: SharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
+        return !sPref.getString(KEY_MEAL_MEAL_TIME, "").equals("")
+    }
+
+    fun isSecondCollationStored(): Boolean {
+        val sPref: SharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
+        return !sPref.getString(KEY_SCOLLATION_MEAL_TIME, "").equals("")
+    }
+
+    fun isDinnerStored(): Boolean {
+        val sPref: SharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
+        return !sPref.getString(KEY_DINNER_MEAL_TIME, "").equals("")
+    }
+
+    fun storeLastCompleteReminder(reminder: Recordatorio) {
+        val sPref: SharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
+        val editor: SharedPreferences.Editor = sPref.edit()
+
+        val reminderDate = reminder.fecha
+        val gson: Gson = Gson()
+        val json: String = gson.toJson(reminder)
+
+        editor.putString(KEY_LAST_REMINDER, json)
+        editor.putString(KEY_LAST_REMINDER_DATE, reminderDate)
+
+        editor.apply()
+    }
+
+    fun getLastCompleteReminder() : Recordatorio {
+        val sPref: SharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
+
+        val gson: Gson = Gson()
+        val result: String = sPref.getString(KEY_LAST_REMINDER, "")
+        return gson.fromJson(result, Recordatorio::class.java)
+    }
+
+    fun getLastCompleteReminderDate() : String {
+        val sPref: SharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
+
+        return sPref.getString(KEY_LAST_REMINDER_DATE, "")
+    }
+
+    fun cleanReminderParts() {
+        val sPref: SharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
+        val editor: SharedPreferences.Editor = sPref.edit()
+
+        editor.putString(KEY_BREAKFAST_MEAL_TIME, "")
+        editor.putString(KEY_FCOLLATION_MEAL_TIME, "")
+        editor.putString(KEY_MEAL_MEAL_TIME, "")
+        editor.putString(KEY_SCOLLATION_MEAL_TIME, "")
+        editor.putString(KEY_DINNER_MEAL_TIME, "")
+
+        editor.apply()
+    }
 }

@@ -30,8 +30,7 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".Login.SplashScreen"
-            android:theme="@style/AppTheme">
-        </activity>
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".Login.SignUpActivity"
             android:theme="@style/AppTheme" />
@@ -46,14 +45,39 @@
             android:name=".Notification.NotificationJobService"
             android:permission="android.permission.BIND_JOB_SERVICE" />
 
-        <activity android:name=".Login.AlternativeLoginActivity"
+        <activity
+            android:name=".Login.AlternativeLoginActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
+        </activity>
+        <activity android:name=".Reminder.BreakfastActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Home.HomeActivity" />
+        </activity>
+        <activity android:name=".Reminder.FirstCollationActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Home.HomeActivity" />
+        </activity>
+        <activity android:name=".Reminder.MealActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Home.HomeActivity" />
+        </activity>
+        <activity android:name=".Reminder.SecondCollationActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Home.HomeActivity" />
+        </activity>
+        <activity android:name=".Reminder.DinnerActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Home.HomeActivity" />
         </activity>
     </application>
 

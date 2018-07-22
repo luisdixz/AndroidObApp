@@ -3,6 +3,7 @@
     <string name="tab_home">Home</string>
     <string name="tab_progress">Progress</string>
     <string name="tab_profile">Profile</string>
+    <string name="tab_reminder">Reminder</string>
     <string name="tab_breakfast">Breakfast</string>
     <string name="tab_lunch">Meal</string>
     <string name="tab_dinner">Dinner</string>
@@ -33,6 +34,9 @@
     <string name="btn_loading">Loading</string>
     <string name="btn_sign_in_again">Error, sign in again</string>
     <string name="btn_send">Send</string>
+    <string name="btn_save">Save</string>
+    <string name="btn_add_extra">Add extras</string>
+    <string name="btn_finish">Finish</string>
 
     <string name="action_logout">Log out</string>
     <string name="action_refresh">Refresh data</string>
@@ -71,6 +75,11 @@
     <string name="label_time_lunch_hint">Meal time (hh:ss)</string>
     <string name="label_time_collation_hint">Time of second collation (hh:ss)</string>
     <string name="label_time_dinner_hint">Dinner time (hh:ss)</string>
+    <string name="label_fill_reminder">Fill reminder format</string>
+    <string name="label_reminder_from_date">Reminder from</string>
+    <string name="label_reminder_from_yesterday">Reminder from yesterday</string>
+    <string name="label_reminder_from_today">Reminder from today</string>
+    <string name="label_agenda">Next appointment</string>
 
     <string name="info_unknown_error_meals">Something wrong happened, refresh the screen</string>
 
@@ -90,5 +99,8 @@
         <item>Option 4</item>
         <item>Option 5</item>
     </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

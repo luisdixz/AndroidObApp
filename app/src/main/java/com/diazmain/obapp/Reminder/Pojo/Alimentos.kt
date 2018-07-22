@@ -21,7 +21,7 @@ class Alimentos(_alimento: String, _porcion: String, _cambiopor: String) {
         }
 
     override fun toString(): String {
-        return "Comida -> " + alimento + ", Porción -> " + porcion + ", CambioPor -> " + cambiopor +"\n"
+        return "\n• " + alimento + ", " + porcion + "\nCambio por: " + cambiopor+"\n"
     }
 
 }

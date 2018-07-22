@@ -39,9 +39,9 @@ class AlternativeLoginActivity : AppCompatActivity(), View.OnClickListener {
         if (v == btnSignIn) {
             userSignIn()
         }
-        if (v == tbPassForgotten) {
+        /*if (v == tbPassForgotten) {
 
-        }
+        }*/
     }
 
     fun userSignIn() {
@@ -62,7 +62,7 @@ class AlternativeLoginActivity : AppCompatActivity(), View.OnClickListener {
         call.enqueue(object : Callback<Result> {
             override fun onFailure(call: Call<Result>?, t: Throwable?) {
                 pbSignIn.visibility = View.GONE
-                btnSignIn.isEnabled = false
+                btnSignIn.isEnabled = true
                 btnSignIn.alpha = 1f
                 //btnSignIn.progress = -1
                 Snackbar.make(
@@ -74,7 +74,7 @@ class AlternativeLoginActivity : AppCompatActivity(), View.OnClickListener {
 
             override fun onResponse(call: Call<Result>?, response: Response<Result>?) {
                 pbSignIn.visibility = View.GONE
-                btnSignIn.isEnabled = false
+                btnSignIn.isEnabled = true
                 btnSignIn.alpha = 1f
                 if (!response?.body()?.getError()!!) {
                     Log.w("Login -> UserID", response.body().getUser().getId().toString())

@@ -81,4 +81,13 @@
     <string name="label_time_collation_hint">Hora de la colación 2 (hh:ss)</string>
     <string name="label_time_dinner_hint">Hora de la cena (hh:ss)</string>
     <string name="notification_unstable_connection">La conexion a internet es inestable, revise su red</string>
+    <string name="tab_reminder">Recordatorio</string>
+    <string name="label_fill_reminder">Llena el recordatorio</string>
+    <string name="label_reminder_from_date">Recordatorio del</string>
+    <string name="btn_save">Guardar</string>
+    <string name="btn_add_extra">Añadir extras</string>
+    <string name="btn_finish">Finalizar</string>
+    <string name="label_reminder_from_yesterday">Recordatorio de ayer</string>
+    <string name="label_reminder_from_today">Recordatorio de hoy</string>
+    <string name="label_agenda">Próxima cita</string>
 </resources>

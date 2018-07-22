@@ -136,11 +136,11 @@ class ReminderActivity : AppCompatActivity(), OnPageChangeListener, Callback<Res
     fun sendData() {
 
         if (fillArrays()) {
-            val desayunoAll = Comidas(desHora, desayuno)
-            val colacion1All = Comidas(co1Hora, colacion1)
-            val comidaAll = Comidas(comHora, comida)
-            val colacion2All = Comidas(co2Hora, colacion2)
-            val cenaAll = Comidas(cenHora, cena)
+            val desayunoAll = Comidas(desHora, desayuno, "")
+            val colacion1All = Comidas(co1Hora, colacion1, "")
+            val comidaAll = Comidas(comHora, comida, "")
+            val colacion2All = Comidas(co2Hora, colacion2,"")
+            val cenaAll = Comidas(cenHora, cena,"")
 
             Log.w("Array -> desayunoAll", desayunoAll.toString())
             Log.w("Array -> colacion1All", colacion1All.toString())

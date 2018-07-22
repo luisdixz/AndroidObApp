@@ -32,21 +32,21 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
-                    android:buttonTint="@color/colorAccent" />
+                     />
 
                 <CheckBox
                     android:id="@+id/cbMeat2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
-                    android:buttonTint="@color/colorAccent" />
+                     />
 
                 <CheckBox
                     android:id="@+id/cbMeat3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
-                    android:buttonTint="@color/colorAccent" />
+                     />
 
                 <CheckBox
                     android:id="@+id/cbMeat4"
@@ -58,42 +58,42 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
-                    android:buttonTint="@color/colorAccent" />
+                     />
 
                 <CheckBox
                     android:id="@+id/cbMeat6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
-                    android:buttonTint="@color/colorAccent" />
+                     />
 
                 <CheckBox
                     android:id="@+id/cbMeat7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
-                    android:buttonTint="@color/colorAccent" />
+                     />
 
                 <CheckBox
                     android:id="@+id/cbMeat8"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
-                    android:buttonTint="@color/colorAccent" />
+                     />
 
                 <CheckBox
                     android:id="@+id/cbMeat9"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
-                    android:buttonTint="@color/colorAccent" />
+                     />
 
                 <CheckBox
                     android:id="@+id/cbMeat10"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
-                    android:buttonTint="@color/colorAccent" />
+                     />
 
             </RadioGroup>
 
