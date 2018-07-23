@@ -75,21 +75,6 @@ class UpdateHomeUI(_apContext: Context) : AsyncTask<View, Void, LastMeasures>() 
     }
 
     override fun onPostExecute(result: LastMeasures) {
-        /*val tvResWeight: TextView = HomeActivity().findViewById(R.id.tvResWeight)
-        val tvResWaist: TextView = HomeActivity().findViewById(R.id.tvResWaist)
-        val tvResFat: TextView = HomeActivity().findViewById(R.id.tvResFat)
-
-        val imWeightLittleProgress: ImageView = HomeActivity().findViewById(R.id.imWeightLittleProgress)
-        val imWaistLittleProgress: ImageView = HomeActivity().findViewById(R.id.imWaistLittleProgress)
-        val imFatLittleProgress: ImageView = HomeActivity().findViewById(R.id.imFatLittleProgress)
-
-        val tvPreviousWeight: TextView = HomeActivity().findViewById(R.id.tvPreviousWeight)
-        val tvPreviousWaist: TextView = HomeActivity().findViewById(R.id.tvPreviousWaist)
-        val tvPreviousFat: TextView = HomeActivity().findViewById(R.id.tvPreviousFat)
-        val tvNextWeight: TextView = HomeActivity().findViewById(R.id.tvNextWeight)
-        val tvNextWaist: TextView = HomeActivity().findViewById(R.id.tvNextWaist)
-        val tvNextFat: TextView = HomeActivity().findViewById(R.id.tvNextFat)*/
-
         when {
             result.months == 0 -> {
                 tvResWeight.setText(apContext.getString(R.string.label_prog_anuncio_default))

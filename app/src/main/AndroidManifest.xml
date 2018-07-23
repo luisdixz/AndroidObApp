@@ -24,22 +24,7 @@
             -->
 
         </activity>
-        <activity android:name=".Home.Fragments.Perfil" />
-        <activity
-            android:name=".Login.SignInActivity"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".Login.SplashScreen"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".Login.SignUpActivity"
-            android:theme="@style/AppTheme" />
-        <activity android:name=".Reminder.ReminderActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Home.HomeActivity" />
-        </activity>
-        <activity android:name=".Home.ChangePassword" />
+        <activity android:name=".Home.Fragments.ProfileFragment" />
 
         <service
             android:name=".Notification.NotificationJobService"

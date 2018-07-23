@@ -35,7 +35,7 @@
     <string name="btn_sign_in_again">Error, sign in again</string>
     <string name="btn_send">Send</string>
     <string name="btn_save">Save</string>
-    <string name="btn_add_extra">Add extras</string>
+    <string name="btn_add_extra">Add extra food</string>
     <string name="btn_finish">Finish</string>
 
     <string name="action_logout">Log out</string>
@@ -80,6 +80,7 @@
     <string name="label_reminder_from_yesterday">Reminder from yesterday</string>
     <string name="label_reminder_from_today">Reminder from today</string>
     <string name="label_agenda">Next appointment</string>
+    <string name="label_extra_food">Did you eat something else?</string>
 
     <string name="info_unknown_error_meals">Something wrong happened, refresh the screen</string>
 
@@ -99,8 +100,4 @@
         <item>Option 4</item>
         <item>Option 5</item>
     </string-array>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
 </resources>

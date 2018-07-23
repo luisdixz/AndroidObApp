@@ -1,22 +1,17 @@
 package com.diazmain.obapp.Home.Fragments
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import com.diazmain.obapp.Home.HomeActivity
 import com.diazmain.obapp.Home.model.GenericResult
-import com.diazmain.obapp.Login.SplashScreen
 import com.diazmain.obapp.helper.SharedPrefManager
 import com.diazmain.obapp.R
-import com.diazmain.obapp.Reminder.ReminderActivity
 import com.diazmain.obapp.api.APIService
 import com.diazmain.obapp.api.APIUrl
 import kotlinx.android.synthetic.main.activity_home.*
@@ -106,7 +101,6 @@ class HomeDashboardFragment: Fragment(), View.OnClickListener {
             override fun onResponse(call: Call<GenericResult>?, response: Response<GenericResult>?) {
                 if (!response?.body()?.error!!) {
                     SharedPrefManager.getInstance((activity as HomeActivity))!!.setAppointStatus(0)
-                    startActivity(Intent(activity, ReminderActivity::class.java))
                     llNextAppo.visibility = View.GONE
                 } else {
                     Log.wtf("onResponse -> Error", response.message()+" -> HomeDashboardFragment")

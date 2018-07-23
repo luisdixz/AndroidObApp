@@ -85,9 +85,10 @@
     <string name="label_fill_reminder">Llena el recordatorio</string>
     <string name="label_reminder_from_date">Recordatorio del</string>
     <string name="btn_save">Guardar</string>
-    <string name="btn_add_extra">Añadir extras</string>
+    <string name="btn_add_extra">Añadir alimento extra</string>
     <string name="btn_finish">Finalizar</string>
     <string name="label_reminder_from_yesterday">Recordatorio de ayer</string>
     <string name="label_reminder_from_today">Recordatorio de hoy</string>
     <string name="label_agenda">Próxima cita</string>
+    <string name="label_extra_food">¿Comiste algo más?</string>
 </resources>

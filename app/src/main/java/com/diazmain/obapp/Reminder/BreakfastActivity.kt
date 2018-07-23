@@ -91,8 +91,10 @@ class BreakfastActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeLis
                     preferences.edit().putBoolean("cbd1", true).apply()
                     tilDesPorcion1.visibility = View.VISIBLE
                     checks.add(CamposCheck(1, cbd1, tilDesPorcion1, tietDesPorcion1))
-                    if (imbDes1.visibility != View.GONE)
+                    if (imbDes1.visibility != View.GONE) {
                         imbDes1.isEnabled = true
+                        imbDes1.alpha = 1f
+                    }
                 } else {
                     preferences.edit().putBoolean("cbd1", false).apply()
                     val it = checks.iterator()
@@ -102,8 +104,10 @@ class BreakfastActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeLis
                             it.remove()
                     }
                     tilDesPorcion1.visibility = View.GONE
-                    if (imbDes1.visibility != View.GONE)
+                    if (imbDes1.visibility != View.GONE) {
                         imbDes1.isEnabled = false
+                        imbDes1.alpha = 0.5f
+                    }
                 }
             }
             cbd2 -> {
@@ -111,8 +115,10 @@ class BreakfastActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeLis
                     preferences.edit().putBoolean("cbd2", true).apply()
                     tilDesPorcion2.visibility = View.VISIBLE
                     checks.add(CamposCheck(1, cbd2, tilDesPorcion2, tietDesPorcion2))
-                    if (imbDes2.visibility != View.GONE)
+                    if (imbDes2.visibility != View.GONE) {
                         imbDes2.isEnabled = true
+                        imbDes2.alpha = 1f
+                    }
                 } else {
                     preferences.edit().putBoolean("cbd2", false).apply()
                     val it = checks.iterator()
@@ -122,8 +128,10 @@ class BreakfastActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeLis
                             it.remove()
                     }
                     tilDesPorcion2.visibility = View.GONE
-                    if (imbDes2.visibility != View.GONE)
+                    if (imbDes2.visibility != View.GONE) {
                         imbDes2.isEnabled = false
+                        imbDes2.alpha = 0.5f
+                    }
                 }
             }
             cbd3 -> {
@@ -131,8 +139,10 @@ class BreakfastActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeLis
                     preferences.edit().putBoolean("cbd3", true).apply()
                     tilDesPorcion3.visibility = View.VISIBLE
                     checks.add(CamposCheck(1, cbd3, tilDesPorcion3, tietDesPorcion3))
-                    if (imbDes3.visibility != View.GONE)
+                    if (imbDes3.visibility != View.GONE) {
                         imbDes3.isEnabled = true
+                        imbDes3.alpha = 1f
+                    }
                 } else {
                     preferences.edit().putBoolean("cbd3", false).apply()
                     val it = checks.iterator()
@@ -142,8 +152,10 @@ class BreakfastActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeLis
                             it.remove()
                     }
                     tilDesPorcion3.visibility = View.GONE
-                    if (imbDes3.visibility != View.GONE)
+                    if (imbDes3.visibility != View.GONE) {
                         imbDes3.isEnabled = false
+                        imbDes3.alpha = 0.5f
+                    }
                 }
             }
             cbd4 -> {
@@ -151,8 +163,10 @@ class BreakfastActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeLis
                     preferences.edit().putBoolean("cbd4", true).apply()
                     tilDesPorcion4.visibility = View.VISIBLE
                     checks.add(CamposCheck(1, cbd4, tilDesPorcion4, tietDesPorcion4))
-                    if (imbDes4.visibility != View.GONE)
+                    if (imbDes4.visibility != View.GONE) {
                         imbDes4.isEnabled = true
+                        imbDes4.alpha = 1f
+                    }
                 } else {
                     preferences.edit().putBoolean("cbd4", false).apply()
                     val it = checks.iterator()
@@ -162,8 +176,10 @@ class BreakfastActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeLis
                             it.remove()
                     }
                     tilDesPorcion4.visibility = View.GONE
-                    if (imbDes4.visibility != View.GONE)
+                    if (imbDes4.visibility != View.GONE) {
                         imbDes4.isEnabled = false
+                        imbDes4.alpha = 0.5f
+                    }
                 }
             }
             cbd5 -> {
@@ -171,8 +187,10 @@ class BreakfastActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeLis
                     preferences.edit().putBoolean("cbd5", true).apply()
                     tilDesPorcion5.visibility = View.VISIBLE
                     checks.add(CamposCheck(1, cbd5, tilDesPorcion5, tietDesPorcion5))
-                    if (imbDes5.visibility != View.GONE)
+                    if (imbDes5.visibility != View.GONE) {
                         imbDes5.isEnabled = true
+                        imbDes5.alpha = 1f
+                    }
                 } else {
                     preferences.edit().putBoolean("cbd5", false).apply()
                     val it = checks.iterator()
@@ -182,8 +200,10 @@ class BreakfastActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeLis
                             it.remove()
                     }
                     tilDesPorcion5.visibility = View.GONE
-                    if (imbDes5.visibility != View.GONE)
+                    if (imbDes5.visibility != View.GONE) {
                         imbDes5.isEnabled = false
+                        imbDes5.alpha = 0.5f
+                    }
                 }
             }
             cbd6 -> {
@@ -191,8 +211,10 @@ class BreakfastActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeLis
                     preferences.edit().putBoolean("cbd6", true).apply()
                     tilDesPorcion6.visibility = View.VISIBLE
                     checks.add(CamposCheck(1, cbd6, tilDesPorcion6, tietDesPorcion6))
-                    if (imbDes6.visibility != View.GONE)
+                    if (imbDes6.visibility != View.GONE) {
                         imbDes6.isEnabled = true
+                        imbDes6.alpha = 1f
+                    }
                 } else {
                     preferences.edit().putBoolean("cbd6", false).apply()
                     val it = checks.iterator()
@@ -202,8 +224,10 @@ class BreakfastActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeLis
                             it.remove()
                     }
                     tilDesPorcion6.visibility = View.GONE
-                    if (imbDes6.visibility != View.GONE)
+                    if (imbDes6.visibility != View.GONE) {
                         imbDes6.isEnabled = false
+                        imbDes6.alpha = 0.5f
+                    }
                 }
             }
         }
@@ -226,6 +250,7 @@ class BreakfastActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeLis
     fun appendExtraFood() {
         if (validateEmptyField(tilNewExtra, tietNewExtra)) {
             finalExtras.append(tietNewExtra.text.toString() + "\n")
+            tietNewExtra.setText("")
         }
         tvViewExtras.setText(finalExtras.toString())
     }
@@ -303,7 +328,6 @@ class BreakfastActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeLis
     }
 
     fun superFunFunction(op: Int) {
-        //Log.w("Position -> ", op.toString())
         when (op) {
             0 -> {
                 val optionsSize: Int = desMenu.op1.size
@@ -356,6 +380,8 @@ class BreakfastActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeLis
 
                         if (!(b1 && b2 && b3)) {
                             mealElement[i].ibutton.visibility = View.VISIBLE
+                            mealElement[i].ibutton.isEnabled = false
+                            mealElement[i].ibutton.alpha = 0.5f
                             mealElement[i].ibutton.setOnClickListener() { v ->
                                 if (!b1) {
                                     getDialog1(i, mealElement, op).show()
@@ -422,6 +448,8 @@ class BreakfastActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeLis
 
                         if (!(b1 && b2 && b3)) {
                             mealElement[i].ibutton.visibility = View.VISIBLE
+                            mealElement[i].ibutton.isEnabled = false
+                            mealElement[i].ibutton.alpha = 0.5f
                             mealElement[i].ibutton.setOnClickListener() { v ->
                                 if (!b1) {
                                     getDialog1(i, mealElement, op).show()
@@ -486,6 +514,8 @@ class BreakfastActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeLis
 
                         if (!(b1 && b2 && b3)) {
                             mealElement[i].ibutton.visibility = View.VISIBLE
+                            mealElement[i].ibutton.isEnabled = false
+                            mealElement[i].ibutton.alpha = 0.5f
                             mealElement[i].ibutton.setOnClickListener() { v ->
                                 if (!b1) {
                                     getDialog1(i, mealElement, op).show()
@@ -550,6 +580,8 @@ class BreakfastActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeLis
 
                         if (!(b1 && b2 && b3)) {
                             mealElement[i].ibutton.visibility = View.VISIBLE
+                            mealElement[i].ibutton.isEnabled = false
+                            mealElement[i].ibutton.alpha = 0.5f
                             mealElement[i].ibutton.setOnClickListener() { v ->
                                 if (!b1) {
                                     getDialog1(i, mealElement, op).show()
@@ -620,6 +652,8 @@ class BreakfastActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeLis
 
                         if (!(b1 && b2 && b3)) {
                             mealElement[i].ibutton.visibility = View.VISIBLE
+                            mealElement[i].ibutton.isEnabled = false
+                            mealElement[i].ibutton.alpha = 0.5f
                             mealElement[i].ibutton.setOnClickListener() { v ->
                                 if (!b1) {
                                     getDialog1(i, mealElement, op).show()
@@ -964,13 +998,8 @@ class BreakfastActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeLis
                                 }
                             }
                         }
-                        //Log.w("CheckBox -> toString", meal[i].toString())
                         swaps.add(FoodSwapInfo(1, i, meal[i].cbox.text.toString(), "", "", swapThree[x].text.toString()))
-                        //meal[i].swap.add(swapThree[x].text.toString())
                     }
-                    /*if (!meal[i].swap.contains(swapThree[x].text.toString()))
-                        meal[i].swap.add(swapThree[x].text.toString())*/
-                    //cambiopor.add(swapThree[x].text.toString())
                 }
             }
         })

@@ -90,8 +90,10 @@ class MealActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
                 if (cbco1.isChecked) {
                     tilComPorcion1.visibility = View.VISIBLE
                     checks.add(CamposCheck(1, cbco1, tilComPorcion1, tietComPorcion1))
-                    if (imbCom1.visibility != View.GONE)
+                    if (imbCom1.visibility != View.GONE) {
                         imbCom1.isEnabled = true
+                        imbCom1.alpha = 1f
+                    }
                 } else {
                     val it = checks.iterator()
                     while (it.hasNext()) {
@@ -100,16 +102,20 @@ class MealActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
                             it.remove()
                     }
                     tilComPorcion1.visibility = View.GONE
-                    if (imbCom1.visibility != View.GONE)
+                    if (imbCom1.visibility != View.GONE) {
                         imbCom1.isEnabled = false
+                        imbCom1.alpha = 0.5f
+                    }
                 }
             }
             cbco2 -> {
                 if (cbco2.isChecked) {
                     tilComPorcion2.visibility = View.VISIBLE
                     checks.add(CamposCheck(1, cbco2, tilComPorcion2, tietComPorcion2))
-                    if (imbCom2.visibility != View.GONE)
+                    if (imbCom2.visibility != View.GONE) {
                         imbCom2.isEnabled = true
+                        imbCom2.alpha = 1f
+                    }
                 } else {
                     val it = checks.iterator()
                     while (it.hasNext()) {
@@ -118,16 +124,20 @@ class MealActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
                             it.remove()
                     }
                     tilComPorcion2.visibility = View.GONE
-                    if (imbCom2.visibility != View.GONE)
+                    if (imbCom2.visibility != View.GONE) {
                         imbCom2.isEnabled = false
+                        imbCom2.alpha = 0.5f
+                    }
                 }
             }
             cbco3 -> {
                 if (cbco3.isChecked) {
                     tilComPorcion3.visibility = View.VISIBLE
                     checks.add(CamposCheck(1, cbco3, tilComPorcion3, tietComPorcion3))
-                    if (imbCom3.visibility != View.GONE)
+                    if (imbCom3.visibility != View.GONE) {
                         imbCom3.isEnabled = true
+                        imbCom3.alpha = 1f
+                    }
                 } else {
                     val it = checks.iterator()
                     while (it.hasNext()) {
@@ -136,16 +146,20 @@ class MealActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
                             it.remove()
                     }
                     tilComPorcion3.visibility = View.GONE
-                    if (imbCom3.visibility != View.GONE)
+                    if (imbCom3.visibility != View.GONE) {
                         imbCom3.isEnabled = false
+                        imbCom3.alpha = 0.5f
+                    }
                 }
             }
             cbco4 -> {
                 if (cbco4.isChecked) {
                     tilComPorcion4.visibility = View.VISIBLE
                     checks.add(CamposCheck(1, cbco4, tilComPorcion4, tietComPorcion4))
-                    if (imbCom4.visibility != View.GONE)
+                    if (imbCom4.visibility != View.GONE) {
                         imbCom4.isEnabled = true
+                        imbCom4.alpha = 1f
+                    }
                 } else {
                     val it = checks.iterator()
                     while (it.hasNext()) {
@@ -154,16 +168,20 @@ class MealActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
                             it.remove()
                     }
                     tilComPorcion4.visibility = View.GONE
-                    if (imbCom4.visibility != View.GONE)
+                    if (imbCom4.visibility != View.GONE) {
                         imbCom4.isEnabled = false
+                        imbCom4.alpha = 0.5f
+                    }
                 }
             }
             cbco5 -> {
                 if (cbco5.isChecked) {
                     tilComPorcion5.visibility = View.VISIBLE
                     checks.add(CamposCheck(1, cbco5, tilComPorcion5, tietComPorcion5))
-                    if (imbCom5.visibility != View.GONE)
+                    if (imbCom5.visibility != View.GONE) {
                         imbCom5.isEnabled = true
+                        imbCom5.alpha = 1f
+                    }
                 } else {
                     val it = checks.iterator()
                     while (it.hasNext()) {
@@ -172,16 +190,20 @@ class MealActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
                             it.remove()
                     }
                     tilComPorcion5.visibility = View.GONE
-                    if (imbCom5.visibility != View.GONE)
+                    if (imbCom5.visibility != View.GONE) {
                         imbCom5.isEnabled = false
+                        imbCom5.alpha = 0.5f
+                    }
                 }
             }
             cbco6 -> {
                 if (cbco6.isChecked) {
                     tilComPorcion6.visibility = View.VISIBLE
                     checks.add(CamposCheck(1, cbco6, tilComPorcion6, tietComPorcion6))
-                    if (imbCom6.visibility != View.GONE)
+                    if (imbCom6.visibility != View.GONE) {
                         imbCom6.isEnabled = true
+                        imbCom6.alpha = 1f
+                    }
                 } else {
                     val it = checks.iterator()
                     while (it.hasNext()) {
@@ -190,8 +212,10 @@ class MealActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
                             it.remove()
                     }
                     tilComPorcion6.visibility = View.GONE
-                    if (imbCom6.visibility != View.GONE)
-                        imbCom6.isEnabled = false
+                    if (imbCom6.visibility != View.GONE) {
+                        imbCom3.isEnabled = false
+                        imbCom6.alpha = 0.5f
+                    }
                 }
             }
         }
@@ -345,6 +369,8 @@ class MealActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
 
                         if (!(b1 && b2 && b3)) {
                             mealElement[i].ibutton.visibility = View.VISIBLE
+                            mealElement[i].ibutton.isEnabled = false
+                            mealElement[i].ibutton.alpha = 0.5f
                             mealElement[i].ibutton.setOnClickListener() { v ->
                                 if (!b1) {
                                     getDialog1(i, mealElement, op).show()
@@ -411,6 +437,8 @@ class MealActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
 
                         if (!(b1 && b2 && b3)) {
                             mealElement[i].ibutton.visibility = View.VISIBLE
+                            mealElement[i].ibutton.isEnabled = false
+                            mealElement[i].ibutton.alpha = 0.5f
                             mealElement[i].ibutton.setOnClickListener() { v ->
                                 if (!b1) {
                                     getDialog1(i, mealElement, op).show()
@@ -475,6 +503,8 @@ class MealActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
 
                         if (!(b1 && b2 && b3)) {
                             mealElement[i].ibutton.visibility = View.VISIBLE
+                            mealElement[i].ibutton.isEnabled = false
+                            mealElement[i].ibutton.alpha = 0.5f
                             mealElement[i].ibutton.setOnClickListener() { v ->
                                 if (!b1) {
                                     getDialog1(i, mealElement, op).show()
@@ -539,6 +569,8 @@ class MealActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
 
                         if (!(b1 && b2 && b3)) {
                             mealElement[i].ibutton.visibility = View.VISIBLE
+                            mealElement[i].ibutton.isEnabled = false
+                            mealElement[i].ibutton.alpha = 0.5f
                             mealElement[i].ibutton.setOnClickListener() { v ->
                                 if (!b1) {
                                     getDialog1(i, mealElement, op).show()
@@ -609,6 +641,8 @@ class MealActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
 
                         if (!(b1 && b2 && b3)) {
                             mealElement[i].ibutton.visibility = View.VISIBLE
+                            mealElement[i].ibutton.isEnabled = false
+                            mealElement[i].ibutton.alpha = 0.5f
                             mealElement[i].ibutton.setOnClickListener() { v ->
                                 if (!b1) {
                                     getDialog1(i, mealElement, op).show()

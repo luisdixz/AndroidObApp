@@ -89,8 +89,10 @@ class SecondCollationActivity : AppCompatActivity(), CompoundButton.OnCheckedCha
                 if (cbc21.isChecked) {
                     tilCo2Porcion1.visibility = View.VISIBLE
                     checks.add(CamposCheck(1, cbc21, tilCo2Porcion1, tietCo2Porcion1))
-                    if (imbCo21.visibility != View.GONE)
+                    if (imbCo21.visibility != View.GONE) {
                         imbCo21.isEnabled = true
+                        imbCo21.alpha = 1f
+                    }
                 } else {
                     val it = checks.iterator()
                     while (it.hasNext()) {
@@ -99,16 +101,20 @@ class SecondCollationActivity : AppCompatActivity(), CompoundButton.OnCheckedCha
                             it.remove()
                     }
                     tilCo2Porcion1.visibility = View.GONE
-                    if (imbCo21.visibility != View.GONE)
+                    if (imbCo21.visibility != View.GONE) {
                         imbCo21.isEnabled = false
+                        imbCo21.alpha = 0.5f
+                    }
                 }
             }
             cbc22 -> {
                 if (cbc22.isChecked) {
                     tilCo2Porcion2.visibility = View.VISIBLE
                     checks.add(CamposCheck(1, cbc22, tilCo2Porcion2, tietCo2Porcion2))
-                    if (imbCo22.visibility != View.GONE)
+                    if (imbCo22.visibility != View.GONE) {
                         imbCo22.isEnabled = true
+                        imbCo22.alpha = 1f
+                    }
                 } else {
                     val it = checks.iterator()
                     while (it.hasNext()) {
@@ -117,16 +123,20 @@ class SecondCollationActivity : AppCompatActivity(), CompoundButton.OnCheckedCha
                             it.remove()
                     }
                     tilCo2Porcion2.visibility = View.GONE
-                    if (imbCo22.visibility != View.GONE)
+                    if (imbCo22.visibility != View.GONE) {
                         imbCo22.isEnabled = false
+                        imbCo22.alpha = 0.5f
+                    }
                 }
             }
             cbc23 -> {
                 if (cbc23.isChecked) {
                     tilCo2Porcion3.visibility = View.VISIBLE
                     checks.add(CamposCheck(1, cbc23, tilCo2Porcion3, tietCo2Porcion3))
-                    if (imbCo23.visibility != View.GONE)
+                    if (imbCo23.visibility != View.GONE) {
                         imbCo23.isEnabled = true
+                        imbCo23.alpha = 1f
+                    }
                 } else {
                     val it = checks.iterator()
                     while (it.hasNext()) {
@@ -135,16 +145,20 @@ class SecondCollationActivity : AppCompatActivity(), CompoundButton.OnCheckedCha
                             it.remove()
                     }
                     tilCo2Porcion3.visibility = View.GONE
-                    if (imbCo23.visibility != View.GONE)
+                    if (imbCo23.visibility != View.GONE) {
                         imbCo23.isEnabled = false
+                        imbCo23.alpha = 0.5f
+                    }
                 }
             }
             cbc24 -> {
                 if (cbc24.isChecked) {
                     tilCo2Porcion4.visibility = View.VISIBLE
                     checks.add(CamposCheck(1, cbc24, tilCo2Porcion4, tietCo2Porcion4))
-                    if (imbCo24.visibility != View.GONE)
+                    if (imbCo24.visibility != View.GONE) {
                         imbCo24.isEnabled = true
+                        imbCo24.alpha = 1f
+                    }
                 } else {
                     val it = checks.iterator()
                     while (it.hasNext()) {
@@ -153,16 +167,20 @@ class SecondCollationActivity : AppCompatActivity(), CompoundButton.OnCheckedCha
                             it.remove()
                     }
                     tilCo2Porcion4.visibility = View.GONE
-                    if (imbCo24.visibility != View.GONE)
+                    if (imbCo24.visibility != View.GONE) {
                         imbCo24.isEnabled = false
+                        imbCo24.alpha = 0.5f
+                    }
                 }
             }
             cbc25 -> {
                 if (cbc25.isChecked) {
                     tilCo2Porcion5.visibility = View.VISIBLE
                     checks.add(CamposCheck(1, cbc25, tilCo2Porcion5, tietCo2Porcion5))
-                    if (imbCo25.visibility != View.GONE)
+                    if (imbCo25.visibility != View.GONE) {
                         imbCo25.isEnabled = true
+                        imbCo25.alpha = 1f
+                    }
                 } else {
                     val it = checks.iterator()
                     while (it.hasNext()) {
@@ -171,16 +189,20 @@ class SecondCollationActivity : AppCompatActivity(), CompoundButton.OnCheckedCha
                             it.remove()
                     }
                     tilCo2Porcion5.visibility = View.GONE
-                    if (imbCo25.visibility != View.GONE)
+                    if (imbCo25.visibility != View.GONE) {
                         imbCo25.isEnabled = false
+                        imbCo25.alpha = 0.5f
+                    }
                 }
             }
             cbc26 -> {
                 if (cbc26.isChecked) {
                     tilCo2Porcion6.visibility = View.VISIBLE
                     checks.add(CamposCheck(1, cbc26, tilCo2Porcion6, tietCo2Porcion6))
-                    if (imbCo26.visibility != View.GONE)
+                    if (imbCo26.visibility != View.GONE) {
                         imbCo26.isEnabled = true
+                        imbCo26.alpha = 1f
+                    }
                 } else {
                     val it = checks.iterator()
                     while (it.hasNext()) {
@@ -189,8 +211,10 @@ class SecondCollationActivity : AppCompatActivity(), CompoundButton.OnCheckedCha
                             it.remove()
                     }
                     tilCo2Porcion6.visibility = View.GONE
-                    if (imbCo26.visibility != View.GONE)
+                    if (imbCo26.visibility != View.GONE) {
                         imbCo26.isEnabled = false
+                        imbCo26.alpha = 0.5f
+                    }
                 }
             }
         }
@@ -344,6 +368,8 @@ class SecondCollationActivity : AppCompatActivity(), CompoundButton.OnCheckedCha
 
                         if (!(b1 && b2 && b3)) {
                             mealElement[i].ibutton.visibility = View.VISIBLE
+                            mealElement[i].ibutton.isEnabled = false
+                            mealElement[i].ibutton.alpha = 0.5f
                             mealElement[i].ibutton.setOnClickListener() { v ->
                                 if (!b1) {
                                     getDialog1(i, mealElement, op).show()
@@ -410,6 +436,8 @@ class SecondCollationActivity : AppCompatActivity(), CompoundButton.OnCheckedCha
 
                         if (!(b1 && b2 && b3)) {
                             mealElement[i].ibutton.visibility = View.VISIBLE
+                            mealElement[i].ibutton.isEnabled = false
+                            mealElement[i].ibutton.alpha = 0.5f
                             mealElement[i].ibutton.setOnClickListener() { v ->
                                 if (!b1) {
                                     getDialog1(i, mealElement, op).show()
@@ -474,6 +502,8 @@ class SecondCollationActivity : AppCompatActivity(), CompoundButton.OnCheckedCha
 
                         if (!(b1 && b2 && b3)) {
                             mealElement[i].ibutton.visibility = View.VISIBLE
+                            mealElement[i].ibutton.isEnabled = false
+                            mealElement[i].ibutton.alpha = 0.5f
                             mealElement[i].ibutton.setOnClickListener() { v ->
                                 if (!b1) {
                                     getDialog1(i, mealElement, op).show()
@@ -538,6 +568,8 @@ class SecondCollationActivity : AppCompatActivity(), CompoundButton.OnCheckedCha
 
                         if (!(b1 && b2 && b3)) {
                             mealElement[i].ibutton.visibility = View.VISIBLE
+                            mealElement[i].ibutton.isEnabled = false
+                            mealElement[i].ibutton.alpha = 0.5f
                             mealElement[i].ibutton.setOnClickListener() { v ->
                                 if (!b1) {
                                     getDialog1(i, mealElement, op).show()
@@ -608,6 +640,8 @@ class SecondCollationActivity : AppCompatActivity(), CompoundButton.OnCheckedCha
 
                         if (!(b1 && b2 && b3)) {
                             mealElement[i].ibutton.visibility = View.VISIBLE
+                            mealElement[i].ibutton.isEnabled = false
+                            mealElement[i].ibutton.alpha = 0.5f
                             mealElement[i].ibutton.setOnClickListener() { v ->
                                 if (!b1) {
                                     getDialog1(i, mealElement, op).show()

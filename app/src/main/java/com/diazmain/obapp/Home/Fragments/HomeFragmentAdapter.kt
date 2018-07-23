@@ -14,7 +14,7 @@ class HomeFragmentAdapter (fragmentManager: FragmentManager): FragmentPagerAdapt
             0 -> HomeDashboardFragment.newInstance()
             1 -> ReminderSummaryFragment.newInstance()
             2 -> ProgressFragment.newInstance()
-            3 -> Perfil.newInstance()
+            3 -> ProfileFragment.newInstance()
             else -> HomeDashboardFragment.newInstance()
         }
     }

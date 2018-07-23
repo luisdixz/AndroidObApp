@@ -12,7 +12,6 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import com.diazmain.obapp.Home.Fragments.HomeFragmentAdapter
-import com.diazmain.obapp.Login.SplashScreen
 import com.diazmain.obapp.api.APIService
 import com.diazmain.obapp.api.APIUrl
 import com.diazmain.obapp.helper.SharedPrefManager
@@ -28,15 +27,12 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.net.SocketTimeoutException
 import android.net.ConnectivityManager
-import android.os.AsyncTask
 import android.support.v7.app.AlertDialog
-import android.widget.Toast
 import com.diazmain.obapp.Home.model.*
 import com.diazmain.obapp.Home.model.meals.MealMenuResult
 import com.diazmain.obapp.Login.AlternativeLoginActivity
 import com.diazmain.obapp.Notification.JobsManager
 import com.diazmain.obapp.Threads.*
-import com.diazmain.obapp.Threads.HomeThreadSaversManager.AsyncResponse
 import kotlinx.android.synthetic.main.fragment_progress.*
 import kotlinx.android.synthetic.main.fragment_reminder_summary.*
 import java.text.SimpleDateFormat
