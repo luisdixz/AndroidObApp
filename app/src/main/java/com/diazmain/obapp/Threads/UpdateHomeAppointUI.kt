@@ -1,14 +1,13 @@
-package com.diazmain.obapp.Threads
+package com.diazmain.obapp.threads
 
 import android.annotation.SuppressLint
 import android.content.Context
 import android.os.AsyncTask
-import android.util.Log
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
-import com.diazmain.obapp.Home.model.CitasValue
-import com.diazmain.obapp.Notification.JobsManager
+import com.diazmain.obapp.home.model.CitasValue
+import com.diazmain.obapp.notification.JobsManager
 import com.diazmain.obapp.R
 import com.diazmain.obapp.helper.SharedPrefManager
 import java.util.*
@@ -30,20 +29,11 @@ class UpdateHomeAppointUI(_context: Context) : AsyncTask<View, Void, CitasValue>
         llNextAppo = params[0] as LinearLayout
         tvAppoDate = params[1] as TextView
 
-        //if (SharedPrefManager.getInstance(context)!!.isAppointAvaliable()){
-            cita = SharedPrefManager.getInstance(context)?.getAppoint()!!
-            //Log.w("Location", "AppointmentAvaliable -> doInBackground")
-            return cita
-        /*} else {
-            //Log.w("Location", "AppointmentNoAvaliable -> doInBackground")
-            return false
-        }*/
+        cita = SharedPrefManager.getInstance(context)?.getAppoint()!!
+        return cita
     }
 
     override fun onPostExecute(result: CitasValue) {
-        Log.w("Location", "onPostExecute -> UpdateHomeAppointmentUI")
-        //Log.w("Result", result.toString())
-
         when (result.status) {
             0 -> {
                 llNextAppo.visibility = View.GONE
@@ -54,35 +44,28 @@ class UpdateHomeAppointUI(_context: Context) : AsyncTask<View, Void, CitasValue>
             1 -> {
                 if (isApponitOutdate(cita)) {
                     tvAppoDate.setText(context.getString(R.string.label_next_appointment_default))
-
                     JobsManager(context).scheduleJob(1)
-
                 } else {
                     llNextAppo.visibility = View.VISIBLE
                     val date: String = cita.fecha +" - a las "+cita.hora+" hrs"
                     tvAppoDate.setText(date)
 
                     JobsManager(context).scheduleJob(1)
-
                 }
             }
             2 -> {
                 llNextAppo.visibility = View.GONE
                 if (isApponitOutdate(cita)) {
                     tvAppoDate.setText(context.getString(R.string.label_next_appointment_default))
-
                     JobsManager(context).scheduleJob(2)
                 } else {
                     val date: String = cita.fecha +" - a las "+cita.hora+" hrs"
                     tvAppoDate.setText(date +"\nCompleta el formulario de 24hrs antes de tu cita ")
-
-                    //JobsManager(context).cancelJobs()
                     JobsManager(context).scheduleJob(0)
 
                 }
             }
         }
-
     }
 
     // true = appoint is outdated

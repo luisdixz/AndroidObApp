@@ -1,12 +1,11 @@
 package com.diazmain.obapp.api
 
-import com.diazmain.obapp.Home.model.Citas
-import com.diazmain.obapp.Home.model.CitasValue
-import com.diazmain.obapp.Home.model.GenericResult
-import com.diazmain.obapp.Home.model.MeasuresResult
-import com.diazmain.obapp.Home.model.meals.MealMenuResult
-import com.diazmain.obapp.Login.model.Result
-import com.diazmain.obapp.Reminder.Pojo.Recordatorio
+import com.diazmain.obapp.home.model.Citas
+import com.diazmain.obapp.home.model.GenericResult
+import com.diazmain.obapp.home.model.MeasuresResult
+import com.diazmain.obapp.home.model.meals.MealMenuResult
+import com.diazmain.obapp.login.model.Result
+import com.diazmain.obapp.reminder.pojo.Recordatorio
 import retrofit2.Call
 import retrofit2.http.*
 

@@ -1,4 +1,4 @@
-<resources>
+<!--<resources>
     <string name="app_name">Prueba</string>
     <string name="tab_home">Home</string>
     <string name="tab_progress">Progress</string>
@@ -100,4 +100,101 @@
         <item>Option 4</item>
         <item>Option 5</item>
     </string-array>
+</resources>-->
+
+<resources>
+    <string name="label_percent" translatable="false">%</string>
+    <string name="label_centimeter" translatable="false">cm</string>
+    <string name="label_kilo" translatable="false">kg</string>
+    <string name="app_name">Prueba</string>
+    <string name="tab_home">Inicio</string>
+    <string name="tab_progress">Progreso</string>
+    <string name="tab_profile">Perfil</string>
+    <string name="title_login">Iniciar sesión</string>
+    <string name="hint_username">usuario</string>
+    <string name="hint_password">contraseña</string>
+    <string name="btn_sign_up">Registrarse</string>
+    <string name="btn_sign_in">Iniciar sesión</string>
+    <string name="hint_name">Nombre</string>
+    <string name="hint_enter_password">Contraseña</string>
+    <string name="hint_enter_email">Correo electrónico</string>
+    <string name="hint_enter_title">Título</string>
+    <string name="hint_enter_message">Mensaje</string>
+    <string name="hint_enter_username">Nombre de usuario</string>
+    <string name="label_next_appointment">Siguiente cita</string>
+    <string name="label_weight">Peso</string>
+    <string name="label_waist">Cintura</string>
+    <string name="label_fat_average">% grasa</string>
+    <string name="label_next_appointment_default">No tienes citas pendientes</string>
+    <string name="label_prog_up">Subiste</string>
+    <string name="label_prog_anuncio_default">No hay datos</string>
+    <string name="label_prog_down">Bajaste</string>
+    <string name="action_logout">Cerrar sesión</string>
+    <string name="hint_lastname">Apellidos</string>
+    <string name="tab_collation2">Colación 2</string>
+    <string name="tab_collation1">Colación 1</string>
+    <string name="tab_breakfast">Desayuno</string>
+    <string name="tab_lunch">Comida</string>
+    <string name="tab_dinner">Cena</string>
+    <string name="validate_empty">Campo vacío</string>
+    <string name="action_refresh">Actualizar datos</string>
+    <string name="action_refreshing">Obteniendo datos del servidor</string>
+    <string name="label_prog_stay">Sin cambios</string>
+    <string name="btn_cancel">Cancelar</string>
+    <string name="btn_confirm">Confirmar</string>
+    <string name="title_edit_profile">Editar datos del perfil</string>
+    <string name="btn_accept">Aceptar</string>
+    <string name="notification_title_confirm_appoint">Nueva cita</string>
+    <string name="notification_defaultTo_content_confirm_appoint">"Tienes una nueva cita programada para el dia "</string>
+    <string name="title_attention">Atención</string>
+    <string name="label_confirm_logout">¿Estas seguro que deseas cerrar sesión?</string>
+    <string name="info_unknown_error_meals">Error, intente refrescar la pantalla para llenar formulario</string>
+    <string name="btn_swap_ingredient">Cambiar ingrediente</string>
+    <string name="label_portion">Porción</string>
+
+
+    <string-array name="meal_options">
+        <item>Opción 1</item>
+        <item>Opción 2</item>
+        <item>Opción 3</item>
+        <item>Opción 4</item>
+        <item>Opción 5</item>
+    </string-array>
+    <string name="label_title_1S">Frutas</string>
+    <string name="label_title_2S">Frutos secos y semillas</string>
+    <string name="label_title_3S">Alimentos de origen animal (carnes)</string>
+    <string name="label_dialogContent_default2">Puedes cambiar uno de los ingredientes de este alimento por cualquier de los siguientes</string>
+    <string name="label_dialogContent_default1">Puedes cambiar uno de los ingredientes de este alimento por cualquier de las siguientes</string>
+    <string name="label_dialogContent_default">Puedes cambiar uno de los ingredientes de este alimento por cualquier de las siguientes opciones</string>
+    <string name="label_pick_option">Selecciona una opción</string>
+    <string name="label_wrong_login">Nombre de usuario o contraseña incorrectas</string>
+    <string name="label_connection_failure">Error al conectarse al servidor, cheque la conexión a internet</string>
+    <string name="label_forgotten_pass">Olvidé mi contraseña...</string>
+    <string name="btn_success">Finalizado</string>
+    <string name="btn_loading">Cargando</string>
+    <string name="btn_sign_in_again">Error, intenta de nuevo</string>
+    <string name="label_birthdate">Fecha de cumpleaños</string>
+    <string name="label_fat_average_complete">Porcentaje de grasa</string>
+    <string name="label_subtitle_progress_example">(Aumento/Decremento desde la primera medida)</string>
+    <string name="label_title_measures">Medidas por cita</string>
+    <string name="notification_error_fetch">Algo malo paso, por favor refresque la pantalla</string>
+    <string name="notification_appoint_cancel_error">Error: no se pudo cancelar la cita, intente de nuevo</string>
+    <string name="notification_appoint_confirm_error">Error: no se pudo confirmar la cita, intente de nuevo</string>
+    <string name="btn_send">Enviar</string>
+    <string name="label_time_breakfast_hint">Hora del desayuno (hh:ss)</string>
+    <string name="label_time_collation1_hint">Hora de la colación 1 (hh:ss)</string>
+    <string name="label_time_lunch_hint">Hora de la comida (hh:ss)</string>
+    <string name="label_time_collation_hint">Hora de la colación 2 (hh:ss)</string>
+    <string name="label_time_dinner_hint">Hora de la cena (hh:ss)</string>
+    <string name="notification_unstable_connection">La conexion a internet es inestable, revise su red</string>
+    <string name="tab_reminder">Recordatorio</string>
+    <string name="label_fill_reminder">Llena el recordatorio</string>
+    <string name="label_reminder_from_date">Recordatorio del</string>
+    <string name="btn_save">Guardar</string>
+    <string name="btn_add_extra">Añadir alimento extra</string>
+    <string name="btn_finish">Finalizar</string>
+    <string name="label_reminder_from_yesterday">Recordatorio de ayer</string>
+    <string name="label_reminder_from_today">Recordatorio de hoy</string>
+    <string name="label_agenda">Próxima cita</string>
+    <string name="label_extra_food">¿Comiste algo más?</string>
 </resources>

@@ -5,7 +5,7 @@
     android:id="@+id/fragment_desayuno"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Reminder.BreakfastActivity">
+    tools:context=".reminder.BreakfastActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -101,7 +101,9 @@
                 android:background="@drawable/button_blue_shape"
                 android:contentDescription="@string/btn_swap_ingredient"
                 android:src="@drawable/ic_swap_vert"
-                tools:layout_editor_absoluteX="300dp" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </android.support.constraint.ConstraintLayout>
 

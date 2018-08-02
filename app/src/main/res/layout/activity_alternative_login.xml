@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/dark_green"
-    tools:context=".Login.AlternativeLoginActivity">
+    tools:context=".login.AlternativeLoginActivity">
 
     <ImageView
         android:id="@+id/imageView2"
@@ -87,11 +87,12 @@
                             android:id="@+id/tietUsername"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:drawableLeft="@drawable/ic_account_circle"
+                            android:drawableStart="@drawable/ic_account_circle_tinted_login"
                             android:drawablePadding="@dimen/activity_vertical_margin"
-                            android:drawableTint="@color/colorAccent"
+                            android:foregroundTint="@color/colorAccent"
                             android:hint="@string/hint_username"
                             android:inputType="text" />
+
                     </android.support.design.widget.TextInputLayout>
 
                     <android.support.design.widget.TextInputLayout
@@ -107,8 +108,7 @@
                             android:layout_height="wrap_content"
                             android:nextFocusDown="@string/btn_sign_in"
                             android:drawablePadding="@dimen/activity_vertical_margin"
-                            android:drawableStart="@drawable/ic_https"
-                            android:drawableTint="@color/colorAccent"
+                            android:drawableStart="@drawable/ic_https_tinted_login"
                             android:hint="@string/hint_password"
                             android:inputType="textPassword" />
                     </android.support.design.widget.TextInputLayout>

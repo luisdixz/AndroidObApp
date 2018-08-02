@@ -1,14 +1,10 @@
-package com.diazmain.obapp.Threads;
+package com.diazmain.obapp.threads;
 
-import android.content.Context;
 import android.os.AsyncTask;
-
-import com.diazmain.obapp.Home.HomeActivity;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.Socket;
-import java.util.function.Consumer;
 
 public class InternetAccessibility extends AsyncTask<Void, Void, Boolean> {
 

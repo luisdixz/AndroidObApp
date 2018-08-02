@@ -1,11 +1,9 @@
-package com.diazmain.obapp.Threads
+package com.diazmain.obapp.threads
 
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Color
 import android.os.AsyncTask
-import android.util.Log
-import com.diazmain.obapp.R
 import com.github.sundeepk.compactcalendarview.CompactCalendarView
 import com.github.sundeepk.compactcalendarview.domain.Event
 import java.util.*
@@ -21,7 +19,6 @@ class MarkEventsOnCalendar(_context: Context, _calendar: CompactCalendarView) : 
     override fun doInBackground(vararg params: String): List<List<Event>> {
         val eventGeneral: ArrayList<List<Event>> = ArrayList()
         try {
-            val currentCalender = Calendar.getInstance(Locale.getDefault())
 
             // Separar fecha
             val fecha = params[0].split("-")
@@ -34,6 +31,7 @@ class MarkEventsOnCalendar(_context: Context, _calendar: CompactCalendarView) : 
             val hora = Integer.parseInt(tiempo[0])
             val minuto = Integer.parseInt(tiempo[1])
 
+            val currentCalender = Calendar.getInstance(Locale.getDefault())
             currentCalender.time = Date()
             currentCalender.set(Calendar.DAY_OF_MONTH, dia)
 
@@ -50,7 +48,6 @@ class MarkEventsOnCalendar(_context: Context, _calendar: CompactCalendarView) : 
 
             var timeInMillis = currentCalender.timeInMillis
             events.add(getEvents(timeInMillis, 0))
-            //publishProgress(events)
             eventGeneral.add(events)
 
             val events1: ArrayList<Event> = ArrayList()

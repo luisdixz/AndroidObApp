@@ -1,4 +1,4 @@
-package com.diazmain.obapp.Threads
+package com.diazmain.obapp.threads
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -6,10 +6,8 @@ import android.os.AsyncTask
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-import com.diazmain.obapp.Home.model.LastMeasures
-import com.diazmain.obapp.Home.model.MeasuresValue
+import com.diazmain.obapp.home.model.MeasuresValue
 import com.diazmain.obapp.R
-import com.diazmain.obapp.helper.SharedPrefManager
 import im.dacer.androidcharts.LineView
 import java.text.DecimalFormat
 import java.text.NumberFormat
@@ -78,16 +76,19 @@ class UpdateProgressUI(_apContext: Context, _measures: List<MeasuresValue>) : As
         lineView.setDrawDotLine(true)
         lineView.setShowPopup(LineView.SHOW_POPUPS_All)
         lineView.setBottomTextList(bottomLabels)
-        //line_view.setColorArray(intArrayOf(Color.BLACK, Color.RED, Color.MAGENTA))
-        lineView.setColorArray(intArrayOf(apContext.resources.getColor(R.color.black), apContext.resources.getColor(R.color.red), apContext.resources.getColor(R.color.lightBlue)))
+        lineView.setColorArray(
+                intArrayOf(
+                        apContext.resources.getColor(R.color.black),
+                        apContext.resources.getColor(R.color.red),
+                        apContext.resources.getColor(R.color.lightBlue)
+                ))
         lineView.setFloatDataList(data1)
 
         //fill info
-        if (measuresList.size != 0) {var progPeso: Double = measuresList[0].peso.toDouble() - measuresList.last().peso.toDouble()
+        if (measuresList.size != 0) {
+            var progPeso: Double = measuresList[0].peso.toDouble() - measuresList.last().peso.toDouble()
             var progCint: Double = measuresList[0].cintura.toDouble() - measuresList.last().cintura.toDouble()
             var progGras: Double = measuresList[0].grasa.toDouble() - measuresList.last().grasa.toDouble()
-
-
 
             if (progPeso < 0) {
                 progPeso *= -1

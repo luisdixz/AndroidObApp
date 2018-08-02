@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:text="@string/label_weight"
             android:textColor="@color/black"
-            android:drawableLeft="@drawable/ic_brightness"
+            android:drawableStart="@drawable/ic_brightness_black"
             android:drawableTint="@color/black"
             android:layout_marginLeft="@dimen/activity_vertical_margin"/>
 
@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             android:text="@string/label_waist"
             android:textColor="@color/black"
-            android:drawableLeft="@drawable/ic_brightness"
+            android:drawableStart="@drawable/ic_brightness_red"
             android:drawableTint="@color/red"
             android:layout_marginLeft="@dimen/activity_vertical_margin"/>
 
@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:text="@string/label_fat_average_complete"
             android:textColor="@color/black"
-            android:drawableLeft="@drawable/ic_brightness"
+            android:drawableStart="@drawable/ic_brightness_lightblue"
             android:drawableTint="@color/lightBlue"
             android:layout_marginLeft="@dimen/activity_vertical_margin"/>
 

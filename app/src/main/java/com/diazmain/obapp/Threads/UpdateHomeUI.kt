@@ -1,14 +1,12 @@
-package com.diazmain.obapp.Threads
+package com.diazmain.obapp.threads
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.content.res.Resources
 import android.os.AsyncTask
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-import com.diazmain.obapp.Home.HomeActivity
-import com.diazmain.obapp.Home.model.LastMeasures
+import com.diazmain.obapp.home.model.LastMeasures
 import com.diazmain.obapp.R
 import com.diazmain.obapp.helper.SharedPrefManager
 
@@ -81,8 +79,7 @@ class UpdateHomeUI(_apContext: Context) : AsyncTask<View, Void, LastMeasures>() 
                 tvResWaist.setText(apContext.getString(R.string.label_prog_anuncio_default))
                 tvResFat.setText(apContext.getString(R.string.label_prog_anuncio_default))
             }
-            result.months == 1 ->{
-                // TODO cambiar el label por default para este caso
+            result.months == 1 -> {
                 tvResWeight.setText(apContext.getString(R.string.label_prog_anuncio_default))
                 tvResWaist.setText(apContext.getString(R.string.label_prog_anuncio_default))
                 tvResFat.setText(apContext.getString(R.string.label_prog_anuncio_default))

@@ -3,13 +3,13 @@ package com.diazmain.obapp.helper
 import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
-import com.diazmain.obapp.Home.model.CitasValue
-import com.diazmain.obapp.Home.model.LastMeasures
-import com.diazmain.obapp.Home.model.MeasuresValue
-import com.diazmain.obapp.Home.model.meals.MealMenuResult
-import com.diazmain.obapp.Login.model.User
-import com.diazmain.obapp.Reminder.Pojo.Comidas
-import com.diazmain.obapp.Reminder.Pojo.Recordatorio
+import com.diazmain.obapp.home.model.CitasValue
+import com.diazmain.obapp.home.model.LastMeasures
+import com.diazmain.obapp.home.model.MeasuresValue
+import com.diazmain.obapp.home.model.meals.MealMenuResult
+import com.diazmain.obapp.login.model.User
+import com.diazmain.obapp.reminder.pojo.Comidas
+import com.diazmain.obapp.reminder.pojo.Recordatorio
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.lang.reflect.Type
@@ -41,6 +41,7 @@ class SharedPrefManager (private val mCtx: Context) {
         private val KEY_MEAL_MEAL_TIME = "keymealmealtime"
         private val KEY_SCOLLATION_MEAL_TIME = "keyscollationmealtime"
         private val KEY_DINNER_MEAL_TIME = "keydinnermealtime"
+        private val KEY_TODAY_MEAL_TIME = "keytodaymealtime"
 
         private val KEY_LAST_REMINDER = "keylastreminder"
         private val KEY_LAST_REMINDER_DATE = "keylastreminderdate"
@@ -58,17 +59,6 @@ class SharedPrefManager (private val mCtx: Context) {
         }
     }
 
-    private fun initKeys() {
-        val sPref: SharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
-        val editor: SharedPreferences.Editor = sPref.edit()
-
-        editor.putString(KEY_BREAKFAST_MEAL_TIME,"")
-        editor.putString(KEY_FCOLLATION_MEAL_TIME,"")
-        editor.putString(KEY_MEAL_MEAL_TIME,"")
-        editor.putString(KEY_SCOLLATION_MEAL_TIME,"")
-        editor.putString(KEY_DINNER_MEAL_TIME,"")
-    }
-
     fun userLogin(user: User) : Boolean {
         val sPref: SharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
         val editor: SharedPreferences.Editor = sPref.edit()
@@ -79,8 +69,6 @@ class SharedPrefManager (private val mCtx: Context) {
         editor.putString(KEY_USER_USERNAME, user.getUsername())
         editor.putString(KEY_USER_BIRTH, user.getBirth())
         editor.apply()
-
-        initKeys()
 
         return true
     }
@@ -273,7 +261,7 @@ class SharedPrefManager (private val mCtx: Context) {
         return gson.fromJson(result, MealMenuResult::class.java)
     }
 
-    fun storeReminderPart(mealTime: Int, food: Comidas) {
+    fun storeReminderPart(mealTime: Int, food: Comidas, date: String) {
         val sPref: SharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
         val editor: SharedPreferences.Editor = sPref.edit()
 
@@ -287,6 +275,8 @@ class SharedPrefManager (private val mCtx: Context) {
             4 -> { editor.putString(KEY_SCOLLATION_MEAL_TIME, json) }
             5 -> { editor.putString(KEY_DINNER_MEAL_TIME, json) }
         }
+        editor.putString(KEY_TODAY_MEAL_TIME, date)
+
         editor.apply()
     }
 
@@ -303,6 +293,11 @@ class SharedPrefManager (private val mCtx: Context) {
             5 -> { result = sPref.getString(KEY_DINNER_MEAL_TIME, "") }
         }
         return gson.fromJson(result, Comidas::class.java)
+    }
+
+    fun getTodayMealRegistaredDate(): String {
+        val sPref: SharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
+        return sPref.getString(KEY_TODAY_MEAL_TIME, "")
     }
 
     fun isBreakfastStored(): Boolean {

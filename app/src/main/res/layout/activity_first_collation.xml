@@ -5,7 +5,7 @@
     android:id="@+id/fragment_colacion1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Reminder.Fragments.Colacion1Fragment">
+    tools:context=".reminder.Fragments.Colacion1Fragment">
 
     <LinearLayout
         android:layout_width="match_parent"

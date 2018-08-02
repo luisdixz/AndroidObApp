@@ -13,7 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme2">
-        <activity android:name=".Home.HomeActivity">
+        <activity android:name=".home.HomeActivity">
 
             <!--
             <intent-filter>
@@ -24,14 +24,14 @@
             -->
 
         </activity>
-        <activity android:name=".Home.Fragments.ProfileFragment" />
+        <activity android:name=".home.fragments.ProfileFragment" />
 
         <service
-            android:name=".Notification.NotificationJobService"
+            android:name=".notification.NotificationJobService"
             android:permission="android.permission.BIND_JOB_SERVICE" />
 
         <activity
-            android:name=".Login.AlternativeLoginActivity"
+            android:name=".login.AlternativeLoginActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -39,30 +39,30 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Reminder.BreakfastActivity" >
+        <activity android:name=".reminder.BreakfastActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Home.HomeActivity" />
+                android:value=".home.HomeActivity" />
         </activity>
-        <activity android:name=".Reminder.FirstCollationActivity" >
+        <activity android:name=".reminder.FirstCollationActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Home.HomeActivity" />
+                android:value=".home.HomeActivity" />
         </activity>
-        <activity android:name=".Reminder.MealActivity" >
+        <activity android:name=".reminder.MealActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Home.HomeActivity" />
+                android:value=".home.HomeActivity" />
         </activity>
-        <activity android:name=".Reminder.SecondCollationActivity" >
+        <activity android:name=".reminder.SecondCollationActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Home.HomeActivity" />
+                android:value=".home.HomeActivity" />
         </activity>
-        <activity android:name=".Reminder.DinnerActivity">
+        <activity android:name=".reminder.DinnerActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Home.HomeActivity" />
+                android:value=".home.HomeActivity" />
         </activity>
     </application>
 
